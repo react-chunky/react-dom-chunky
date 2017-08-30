@@ -1,0 +1,27 @@
+{
+  "name": "react-dom-chunky",
+  "version": "0.1.0",
+  "description": "The Chunky Web Framework",
+  "scripts": {
+    "test": "react-native-savor test",
+    "lint": "react-native-savor lint",
+    "coverage": "react-native-savor coverage",
+    "codeclimate": "react-native-savor codeclimate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-chunky/react-dom-chunky.git"
+  },
+  "author": "I. Dan Calinescu <idancalinescu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-chunky/react-dom-chunky/issues"
+  },
+  "homepage": "https://github.com/react-chunky/react-dom-chunky",
+  "dependencies": {
+    "react-chunky": "0.x"
+  },
+  "devDependencies": {
+    "react-savor": "0.x"
+  }
+}
