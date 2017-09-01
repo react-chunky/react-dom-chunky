@@ -4,10 +4,11 @@
 let path = require('path')
 let fs = require('fs-extra')
 let webpack = require('webpack')
-let config = require('./config')
+let config = require('../config/webpack.config')
 let WebpackDevServer  = require('webpack-dev-server')
 
 function start() {
+  console.log("Ddd")
   return new Promise((resolve, reject) => {
 
     new WebpackDevServer(webpack(config), {
@@ -28,4 +29,6 @@ function start() {
   })
 }
 
-module.exports = start
+start().then((url) => {
+  console.log(url)
+})
