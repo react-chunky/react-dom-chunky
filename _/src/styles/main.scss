@@ -1,0 +1,78 @@
+$main-background-color: #FFFFFF;
+$main-text-color: #424242;
+$menu-background-color: #FFFFFF;
+$menu-text-color: #424242;
+$header-text-color: #424242;
+$primary-color: #0288D1;
+$background-image: cover;
+
+html {
+  font-size: 20px;
+  height: 100%;
+  background-color: $menu-background-color;
+}
+
+body {
+  height: 100%;
+}
+
+@media (max-width: 840px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: $header-text-color;
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: $header-text-color;
+}
+
+p {
+  font-size: 1rem;
+  text-align: justify;
+  color: $main-text-color;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  background: $main-background-color;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
+  color: $menu-text-color;
+  i {
+    color: $menu-text-color;
+  }
+  background: $primary-color;
+}
+
+.logo {
+  img {
+    height: 55px;
+  }
+}
+
+.menu {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+
+  @media (max-width: 840px) {
+    display: none !important;
+  }
+}
+
+.menuItem {
+  color: $menu-text-color !important;
+}
