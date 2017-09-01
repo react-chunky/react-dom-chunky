@@ -1,6 +1,6 @@
 {
   "name": "react-dom-chunky",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The Chunky Web Framework",
   "scripts": {
     "test": "react-native-savor test",
@@ -19,7 +19,10 @@
   },
   "homepage": "https://github.com/react-chunky/react-dom-chunky",
   "dependencies": {
-    "react-chunky": "0.x"
+    "react-chunky": "0.x",
+    "react-router-dom": "^4.2.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
   },
   "devDependencies": {
     "react-savor": "0.x"
