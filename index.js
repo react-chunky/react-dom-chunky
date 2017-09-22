@@ -5,12 +5,16 @@ import { Core } from 'react-chunky'
 import Component from './src/core/Component'
 import Screen from './src/core/Screen'
 import App from './src/core/App'
+import * as firebase from "firebase"
 
 // if (module.hot) module.hot.accept('./src/core/App', () => renderApp(App))
 
 // <AppContainer>
 //   <App {...props}/>
 // </AppContainer>,
+
+global.firebase = firebase
+
 export function renderApp(props) {
   const Main = (
   <Core.AppContainer {...props}>

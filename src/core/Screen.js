@@ -9,13 +9,14 @@ import {
 } from 'react-mdl'
 import 'react-mdl/extra/material'
 import TransitionGroup from 'react-addons-transition-group'
+import { Core } from 'react-chunky'
 
-export default class Screen extends Component {
+export default class Screen extends Core.Screen {
 
   constructor(props) {
-    super(props)
+     super(props)
      this.handleWidth = 100
-     this.state = { height: 0, width: 0}
+     this.state = { ...this.state, progress: false, progressTitle: this.progressTitle, height: 0, width: 0}
      this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
    }
 
