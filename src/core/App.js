@@ -18,7 +18,7 @@ export default class App extends PureComponent{
       this._resolve(account)
       this.setState({ loading: false, account })
     }).catch(error => {
-      this._resolve()
+        this._resolve()
       this.setState({ loading: false })
     })
   }
@@ -186,6 +186,7 @@ export default class App extends PureComponent{
 
       routes = routes.concat(elementRoutes)
     })
+
     return { routes, menu }
   }
 
