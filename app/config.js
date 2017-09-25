@@ -1,5 +1,5 @@
 import config from 'chunky.json'
-import * as appChunks from 'chunks'
+import * as appChunks from 'chunks/index.web'
 import strings from 'assets/strings.json'
 
 config.chunks = appChunks

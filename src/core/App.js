@@ -1,17 +1,40 @@
 import React, { PureComponent } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import URL from 'url-parse'
+import { Data } from 'react-chunky'
 
 export default class App extends PureComponent{
 
   constructor(props) {
     super(props)
     this.state = { loading: true }
+
+    this._userLogin = this.userLogin.bind(this)
+    this._userLogout = this.userLogout.bind(this)
   }
 
   componentDidMount() {
-    this._resolve()
-    this.setState({ loading: false })
+    Data.Cache.retrieveAuth().then(account => {
+      this._resolve(account)
+      this.setState({ loading: false, account })
+    }).catch(error => {
+      this._resolve()
+      this.setState({ loading: false })
+    })
+  }
+
+  userLogin(account) {
+    Data.Cache.cacheAuth(account).then(() => {
+      this._resolve(account)
+      this.setState({ account })
+    })
+  }
+
+  userLogout() {
+    Data.Cache.clearAuth().then(account => {
+      this._resolve()
+      this.setState({ account: undefined })
+    })
   }
 
   _resolveTransitionFromURI(uri) {
@@ -74,13 +97,12 @@ export default class App extends PureComponent{
         route.root = true
         route.menuTitle = route.title
         rootRoute = Object.assign({}, route)
+        // Construct a menu
+        menu.push({ id: `${menu.length}`, title: route.menuTitle, link: `/${menu.length === 0 ? '' : route.path}` })
       } else {
         route.icon = rootRoute.icon
         route.menuTitle = rootRoute.menuTitle
       }
-
-      // Construct a menu
-      menu.push({ id: `${menu.length}`, title: route.menuTitle, link: `/${menu.length === 0 ? '' : route.path}` })
 
       // Let's build up the transitions, if any
       var transitions = {}
@@ -89,9 +111,10 @@ export default class App extends PureComponent{
         chunk.transitions.forEach(transitionUri => {
           // Parse this transition's URI
           const transition = this._resolveTransitionFromURI(transitionUri)
-
-          if (transition.route && chunk.routes[transition.route]) {
+          const routeData = chunk.routes[transition.route]
+          if (transition.route && routeData) {
             // This is a local transition, so let's resolve locally
+            transition.data = Object.assign({}, routeData)
             transition.route = `${section.name}/${chunkName}/${transition.route}`
             transitions[transition.name] = transition
             return
@@ -111,6 +134,9 @@ export default class App extends PureComponent{
       const screenProps = Object.assign({
         // Defaults
         strings: {},
+        account: section.account,
+        onUserLogin: this._userLogin,
+        onUserLogout: this._userLogout,
         startOperationsOnMount: true
       }, { theme, transitions, ...route, chunkName, menu })
 
@@ -163,7 +189,7 @@ export default class App extends PureComponent{
     return { routes, menu }
   }
 
-  _resolve() {
+  _resolve(account) {
     this._routes = []
     this._sections = []
 
@@ -171,6 +197,7 @@ export default class App extends PureComponent{
       // Look through all the app's sections and for each, build defaults if necessary
       var section = this.props.sections[sectionName]
       section.name = sectionName
+      section.account = account
       section.layout = section.layout || "default"
       section.navigator = this._createSectionNavigator(section)
       this._sections.push(section)

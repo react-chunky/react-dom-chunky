@@ -6,33 +6,47 @@ export default class Component extends PureComponent {
     super(props)
   }
 
-  componentDidMount() {
+  get isLargeScreen() {
+    return (this.props.width > 500)
+  }
 
+  get width() {
+    return this.props.width
+  }
+
+  get height() {
+    return this.props.height
+  }
+
+  get cardWidth() {
+    return (this.isLargeScreen ? 500 : this.width - 20)
+  }
+
+  get cardHeight() {
+    return (this.isLargeScreen ? 320 : 400)
+  }
+
+  componentDidMount() {
   }
 
   componentWillAppear(callback) {
-      console.log('will appear');
-      callback();
+    callback()
   }
+
   componentDidAppear() {
-      console.log('did appear');
   }
 
   componentDidEnter() {
-      console.log('did enter');
   }
 
   componentDidLeave() {
-      console.log('did leave');
   }
 
   componentWillUnmount() {
-      console.log('will unmount');
   }
 
   componentWillEnter (callback) {
     const el = this.container
-    console.log("ENTER")
     TweenMax.fromTo(el, 0.3, {y: 100, opacity: 0}, {y: 0, opacity: 1, onComplete: callback})
   }
 
