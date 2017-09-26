@@ -60,7 +60,7 @@ module.exports = (options) => {
       new webpack.NamedModulesPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
       new CopyWebpackPlugin([
-        { from:   path.resolve(options.dir, 'assets'), to: 'assets') }
+        { from:   path.resolve(options.dir, 'assets'), to: 'assets' }
       ])
     ],
 
