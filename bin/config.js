@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = (options) => {
   return {
@@ -49,6 +50,9 @@ module.exports = (options) => {
     },
 
     plugins: [
+      new CopyWebpackPlugin([
+        { from:   path.resolve(options.dir, 'assets', to: 'assets') }
+      ]),
       new webpack.optimize.UglifyJsPlugin({
         sourceMap: true,
         comments: false

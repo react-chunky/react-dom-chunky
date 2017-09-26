@@ -1,6 +1,6 @@
 {
   "name": "react-dom-chunky",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "The Chunky Web Framework",
   "scripts": {
     "test": "react-savor test",
@@ -29,6 +29,7 @@
     "babel-preset-react": "^6.22.0",
     "babel-preset-stage-2": "^6.24.1",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "copy-webpack-plugin": "^4.0.1",
     "copyfiles": "^1.2.0",
     "cross-env": "^3.1.4",
     "css-loader": "0.28.4",

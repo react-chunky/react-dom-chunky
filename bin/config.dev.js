@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = (options) => {
   return {
@@ -57,7 +58,10 @@ module.exports = (options) => {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NamedModulesPlugin(),
-      new webpack.NoEmitOnErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin(),
+      new CopyWebpackPlugin([
+        { from:   path.resolve(options.dir, 'assets', to: 'assets') }
+      ])
     ],
 
     devServer: {

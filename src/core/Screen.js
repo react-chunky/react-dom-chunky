@@ -124,7 +124,7 @@ export default class Screen extends Core.Screen {
     return (<Header transparent style={{...styles.header, backgroundColor: this.props.theme.primaryColor }}>
       <MediaQuery query='(min-device-width: 500px)'>
       <div>
-      <a href="/"><img src='/assets/logow.png' height="70"/></a>
+      <a href="/"><img src='/assets/logo-light.png' height="70"/></a>
       </div>
       </MediaQuery>
       <MediaQuery query='(min-device-width: 500px)'>
