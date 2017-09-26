@@ -51,7 +51,7 @@ module.exports = (options) => {
 
     plugins: [
       new CopyWebpackPlugin([
-        { from:   path.resolve(options.dir, 'assets', to: 'assets') }
+        { from: path.resolve(options.dir, 'assets'), to: 'assets') }
       ]),
       new webpack.optimize.UglifyJsPlugin({
         sourceMap: true,
