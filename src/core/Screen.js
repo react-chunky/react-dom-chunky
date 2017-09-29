@@ -107,7 +107,7 @@ export default class Screen extends Core.Screen {
   }
 
   menu (drawer) {
-    var menuItemStyle = {...styles[drawer ? 'reversedMenuItem' : 'menuItem'], color: drawer ? this.props.theme.primaryColor : "#ffffff" }
+    var menuItemStyle = {...this.styles[drawer ? 'reversedMenuItem' : 'menuItem'], color: drawer ? this.props.theme.primaryColor : "#ffffff" }
 
     if (!this.mainMenu) {
       return [<a key={"menu/back"} style={menuItemStyle}> Back </a>]
@@ -128,14 +128,14 @@ export default class Screen extends Core.Screen {
   }
 
   renderHeader() {
-    return (<Header transparent style={{...styles.header, backgroundColor: this.props.theme.primaryColor }}>
+    return (<Header transparent style={{...this.styles.header, backgroundColor: this.props.theme.primaryColor }}>
       <MediaQuery query='(min-device-width: 500px)'>
       <div>
       <a href="/"><img src='/assets/logo-light.png' height="60"/></a>
       </div>
       </MediaQuery>
       <MediaQuery query='(min-device-width: 500px)'>
-        <Navigation style={styles.menu}>
+        <Navigation style={this.styles.menu}>
         { this.menu() }
         </Navigation>
       </MediaQuery>
@@ -144,7 +144,7 @@ export default class Screen extends Core.Screen {
       <a href="/"><img src='/assets/logo-light.png' height="50"/></a>
       </div>
       </MediaQuery>
-      <div style={this.isLargeScreen ? {} : styles.action}>
+      <div style={this.isLargeScreen ? {} : this.styles.action}>
       { this.actionMenu }
       </div>
     </Header>)
@@ -152,7 +152,7 @@ export default class Screen extends Core.Screen {
 
   renderDrawer() {
     return (<Drawer>
-      <Navigation style={styles.drawer}>
+      <Navigation style={this.styles.drawer}>
         { this.menu(true) }
       </Navigation>
     </Drawer>)
@@ -177,9 +177,7 @@ export default class Screen extends Core.Screen {
   }
 
   get styles () {
-    return {
-      backgroundColor: "#ffffff"
-    }
+    return styles
   }
 
   render () {
@@ -194,7 +192,7 @@ export default class Screen extends Core.Screen {
               { this.renderDrawer() }
             </MediaQuery>
             <Content>
-              <div style={{ ...styles.container, ...this.styles.backgroundColor }}>
+              <div style={this.styles.container}>
                 { this.renderComponents() }
               </div>
             </Content>
