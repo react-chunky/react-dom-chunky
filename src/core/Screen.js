@@ -93,7 +93,7 @@ export default class Screen extends Core.Screen {
       width: this.state.width,
       height: this.state.height,
     }, this.props)
-      //  this.props.account ? { account: this.props.account } : {})
+
     const ComponentContainer = React.cloneElement(Component, props)
     return (
       <TransitionGroup key={`${index}`} style={{ alignSelf: 'stretch' }}>
@@ -176,6 +176,12 @@ export default class Screen extends Core.Screen {
     }}/>)
   }
 
+  get styles () {
+    return {
+      backgroundColor: "#ffffff"
+    }
+  }
+
   render () {
     if (this.state.redirect) {
       const { transition, data, push, pathname } = this.state.redirect
@@ -188,7 +194,7 @@ export default class Screen extends Core.Screen {
               { this.renderDrawer() }
             </MediaQuery>
             <Content>
-              <div style={styles.container}>
+              <div style={{ ...styles.container, ...this.styles.backgroundColor }}>
                 { this.renderComponents() }
               </div>
             </Content>
@@ -202,7 +208,7 @@ const styles = {
     flex: 1,
     padding: '10px',
     minHeight: 300,
-    backgroundColor: "#ffff00",
+    backgroundColor: "#ffffff",
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'

@@ -152,7 +152,8 @@ export default class App extends PureComponent{
       const Screen = (props) => {
         return <RouteScreen {...props} {...screenProps}/>
       }
-      const ScreenPath = route.path
+      const ScreenPath = route.path || "/"
+
       routes.push(<Route exact path={`/${routes.length === 0 ? '' : ScreenPath}`} key={ScreenPath} render={(props) => <Screen {...screenProps} {...props} />}/>)
     }
 
