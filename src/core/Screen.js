@@ -176,8 +176,12 @@ export default class Screen extends Core.Screen {
     }}/>)
   }
 
+  get customStyles() {
+    return {}
+  }
+
   get styles () {
-    return styles
+    return Object.assign({}, styles, this.customStyles())
   }
 
   render () {
