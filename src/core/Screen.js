@@ -89,24 +89,31 @@ export default class Screen extends Core.Screen {
   }
 
   renderComponent(Component, index) {
-    var props = Object.assign({ width: this.state.width, height: this.state.height })
+    var props = Object.assign({
+      width: this.state.width,
+      height: this.state.height,
+    }, this.props)
       //  this.props.account ? { account: this.props.account } : {})
     const ComponentContainer = React.cloneElement(Component, props)
     return (
-      <TransitionGroup key={`${index}`}>
+      <TransitionGroup key={`${index}`} style={{ alignSelf: 'stretch' }}>
         { ComponentContainer }
       </TransitionGroup>
     )
   }
 
+  get mainMenu() {
+    return this.props.menu
+  }
+
   menu (drawer) {
     var menuItemStyle = {...styles[drawer ? 'reversedMenuItem' : 'menuItem'], color: drawer ? this.props.theme.primaryColor : "#ffffff" }
 
-    if (!this.props.menu) {
+    if (!this.mainMenu) {
       return [<a key={"menu/back"} style={menuItemStyle}> Back </a>]
     }
 
-    return this.props.menu.map(menuItem => {
+    return this.mainMenu.map(menuItem => {
       const badge = (menuItem.badge ? { text: menuItem.badge } : {})
       return (<a key={menuItem.id} href={menuItem.link} style={menuItemStyle}> <Badge {...badge} >{ menuItem.title }</Badge> </a>)
     })
@@ -156,7 +163,7 @@ export default class Screen extends Core.Screen {
   }
 
   renderComponents() {
-    var index = -1
+    var index = 1
     return this.components.map(component => {
       index = index + 1
       return this.renderComponent(component, index)
@@ -195,7 +202,7 @@ const styles = {
     flex: 1,
     padding: '10px',
     minHeight: 300,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#ffff00",
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
