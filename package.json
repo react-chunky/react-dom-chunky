@@ -1,6 +1,6 @@
 {
   "name": "react-dom-chunky",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "description": "The Chunky Web Framework",
   "scripts": {
     "test": "react-savor test",
@@ -44,6 +44,7 @@
     "file-loader": "0.11.2",
     "firebase": "^4.3.1",
     "html-webpack-plugin": "2.29.0",
+    "material-ui": "^1.0.0-beta.13",
     "node-sass-chokidar": "0.0.3",
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.6",

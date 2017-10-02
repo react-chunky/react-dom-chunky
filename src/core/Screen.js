@@ -8,6 +8,10 @@ import {
   IconButton,
   Drawer,
   Spinner,
+  Footer,
+  FooterSection,
+  FooterLinkList,
+  FooterDropDownSection,
   Content,
   Navigation
 } from 'react-mdl'
@@ -22,10 +26,11 @@ export default class Screen extends Core.Screen {
   constructor(props) {
      super(props)
      this.handleWidth = 100
-     this.state = { ...this.state, progress: false, progressTitle: this.progressTitle, height: 0, width: 0}
-     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+     this.state = { ...this.state, progress: false, progressTitle: this.progressTitle, height: 0, width: 0, scroll: 0 }
+     this._updateWindowDimensions = this.updateWindowDimensions.bind(this)
+     this._updateScroll = this.updateScroll.bind(this)
      this._logout = this.logout.bind(this)
- }
+  }
 
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
@@ -34,11 +39,21 @@ export default class Screen extends Core.Screen {
   componentDidMount() {
     super.componentDidMount()
     this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions.bind(this));
+    window.addEventListener('resize', this._updateWindowDimensions)
+    window.addEventListener('scroll', this._updateScroll)
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions.bind(this));
+    window.removeEventListener('resize', this._updateWindowDimensions)
+    window.removeEventListener('scroll', this._updateScroll)
+  }
+
+  updateScroll() {
+    const body = document.body
+    const html = document.documentElement
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
+    const scroll = document.body.scrollTop
+    this.setState({ scroll })
   }
 
   pushTransition(transition, data) {
@@ -74,6 +89,10 @@ export default class Screen extends Core.Screen {
 
   get height() {
     return this.state.height
+  }
+
+  get scroll() {
+    return this.state.scroll
   }
 
   logout() {
@@ -115,7 +134,9 @@ export default class Screen extends Core.Screen {
 
     return this.mainMenu.map(menuItem => {
       const badge = (menuItem.badge ? { text: menuItem.badge } : {})
-      return (<a key={menuItem.id} href={menuItem.link} style={menuItemStyle}> <Badge {...badge} >{ menuItem.title }</Badge> </a>)
+      return (<a key={menuItem.id} href={menuItem.link} style={{ ...menuItemStyle, color: "#444444"}}>
+                  <Badge {...badge} >{ menuItem.title }</Badge>
+        </a>)
     })
   }
 
@@ -125,29 +146,6 @@ export default class Screen extends Core.Screen {
     }
 
     return(<IconButton id="bold" name="exit_to_app" style={{ color: "#ffffff" }} onClick={this._logout}/>)
-  }
-
-  renderHeader() {
-    return (<Header transparent style={{...this.styles.header, backgroundColor: this.props.theme.primaryColor }}>
-      <MediaQuery query='(min-device-width: 500px)'>
-      <div>
-      <a href="/"><img src='/assets/logo-light.png' height="60"/></a>
-      </div>
-      </MediaQuery>
-      <MediaQuery query='(min-device-width: 500px)'>
-        <Navigation style={this.styles.menu}>
-        { this.menu() }
-        </Navigation>
-      </MediaQuery>
-      <MediaQuery query='(max-device-width: 500px)'>
-      <div style={{ flex: 1, textAlign: "center" }}>
-      <a href="/"><img src='/assets/logo-light.png' height="50"/></a>
-      </div>
-      </MediaQuery>
-      <div style={this.isLargeScreen ? {} : this.styles.action}>
-      { this.actionMenu }
-      </div>
-    </Header>)
   }
 
   renderDrawer() {
@@ -181,26 +179,122 @@ export default class Screen extends Core.Screen {
   }
 
   get styles () {
-    return Object.assign({}, styles, this.customStyles())
+    return Object.assign({}, styles, this.customStyles)
   }
 
-  render () {
+  renderContent() {
+    return (<Content>
+      <div style={this.styles.container}>
+        { this.renderComponents() }
+      </div>
+    </Content>)
+  }
+
+  renderHero() {
+    const cover = { background: 'url(/assets/cover4.jpg) center / cover', boxShadow: 'inset 0 0 0 1600px rgba(0,0,0,.3)' }
+
+    return (<div style={{ ...cover, color: "#ffffff", height: `${this.height-100}px`, position: 'relative', padding: 20, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <h1 style={{textAlign: 'center', marginTop: 0 }}> Hello </h1>
+        <h3 style={{marginTop: 0, textAlign: 'center'}}> Subtitle </h3>
+        <Button style={{margin: 20}} raised colored> Action </Button>
+      </div>)
+  }
+
+  renderFooter() {
+    return (<Footer size="mega">
+              <FooterSection type="middle">
+                  <FooterDropDownSection title="Features">
+                      <FooterLinkList>
+                          <a href="#">About</a>
+                          <a href="#">Terms</a>
+                          <a href="#">Partners</a>
+                          <a href="#">Updates</a>
+                      </FooterLinkList>
+                  </FooterDropDownSection>
+                  <FooterDropDownSection title="Details">
+                      <FooterLinkList>
+                          <a href="#">Specs</a>
+                          <a href="#">Tools</a>
+                          <a href="#">Resources</a>
+                      </FooterLinkList>
+                  </FooterDropDownSection>
+                  <FooterDropDownSection title="Technology">
+                      <FooterLinkList>
+                          <a href="#">How it works</a>
+                          <a href="#">Patterns</a>
+                          <a href="#">Usage</a>
+                          <a href="#">Products</a>
+                          <a href="#">Contracts</a>
+                      </FooterLinkList>
+                  </FooterDropDownSection>
+                  <FooterDropDownSection title="FAQ">
+                      <FooterLinkList>
+                          <a href="#">Questions</a>
+                          <a href="#">Answers</a>
+                          <a href="#">Contact Us</a>
+                      </FooterLinkList>
+                  </FooterDropDownSection>
+              </FooterSection>
+              <FooterSection type="bottom" logo="Title">
+                  <FooterLinkList>
+                      <a href="#">Help</a>
+                      <a href="#">Privacy & Terms</a>
+                  </FooterLinkList>
+              </FooterSection>
+          </Footer>)
+  }
+
+  renderHeader(scroll) {
+    return (<Header transparent={false} scroll={scroll} style={{...this.styles.header, backgroundColor: "#ffffff" }}>
+      <div style={{ alignSelf: "center", alignItems: 'center', justifyContent: 'center', textAlign: 'center', display: 'flex', flex: 1}}>
+        <MediaQuery query='(min-device-width: 500px)'>
+          <div>
+            <a href="/"><img src='/assets/logo-light.png' height="60"/></a>
+          </div>
+        </MediaQuery>
+
+        <MediaQuery query='(min-device-width: 500px)'>
+          <Navigation style={this.styles.menu}>
+          { this.menu() }
+          </Navigation>
+        </MediaQuery>
+
+        <MediaQuery query='(max-device-width: 500px)'>
+          <div style={{ backgroundColor: "#ffff00" }}>
+            <a href="/"><img src='/assets/logo.png' height="50"/></a>
+          </div>
+        </MediaQuery>
+
+        <div style={this.isLargeScreen ? {} : this.styles.action}>
+        { this.actionMenu }
+        </div>
+      </div>
+    </Header>)
+  }
+
+  render() {
     if (this.state.redirect) {
       const { transition, data, push, pathname } = this.state.redirect
       return this.redirect(pathname, push)
     }
 
-    return (<Layout fixedHeader>
-            { this.renderHeader() }
-            <MediaQuery query='(max-device-width: 500px)'>
-              { this.renderDrawer() }
-            </MediaQuery>
-            <Content>
-              <div style={this.styles.container}>
-                { this.renderComponents() }
-              </div>
-            </Content>
-      </Layout>)
+    var height = `${this.height}px`
+
+    return (
+          <div style={{height, position: 'relative'}}>
+          <Layout fixedHeader>
+              { this.renderHeader() }
+              <MediaQuery query='(max-device-width: 500px)'>
+                { this.renderDrawer() }
+              </MediaQuery>
+              <Content style={{ }}>
+                { this.renderHero() }
+
+                { this.renderFooter() }
+              </Content>
+          </Layout>
+      </div>
+    )
   }
 }
 
@@ -208,15 +302,16 @@ const styles = {
   container: {
     display: 'flex',
     flex: 1,
-    padding: '10px',
+    padding: '0px',
     minHeight: 300,
-    backgroundColor: "#ffffff",
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
   },
 
   header: {
+    color: "#ffffff",
+    backgroundColor: "#ffffff"
   },
 
   menu: {
@@ -239,10 +334,11 @@ const styles = {
 
   menuItem: {
     fontSize: 14,
-    color: '#ffffff'
+    color: '#333333'
   },
 
   reversedMenuItem: {
-    fontSize: 14
+    fontSize: 14,
+    color: '#333333'
   }
 }
