@@ -6,6 +6,7 @@ import Component from './src/core/Component'
 import Screen from './src/core/Screen'
 import App from './src/core/App'
 import * as firebase from "firebase"
+import * as Components from './src/components'
 
 // if (module.hot) module.hot.accept('./src/core/App', () => renderApp(App))
 
@@ -51,4 +52,4 @@ export function renderApp(props) {
   ReactDOM.render(Main, document.getElementById('chunky'))
 }
 
-export { Component, Screen, App }
+export { Component, Screen, App, Components }

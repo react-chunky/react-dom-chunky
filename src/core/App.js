@@ -137,6 +137,8 @@ export default class App extends PureComponent{
         account: section.account,
         onUserLogin: this._userLogin,
         onUserLogout: this._userLogout,
+        web: this.props.web,
+        info: this.props.info,
         startOperationsOnMount: true
       }, { theme, transitions, ...route, chunkName, menu })
 
