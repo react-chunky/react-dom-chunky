@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import marked from 'marked'
 
 export default class Component extends PureComponent {
 
@@ -24,6 +25,14 @@ export default class Component extends PureComponent {
 
   get cardHeight() {
     return (this.isLargeScreen ? 320 : 400)
+  }
+
+  markedString(key) {
+    return marked(this.string(key))
+  }
+
+  string(key) {
+    return (this.props.strings[key] || key)
   }
 
   componentDidMount() {

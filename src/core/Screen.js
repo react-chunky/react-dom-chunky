@@ -32,6 +32,7 @@ export default class Screen extends Core.Screen {
      this._updateScroll = this.updateScroll.bind(this)
      this._logout = this.logout.bind(this)
      this._login = this.login.bind(this)
+     this._coverAction = this.coverActionExec.bind(this)
   }
 
   updateWindowDimensions() {
@@ -123,6 +124,10 @@ export default class Screen extends Core.Screen {
     this.setState({ redirect: { transition, data, push: false, pathname }})
   }
 
+  coverActionExec() {
+    this.coverAction && this.props[this.coverAction] && this.props[this.coverAction]()
+  }
+
   goBack() {
   }
 
@@ -155,7 +160,6 @@ export default class Screen extends Core.Screen {
   }
 
   login() {
-    console.log("Perform login")
   }
 
   userDidLogin(account) {
@@ -299,6 +303,14 @@ export default class Screen extends Core.Screen {
     return this.props.strings[this.cover.actionTitle] || this.cover.actionTitle
   }
 
+  get coverAction() {
+    if (!this.cover.action) {
+      return
+    }
+
+    return this.cover.action
+  }
+
   renderCoverTitle() {
     if (!this.coverTitle) {
       return
@@ -320,7 +332,7 @@ export default class Screen extends Core.Screen {
       return
     }
 
-    return (<Button style={{ margin: 20, backgroundColor: this.props.theme.primaryColor }} raised colored> { this.coverActionTitle } </Button>)
+    return (<Button style={{ margin: 20, backgroundColor: this.props.theme.primaryColor }} raised colored onClick={this._coverAction}> { this.coverActionTitle } </Button>)
   }
 
   renderHero() {
@@ -331,7 +343,7 @@ export default class Screen extends Core.Screen {
     }
 
     if (this.cover.image) {
-      cover = Object.assign({}, cover, { background: `url(${this.cover.image}) center / cover`, boxShadow: 'inset 0 0 0 1600px rgba(0,0,0,.3)' })
+      cover = Object.assign({}, cover, { background: `url(${this.cover.image}) center / cover`, boxShadow: 'inset 0 0 0 1600px rgba(0,0,0,.4)' })
     }
 
     return (<div style={{ ...cover, color: "#ffffff", height: `${this.height-100}px`, position: 'relative', padding: 20, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>

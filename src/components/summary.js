@@ -14,7 +14,7 @@ export default class SummaryComponent extends Component {
 
   renderParagraph(text) {
     return (<p style={{ marginTop: 0, padding: 10, textAlign: 'justify', fontSize: 18 }}>
-      { text }
+      { this.string(text) }
       </p>)
   }
 
