@@ -125,7 +125,7 @@ export default class Screen extends Core.Screen {
   }
 
   coverActionExec() {
-    this.coverAction && this.props[this.coverAction] && this.props[this.coverAction]()
+    this.coverAction && this[this.coverAction] && this[this.coverAction]()
   }
 
   goBack() {
@@ -279,6 +279,18 @@ export default class Screen extends Core.Screen {
     return this.props.cover || {}
   }
 
+  get coverImage() {
+    if (this.isLargeScreen && this.coverImageLarge) {
+      return this.coverImageLarge
+    }
+
+    return this.cover.image
+  }
+
+  get coverImageLarge() {
+    return this.cover.imageLarge
+  }
+
   get coverTitle() {
     if (!this.cover.title) {
       return
@@ -342,8 +354,8 @@ export default class Screen extends Core.Screen {
       cover = { backgroundColor: this.cover.backgroundColor  }
     }
 
-    if (this.cover.image) {
-      cover = Object.assign({}, cover, { background: `url(${this.cover.image}) center / cover`, boxShadow: 'inset 0 0 0 1600px rgba(0,0,0,.4)' })
+    if (this.coverImage) {
+      cover = Object.assign({}, cover, { background: `url(${this.coverImage}) center / cover`, boxShadow: 'inset 0 0 0 1600px rgba(0,0,0,.4)' })
     }
 
     return (<div style={{ ...cover, color: "#ffffff", height: `${this.height-100}px`, position: 'relative', padding: 20, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
