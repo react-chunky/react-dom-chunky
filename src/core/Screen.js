@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   Badge,
   Header,
@@ -21,6 +21,7 @@ import { Core } from 'react-chunky'
 import { Redirect } from 'react-router'
 import MediaQuery from 'react-responsive'
 import { AppBar } from 'material-ui'
+import { default as Component } from './Component'
 
 export default class Screen extends Core.Screen {
 
@@ -170,13 +171,18 @@ export default class Screen extends Core.Screen {
     return (<Spinner singleColor />)
   }
 
-  renderComponent(Component, index) {
-    var props = Object.assign({
+  renderComponent(OriginalComponent, index) {
+    var props = Object.assign({}, {
       width: this.state.width,
       height: this.state.height,
     }, this.props)
 
-    const ComponentContainer = React.cloneElement(Component, props)
+    var ComponentContainer = React.cloneElement(OriginalComponent, props)
+
+    if ("string" === (typeof OriginalComponent.type)) {
+      ComponentContainer = OriginalComponent
+    }
+
     return (
       <TransitionGroup key={`${index}`} style={{ alignSelf: 'stretch' }}>
         { ComponentContainer }
