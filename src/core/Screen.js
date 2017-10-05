@@ -364,11 +364,15 @@ export default class Screen extends Core.Screen {
       cover = Object.assign({}, cover, { background: `url(${this.coverImage}) center / cover`, boxShadow: 'inset 0 0 0 1600px rgba(0,0,0,.4)' })
     }
 
-    return (<div style={{ ...cover, color: "#ffffff", height: `${this.height-100}px`, position: 'relative', padding: 20, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    return (<div style={{ ...cover, color: "#ffffff", height: `${this.coverHeight}px`, position: 'relative', padding: 20, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         { this.renderCoverTitle() }
         { this.renderCoverSubtitle() }
         { this.renderCoverAction() }
       </div>)
+  }
+
+  get coverHeight() {
+    return this.height - 100
   }
 
   renderFooterSection(section, type="left", style={}) {
