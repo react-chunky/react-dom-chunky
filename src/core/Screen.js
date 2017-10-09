@@ -475,6 +475,14 @@ export default class Screen extends Core.Screen {
     </Header>)
   }
 
+  scrollToTop() {
+    if (!document || document === undefined) {
+      return
+    }
+
+    document.querySelector('.mdl-layout__content').scrollTop = 0
+  }
+
   render() {
     if (this.state.redirect) {
       const { transition, data, push, pathname } = this.state.redirect
