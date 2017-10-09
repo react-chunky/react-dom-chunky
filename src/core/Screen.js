@@ -20,7 +20,6 @@ import TransitionGroup from 'react-addons-transition-group'
 import { Core } from 'react-chunky'
 import { Redirect } from 'react-router'
 import MediaQuery from 'react-responsive'
-import { AppBar } from 'material-ui'
 import { default as Component } from './Component'
 
 export default class Screen extends Core.Screen {
@@ -42,7 +41,6 @@ export default class Screen extends Core.Screen {
 
   componentDidMount() {
     super.componentDidMount()
-
     this.updateWindowDimensions()
     window.addEventListener('resize', this._updateWindowDimensions)
     window.addEventListener('scroll', this._updateScroll)
@@ -361,7 +359,7 @@ export default class Screen extends Core.Screen {
     }
 
     if (this.coverImage) {
-      cover = Object.assign({}, cover, { background: `url(${this.coverImage}) center / cover`, boxShadow: 'inset 0 0 0 1600px rgba(0,0,0,.4)' })
+      cover = Object.assign({}, cover, { backgroundColor: this.props.theme.primaryColor, background: `url(${this.coverImage}) center / cover`, boxShadow: 'inset 0 0 0 1600px rgba(0,0,0,.4)' })
     }
 
     return (<div style={{ ...cover, color: "#ffffff", height: `${this.coverHeight}px`, position: 'relative', padding: 20, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -373,6 +371,23 @@ export default class Screen extends Core.Screen {
 
   get coverHeight() {
     return this.height - 100
+  }
+
+  get footerCopyrightSections() {
+    if (this.infoProps.copyrightFooter) {
+      return this.infoProps.copyrightFooter
+    }
+
+    return [{
+      "id": "terms",
+      "title": "Terms",
+      "link": this.links.terms || "/"
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy",
+      "link": this.links.privacy || "/"
+    }]
   }
 
   renderFooterSection(section, type="left", style={}) {
@@ -395,22 +410,13 @@ export default class Screen extends Core.Screen {
            </FooterSection>
         </div>
         <div style={{ display: "flex", flex: 1, marginRight: this.isLargeScreen ? 100 : 0, marginLeft: this.isLargeScreen ? 0 : 20, alignItems: "center", justifyContent: this.isLargeScreen ? "flex-end" : "flex-start" }}>
-            <div style={{ marginRight: 40, marginTop: 20 }}>
+            <div style={{ marginRight: 40, marginTop: this.footerCopyrightSections.length > 0 ? 20 : 10 }}>
               <img src={this.footerLogo} height="60"/>
             </div>
             { this.renderFooterSection({
               title: this.copyright,
               id: "copyright",
-              elements: [{
-                "id": "terms",
-                "title": "Terms",
-                "link": this.links.terms || "/"
-              },
-              {
-                "id": "privacy",
-                "title": "Privacy",
-                "link": this.links.privacy || "/"
-              }]
+              elements: this.footerCopyrightSections
             }, "bottom") }
       </div>
     </div>)

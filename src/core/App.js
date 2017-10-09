@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { StaticRouter, BrowserRouter, Route } from 'react-router-dom'
 import URL from 'url-parse'
 import { Data } from 'react-chunky'
+import { createSectionRoutes } from './Router'
+import { Redirect } from 'react-router'
 
-export default class App extends PureComponent{
+export default class App extends PureComponent {
 
   constructor(props) {
     super(props)
@@ -18,7 +20,7 @@ export default class App extends PureComponent{
       this._resolve(account)
       this.setState({ loading: false, account })
     }).catch(error => {
-        this._resolve()
+      this._resolve()
       this.setState({ loading: false })
     })
   }
@@ -63,9 +65,6 @@ export default class App extends PureComponent{
       // Great, let's check the flavor now
       return
     }
-
-    // Great, so we've cleared the chunk and its flavor, if any, let's check the icon
-    // const iconName = `${chunkName}/${ chunkFlavorName ? chunkFlavorName : 'icon' }`
 
     if (!chunk.routes || chunk.routes.length === 0) {
       // One last thing, let's also make sure the chunk has routes
@@ -164,33 +163,7 @@ export default class App extends PureComponent{
   }
 
   _createSectionNavigator(section) {
-    if (!section || !section.stack) {
-      // We don't even consider stackless sections
-      return
-    }
-
-    // These are the routes that we need to compile for this section's navigator
-    var routes = []
-    var menu = []
-
-    // Let's look through the stack and build some routes for this section's navigator
-    var elementIndex = 0
-    section.stack.forEach(element => {
-      var elementRoutes = []
-      if (element && typeof element === 'string') {
-        // The first kind of element in the sack is a plain string, that signifies a chunk
-        elementRoutes = elementRoutes.concat(this._createSectionNavigatorRoutes(element, section))
-      } else if (element &&  Array.isArray(element) && element.length > 0) {
-        // Another type of element in the sack is a list of strings, that each signifies a chunk
-        var composedRoutes = []
-        element.forEach(subElement => { composedRoutes = composedRoutes.concat(this._createSectionNavigatorRoutes(subElement, section)) })
-        elementRoutes = elementRoutes.concat(composedRoutes)
-      }
-
-      routes = routes.concat(elementRoutes)
-    })
-
-    return { routes, menu }
+    return createSectionRoutes(section, this._createSectionNavigatorRoutes.bind(this))
   }
 
   _resolve(account) {
@@ -207,7 +180,6 @@ export default class App extends PureComponent{
       this._sections.push(section)
       this._routes = this._routes.concat(section.navigator.routes)
     }
-
   }
 
   get menu() {
@@ -222,15 +194,36 @@ export default class App extends PureComponent{
     return this._sections || []
   }
 
+  renderStatic() {
+    this._resolve()
+    return (
+      <StaticRouter location={this.props.route.location} context={this.props.route}>
+        <div>
+          { this.routes }
+        </div>
+      </StaticRouter>)
+  }
+
+  renderRoutes() {
+    // if (!this.props.route || !this.props.redirect) {
+    //   return this.routes
+    // }
+    return this.routes
+  }
+
   render() {
+    if (this.props.route && !this.props.redirect) {
+      return this.renderStatic()
+    }
+
     if (!this.routes || this.routes.length === 0) {
       return (<div/>)
     }
 
-    return (<Router>
+    return (<BrowserRouter>
       <div>
-        { this.routes }
+        { this.renderRoutes() }
       </div>
-    </Router>)
+      </BrowserRouter>)
   }
 }

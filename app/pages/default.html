@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/assets/material.css" rel="stylesheet">
+    <link href="/assets/style.css" rel="stylesheet">
+
+    <title> <%= chunky.info.title || "Chunky" %> </title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+
+    <div id="chunky">
+      <%- chunky.route.html %>
+    </div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/react-media/umd/react-media.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/4.0.0/react-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+
+    <%if (chunky) { %>
+      <script type="text/javascript">
+        var chunky = JSON.parse('<%- chunky.vars %>');
+      </script>
+    <% } %>
+  </body>
+</html>

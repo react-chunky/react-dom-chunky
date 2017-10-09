@@ -4,11 +4,16 @@
 let path = require('path')
 let fs = require('fs-extra')
 let webpack = require('webpack')
-let config = require('./config.dev')
+let config = require('../packager/config.dev')
 let WebpackDevServer  = require('webpack-dev-server')
 
 function start(options) {
   return new Promise((resolve, reject) => {
+    // Start off fresh
+    const dir = path.resolve(options.dir, 'web', 'build')
+    if (fs.existsSync(dir)) { fs.removeSync(dir) }
+    fs.mkdirSync(dir)
+
     const setup = config(options)
       process.noDeprecation = true
       new WebpackDevServer(webpack(setup), setup.devServer).

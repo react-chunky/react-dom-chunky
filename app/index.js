@@ -1,8 +1,27 @@
-import { renderApp } from '..'
-import config from './config'
-import firebaseConfig from 'web/firebase-config.json'
+const React = require('react')
+const ReactDOM = require('react-dom')
+const ReactDOMServer = require('react-dom/server')
+const Router = require('react-router-dom')
 
-config.id = "chunky"
-config.firebase = firebaseConfig
+try {
+  require('./global')
 
-renderApp(config)
+  if(typeof window != "undefined" || typeof document != "undefined") {
+    ReactDOM.render(chunky.main(chunky.route, true), document.getElementById('chunky'))
+  }
+} catch (e) {
+  console.log(e)
+}
+
+function renderStaticPage(route) {
+  return new Promise((resolve, reject) => {
+    try {
+      const html = ReactDOMServer.renderToStaticMarkup(chunky.main(route))
+      resolve(html)
+    } catch (e) {
+      reject(e)
+    }
+  })
+}
+
+module.exports = { renderStaticPage }
