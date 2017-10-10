@@ -391,7 +391,13 @@ export default class Screen extends Core.Screen {
   }
 
   renderFooterSection(section, type="left", style={}) {
-    var links = section.elements.map(element => <a key={element.id} href={`${element.link}`}>{ element.title }</a>)
+    var links = section.elements.map((element) => {
+      if(element.hasOwnProperty('target')) {
+          return <a key={element.id} href={element.link} target={element.target} rel="noreferrer noopener">{ element.title }</a>
+      } else {
+          return <a key={element.id} href={`${element.link}`} >{ element.title }</a>
+      }
+    })
     return (<FooterSection type={type} key={section.id} title={""} style={{ marginRight: 80, marginTop: 40, ...style }}>
         <div style={{ fontSize: 14, color: this.props.theme.footerHeaderColor, marginBottom: 10 }}>
           { section.title }
