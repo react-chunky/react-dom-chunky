@@ -42,6 +42,26 @@ module.exports = (options) => {
           }
         },
         {
+          test: /\.css$/,
+          use: ['style-loader', {
+              loader: 'css-loader',
+              options: { modules: true }
+          }]
+        },
+        {
+          test: /\.md$/,
+          use: [
+              {
+                  loader: "html-loader"
+              },
+              {
+                  loader: "markdown-loader",
+                  options: {
+                  }
+              }
+          ]
+        },
+        {
           test: /\.js$/,
           include: [
             path.resolve(options.dir, "node_modules", "react-chunky"),
@@ -60,7 +80,8 @@ module.exports = (options) => {
                 path.resolve(options.dir, 'node_modules', 'babel-preset-stage-2')
               ],
               plugins: [
-                require.resolve('react-hot-loader/babel')
+                require.resolve('react-hot-loader/babel'),
+                "styled-jsx/babel"
               ]
             }
           }

@@ -10,7 +10,6 @@ try {
     ReactDOM.render(chunky.main(chunky.route, true), document.getElementById('chunky'))
   }
 } catch (e) {
-  console.log(e)
 }
 
 function renderStaticPage(route) {

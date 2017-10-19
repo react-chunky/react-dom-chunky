@@ -2,6 +2,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const StaticPlugin = require('./staticPlugin')
 const pages = require('./pages')
 
@@ -39,6 +40,28 @@ module.exports = (options) => {
           }
         },
         {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({
+            use: [{
+                loader: 'css-loader',
+                options: { modules: true }
+            }]
+          }),
+        },
+        {
+          test: /\.md$/,
+          use: [
+              {
+                  loader: "html-loader"
+              },
+              {
+                  loader: "markdown-loader",
+                  options: {
+                  }
+              }
+          ]
+        },
+        {
           test: /\.js$/,
           include: [
             path.resolve(options.dir, "node_modules", "react-chunky"),
@@ -55,6 +78,9 @@ module.exports = (options) => {
                 }],
                 path.resolve(options.dir, 'node_modules', 'babel-preset-react'),
                 path.resolve(options.dir, 'node_modules', 'babel-preset-stage-2')
+              ],
+              plugins: [
+                "styled-jsx/babel"
               ]
             }
           }
@@ -63,6 +89,7 @@ module.exports = (options) => {
     },
 
     plugins: [
+      new ExtractTextPlugin('chunky.css'),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new CopyWebpackPlugin([
         { from: { glob: path.resolve(options.dir, "node_modules", "react-dom-chunky", "app", "assets/**/*"), dot: false }, to: "assets", flatten: 'true' },

@@ -139,7 +139,15 @@ export default class Screen extends Core.Screen {
   }
 
   get isLargeScreen() {
-    return (this.state.width > 500)
+    return (this.state.width > this.smallScreenBreakPoint)
+  }
+
+  get cardWidth() {
+    return (this.isLargeScreen ? this.smallScreenBreakPoint : this.width - 20)
+  }
+
+  get cardHeight() {
+    return (this.isLargeScreen ? 320 : 400)
   }
 
   get width() {
@@ -332,7 +340,7 @@ export default class Screen extends Core.Screen {
       return
     }
 
-    return (<h1 style={{textAlign: 'center', marginTop: 0 }}> { this.coverTitle } </h1>)
+    return (<h1 style={{textAlign: `${this.isLargeScreen ? 'center' : 'left' }`, marginTop: 0, width: `${this.heroContentWidth}` }}> { this.coverTitle } </h1>)
   }
 
   renderCoverSubtitle() {
@@ -340,7 +348,11 @@ export default class Screen extends Core.Screen {
       return
     }
 
-    return (<h4 style={{textAlign: 'center', marginTop: 0 }}> { this.coverSubtitle } </h4>)
+    return (<h3 style={{textAlign: `${this.isLargeScreen ? 'center' : 'left' }`, marginTop: 0, width: `${this.heroContentWidth}` }}> { this.coverSubtitle } </h3>)
+  }
+
+  get heroContentWidth() {
+    return (this.isLargeScreen ? this.width - 200 : this.width - 20)
   }
 
   renderCoverAction() {
@@ -423,7 +435,7 @@ export default class Screen extends Core.Screen {
   }
 
   get smallScreenBreakPoint() {
-    return this.webProps.smallScreenBreakPoint || 500
+    return this.webProps.smallScreenBreakPoint || 700
   }
 
   get largeScreenOnlyMediaQuery() {

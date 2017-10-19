@@ -1,5 +1,6 @@
 import React from 'react'
 import Component from '../core/Component'
+import Blob from './blob'
 
 export default class SummaryComponent extends Component {
 
@@ -12,27 +13,12 @@ export default class SummaryComponent extends Component {
     super.componentDidMount()
   }
 
-  renderParagraph(text) {
-    return (<p style={{ marginTop: 0, padding: 10, textAlign: 'justify', fontSize: 18 }}>
-      { this.string(text) }
-      </p>)
-  }
-
-  get header() {
-    return this.props.header
-  }
-
-  get paragraphs() {
-    return this.props.paragraphs
-  }
-
   renderComponent() {
-    const width = this.isLargeScreen ? 600 : this.width
+    const width = this.isLargeScreen ? 800 : this.width
 
-    return (<div style={{ color: "#333333", position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    return (<div style={{ color: "#607D8B", position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: `${width}px`, margin: 80 }}>
-        <h3 style={{textAlign: 'center', marginTop: 30 }}> { this.header }</h3>
-        { this.paragraphs.map(p => this.renderParagraph(p)) }
+          <Blob blob={this.props.blob}/>
       </div>
    </div>)
   }
