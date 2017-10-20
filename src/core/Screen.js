@@ -226,6 +226,7 @@ export default class Screen extends Core.Screen {
     var props = Object.assign({}, {
       width: this.state.width,
       height: this.state.height,
+      smallScreenBreakPoint: this.smallScreenBreakPoint
     }, this.props)
 
     var ComponentContainer = React.cloneElement(OriginalComponent, props)
@@ -582,6 +583,27 @@ export default class Screen extends Core.Screen {
                  font-weight: 300;
                  line-height: 1.5;
                  color: ${this.props.theme.textColor};
+               }
+               :global(a) {
+                 text-decoration: none;
+                 color: ${this.props.theme.linkColor};
+                 padding: 5px;
+               }
+               :global(a:hover) {
+                 background-color: ${this.props.theme.linkHoverBackgroundColor};
+                 color: ${this.props.theme.linkHoverColor};
+                 padding: 5px;
+               }
+               :global(pre, code) {
+                 background-color: #37474F;
+                 color: #ECEFF1;
+                 padding: 15px;
+                 display: 'flex';
+                 margin-bottom: 20px;
+                 margin-top: 20px;
+               }
+               :global(code) {
+                 padding: 10px;
                }
               }
           `}</style>

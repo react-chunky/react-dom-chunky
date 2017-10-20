@@ -10,9 +10,9 @@ export default class Component extends PureComponent {
   }
 
   get smallScreenBreakPoint() {
-    return this.webProps.smallScreenBreakPoint || 840
+    return this.props.smallScreenBreakPoint
   }
-  
+
   get isLargeScreen() {
     return (this.props.width > this.smallScreenBreakPoint)
   }
