@@ -1,7 +1,7 @@
 import React from 'react'
 import Component from '../core/Component'
 import Blob from './blob'
-import { Card, Chip, ChipContact, Icon, CardText, Button, CardTitle, CardActions } from 'react-mdl'
+import { Card, Chip, Grid, Cell, ChipContact, Icon, CardText, Button, CardTitle, CardActions } from 'react-mdl'
 
 export default class FeaturesComponent extends Component {
 
@@ -61,7 +61,9 @@ export default class FeaturesComponent extends Component {
   }
 
   renderFeature({ id, title, color, icon, action, link, code, text }) {
-    return (<div key={id} style={{ display: 'flex', flex: 1, padding: 20 }}>
+      return (
+          <Cell phone={12} tablet={12} col={4} key={id}>
+            <div style={{ padding: 20, display: 'flex', flex: 1, margin: 20 }}>
             <Card shadow={0} style={{width: '320px', height: '380px', margin: 'auto'}}>
               <CardTitle expand style={{color: '#fff', paddingLeft: 20, background: `url(/assets/${icon}) bottom 100% right 10% no-repeat ${color}`}}>
                 { title }
@@ -72,8 +74,8 @@ export default class FeaturesComponent extends Component {
                     <Icon name='chevron_right' style={{marginTop: -3, padding: 0}}/>
                   </a>
               </CardActions>
-          </Card>
-        </div>)
+            </Card>
+        </div></Cell>)
   }
 
   renderComponent() {
@@ -81,8 +83,10 @@ export default class FeaturesComponent extends Component {
 
     return (<div style={{ color: "#607D8B", padding: 50, backgroundColor: "#E1F5FE", position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <h2 style={{textAlign: 'center' }}> { this.props.header } </h2>
-      <div style={{ margin: 50, display: 'flex', flex: 1, flexDirection: 'row', flexWrap: 'wrap' }}>
-        { this.props.features.map(f => this.renderFeature(f)) }
+      <div style={{ margin: 50 }}>
+        <Grid>
+          { this.props.features.map(f => this.renderFeature(f)) }
+        </Grid>
       </div>
    </div>)
   }

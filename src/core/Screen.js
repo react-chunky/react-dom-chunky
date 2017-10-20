@@ -476,7 +476,7 @@ export default class Screen extends Core.Screen {
   }
 
   get smallScreenBreakPoint() {
-    return this.webProps.smallScreenBreakPoint || 700
+    return this.webProps.smallScreenBreakPoint || 840
   }
 
   get largeScreenOnlyMediaQuery() {

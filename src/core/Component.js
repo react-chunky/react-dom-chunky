@@ -9,8 +9,12 @@ export default class Component extends PureComponent {
     this._id = `chunky-${uuid.v1()}`
   }
 
+  get smallScreenBreakPoint() {
+    return this.webProps.smallScreenBreakPoint || 840
+  }
+  
   get isLargeScreen() {
-    return (this.props.width > 500)
+    return (this.props.width > this.smallScreenBreakPoint)
   }
 
   get id () {
@@ -26,7 +30,7 @@ export default class Component extends PureComponent {
   }
 
   get cardWidth() {
-    return (this.isLargeScreen ? 500 : this.width - 20)
+    return (this.isLargeScreen ? this.smallScreenBreakPoint : this.width - 20)
   }
 
   get cardHeight() {
