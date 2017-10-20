@@ -42,20 +42,8 @@ export default class BlobComponent extends Component {
         <style jsx>{`
            {
              .${className} :global(h2) {
-               text-align: center;
-               font-size: 42px;
-               font-weight: 300;
-               line-height: 1.2;
-               margin-bottom: 50px;
-               color: ${titleColor};
              }
              .${className} :global(p) {
-               text-align: justify;
-               margin-bottom: 30px;
-               font-size: 24px;
-               font-weight: 300;
-               line-height: 1.5;
-               color: ${textColor};
              }
             }
         `}</style>

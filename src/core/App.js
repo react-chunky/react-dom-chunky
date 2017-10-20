@@ -11,6 +11,7 @@ export default class App extends PureComponent {
     super(props)
     this.state = { loading: true }
 
+    this._menu = []
     this._userLogin = this.userLogin.bind(this)
     this._userLogout = this.userLogout.bind(this)
   }
@@ -87,7 +88,6 @@ export default class App extends PureComponent {
         })
     }
 
-    var menu = []
     for (let routeName in chunk.routes) {
       // Great, this chunk has routes, let's look through all of them
       var route = chunk.routes[routeName]
@@ -97,7 +97,9 @@ export default class App extends PureComponent {
         route.menuTitle = route.title
         rootRoute = Object.assign({}, route)
         // Construct a menu
-        menu.push({ id: `${menu.length}`, title: route.menuTitle, link: `/${menu.length === 0 ? '' : route.path}` })
+        if (!route.skipMenu) {
+          this._menu.push({ id: `${this.menu.length}`, title: route.menuTitle, link: `/${this.menu.length === 0 ? '' : route.path}` })
+        }
       } else {
         route.icon = rootRoute.icon
         route.menuTitle = rootRoute.menuTitle
@@ -130,6 +132,7 @@ export default class App extends PureComponent {
       const theme = this.props.theme
 
       // For each route, we want to compose its properties
+      var menu = this.menu
       const screenProps = Object.assign({
         // Defaults
         strings: {},
@@ -155,8 +158,9 @@ export default class App extends PureComponent {
       }
       const ScreenPath = route.path || "/"
 
-      routes.push(<Route exact path={`/${routes.length === 0 ? '' : ScreenPath}`} key={ScreenPath} render={(props) => <Screen {...screenProps} {...props} />}/>)
+      routes.push(<Route exact path={ScreenPath} key={ScreenPath} render={(props) => <Screen {...screenProps} {...props} />}/>)
     }
+
 
     // We've got ourselves some routes so we should be done with this
     return routes
@@ -205,9 +209,6 @@ export default class App extends PureComponent {
   }
 
   renderRoutes() {
-    // if (!this.props.route || !this.props.redirect) {
-    //   return this.routes
-    // }
     return this.routes
   }
 

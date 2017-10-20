@@ -13,7 +13,7 @@ function createSectionRoutes(section, generator) {
   section.stack.forEach(element => {
     var elementRoutes = []
     if (element && typeof element === 'string') {
-      // The first kind of element in the sack is a plain string, that signifies a chunk
+      // The first kind of element in the stack is a plain string, that signifies a chunk
       elementRoutes = elementRoutes.concat(generator(element, section))
     } else if (element &&  Array.isArray(element) && element.length > 0) {
       // Another type of element in the sack is a list of strings, that each signifies a chunk

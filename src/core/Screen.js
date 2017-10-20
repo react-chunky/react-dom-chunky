@@ -21,6 +21,7 @@ import { Core } from 'react-chunky'
 import { Redirect } from 'react-router'
 import MediaQuery from 'react-responsive'
 import { default as Component } from './Component'
+import merge from 'deepmerge'
 
 export default class Screen extends Core.Screen {
 
@@ -33,6 +34,7 @@ export default class Screen extends Core.Screen {
      this._logout = this.logout.bind(this)
      this._login = this.login.bind(this)
      this._coverAction = this.coverActionExec.bind(this)
+     this.injectVariant()
   }
 
   updateWindowDimensions() {
@@ -44,8 +46,47 @@ export default class Screen extends Core.Screen {
     this.updateWindowDimensions()
     window.addEventListener('resize', this._updateWindowDimensions)
     window.addEventListener('scroll', this._updateScroll)
-
     this.setupTheme()
+  }
+
+  get expectsVariants() {
+    return (this.props.path && this.props.path.indexOf(':path') >= 0)
+  }
+
+  injectVariant() {
+    if (!this.expectsVariants || !this.props.pathData) {
+      return
+    }
+
+    try {
+      // Try to load the variants
+      const variants = require(`chunks/${this.props.chunkName}/data/${this.props.pathData}.json`)
+
+      // Check the location
+      const locationPath = this.props.location.pathname
+
+      variants.forEach(variant => {
+        if (variant.path === locationPath || locationPath === `/${variant.path}` ||
+            locationPath === `/${variant.path}/` || locationPath === `${variant.path}/`) {
+            // We've got a match
+            this._variant = Object.assign({}, variant)
+        }
+      })
+    } catch (e) {
+      // Could not load variant path data
+    }
+  }
+
+  get isVariantValid() {
+    return (this.expectsVariants && this.variant)
+  }
+
+  get _props() {
+    return (this.variant ? merge.all([this.props, this.variant]) : this.props)
+  }
+
+  get variant() {
+    return this._variant
   }
 
   isColorLight(c) {
@@ -169,6 +210,10 @@ export default class Screen extends Core.Screen {
   login() {
   }
 
+  get path() {
+    return this.props.location.pathname
+  }
+
   userDidLogin(account) {
     this.props.onUserLogin && this.props.onUserLogin(account)
   }
@@ -216,11 +261,11 @@ export default class Screen extends Core.Screen {
   }
 
   get actionMenu() {
-    if (!this.isLoggedIn) {
-      return(<IconButton id="bold" name="account_circle" style={{ color: this.navigationTintColor }} onClick={this._login}/>)
-    }
-
-    return(<IconButton id="bold" name="exit_to_app" style={{ color: this.navigationTintColor }} onClick={this._logout}/>)
+    // if (!this.isLoggedIn) {
+    //   return(<IconButton id="bold" name="account_circle" style={{ color: this.navigationTintColor }} onClick={this._login}/>)
+    // }
+    //
+    // return(<IconButton id="bold" name="exit_to_app" style={{ color: this.navigationTintColor }} onClick={this._logout}/>)
   }
 
   renderDrawer() {
@@ -287,16 +332,21 @@ export default class Screen extends Core.Screen {
     </div>)
   }
 
+  get hasCover() {
+    return this._props.cover
+  }
+
   get cover() {
-    return this.props.cover || {}
+    return this._props.cover || {}
   }
 
   get coverImage() {
+    var variantId = this.variantId
     if (this.isLargeScreen && this.coverImageLarge) {
-      return this.coverImageLarge
+      return (variantId ? this.coverImageLarge.replace(`:${variantId}`, this.variant[variantId]) : this.coverImageLarge)
     }
 
-    return this.cover.image
+    return (variantId ? this.cover.image.replace(`:${variantId}`, 'cli') : this.cover.image)
   }
 
   get coverImageLarge() {
@@ -340,7 +390,7 @@ export default class Screen extends Core.Screen {
       return
     }
 
-    return (<h1 style={{textAlign: `${this.isLargeScreen ? 'center' : 'left' }`, marginTop: 0, width: `${this.heroContentWidth}` }}> { this.coverTitle } </h1>)
+    return (<h1 style={{ color: "#FFFFFF", textAlign: `${this.isLargeScreen ? 'center' : 'left' }`, marginTop: 0, width: `${this.coverContentWidth}px` }}> { this.coverTitle } </h1>)
   }
 
   renderCoverSubtitle() {
@@ -348,10 +398,10 @@ export default class Screen extends Core.Screen {
       return
     }
 
-    return (<h3 style={{textAlign: `${this.isLargeScreen ? 'center' : 'left' }`, marginTop: 0, width: `${this.heroContentWidth}` }}> { this.coverSubtitle } </h3>)
+    return (<h3 style={{ color: "#FFFFFF", textAlign: `${this.isLargeScreen ? 'center' : 'left' }`, marginTop: 0, width: `${this.coverContentWidth}px` }}> { this.coverSubtitle } </h3>)
   }
 
-  get heroContentWidth() {
+  get coverContentWidth() {
     return (this.isLargeScreen ? this.width - 200 : this.width - 20)
   }
 
@@ -363,7 +413,11 @@ export default class Screen extends Core.Screen {
     return (<Button style={{ margin: 20, backgroundColor: this.props.theme.primaryColor }} raised colored onClick={this._coverAction}> { this.coverActionTitle } </Button>)
   }
 
-  renderHero() {
+  renderCover() {
+    if (!this.hasCover) {
+      return
+    }
+
     var cover = { backgroundColor: this.props.theme.primaryColor  }
 
     if (this.cover.backgroundColor) {
@@ -382,24 +436,11 @@ export default class Screen extends Core.Screen {
   }
 
   get coverHeight() {
-    return this.height - 100
+    return (this.cover.height || this.height - 100)
   }
 
-  get footerCopyrightSections() {
-    if (this.infoProps.copyrightFooter) {
-      return this.infoProps.copyrightFooter
-    }
-
-    return [{
-      "id": "terms",
-      "title": "Terms",
-      "link": this.links.terms || "/"
-    },
-    {
-      "id": "privacy",
-      "title": "Privacy",
-      "link": this.links.privacy || "/"
-    }]
+  get footerBottomSections() {
+    return this.footer.bottom || []
   }
 
   renderFooterSection(section, type="left", style={}) {
@@ -422,13 +463,13 @@ export default class Screen extends Core.Screen {
            </FooterSection>
         </div>
         <div style={{ display: "flex", flex: 1, marginRight: this.isLargeScreen ? 100 : 0, marginLeft: this.isLargeScreen ? 0 : 20, alignItems: "center", justifyContent: this.isLargeScreen ? "flex-end" : "flex-start" }}>
-            <div style={{ marginRight: 40, marginTop: this.footerCopyrightSections.length > 0 ? 20 : 10 }}>
+            <div style={{ marginRight: 40, marginTop: this.footerBottomSections.length > 0 ? 20 : 10 }}>
               <img src={this.footerLogo} height="60"/>
             </div>
             { this.renderFooterSection({
               title: this.copyright,
               id: "copyright",
-              elements: this.footerCopyrightSections
+              elements: this.footerBottomSections
             }, "bottom") }
       </div>
     </div>)
@@ -496,25 +537,54 @@ export default class Screen extends Core.Screen {
   }
 
   render() {
+    if (this.state.height === 0) {
+      return <div/>
+    }
+
     if (this.state.redirect) {
       const { transition, data, push, pathname } = this.state.redirect
       return this.redirect(pathname, push)
     }
 
     var height = `${this.height}px`
-
     return (<div style={{ height, position: 'relative' }}>
           <Layout fixedHeader>
               { this.renderHeader() }
-              <MediaQuery query='(max-device-width: 500px)'>
+              <MediaQuery query={`(max-device-width: ${this.smallScreenBreakPoint}px)`}>
                 { this.renderDrawer() }
               </MediaQuery>
               <Content style={{}}>
-                { this.renderHero() }
+                { this.renderCover() }
                 { this.renderScreenContent() }
                 { this.renderFooter() }
               </Content>
           </Layout>
+          <style jsx>{`
+             {
+              :global(h1, h2, h3) {
+                 text-align: center;
+                 font-size: ${this.isLargeScreen ? 42 : 30}px;
+                 font-weight: 300;
+                 line-height: 1.2;
+                 margin-bottom: 50px;
+                 color: ${this.props.theme.headerColor};
+               }
+               :global(h2) {
+                 font-size: ${this.isLargeScreen ? 38 : 25}px;
+               }
+               :global(h3) {
+                 font-size: ${this.isLargeScreen ? 28 : 20}px;
+               }
+               :global(p) {
+                 text-align: ${this.isLargeScreen ? 'justify' : 'left'};
+                 margin-bottom: 30px;
+                 font-size ${this.isLargeScreen ? 22 : 18}px;
+                 font-weight: 300;
+                 line-height: 1.5;
+                 color: ${this.props.theme.textColor};
+               }
+              }
+          `}</style>
       </div>
     )
   }

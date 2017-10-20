@@ -14,7 +14,7 @@ export default class SummaryComponent extends Component {
   }
 
   renderComponent() {
-    const width = this.isLargeScreen ? 800 : this.width
+    const width = this.isLargeScreen ? 800 : this.width - 40
 
     return (<div style={{ color: "#607D8B", position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: `${width}px`, margin: 80 }}>

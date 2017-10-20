@@ -25,6 +25,9 @@ module.exports = (options) => {
 
     resolve: {
       extensions: ['.js', '.json'],
+      alias: {
+
+      },
       modules: [
         path.resolve(options.dir),
         "node_modules"
