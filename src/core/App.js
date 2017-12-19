@@ -4,19 +4,20 @@ import URL from 'url-parse'
 import { Data } from 'react-chunky'
 import { createSectionRoutes } from './Router'
 import { Redirect } from 'react-router'
+import uuid from 'uuid'
+import cache from './Cache'
 
 export default class App extends PureComponent {
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = { loading: true }
-
     this._menu = []
     this._userLogin = this.userLogin.bind(this)
     this._userLogout = this.userLogout.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     Data.Cache.retrieveAuth().then(account => {
       this._resolve(account)
       this.setState({ loading: false, account })
@@ -26,33 +27,33 @@ export default class App extends PureComponent {
     })
   }
 
-  userLogin(account) {
+  userLogin (account) {
     Data.Cache.cacheAuth(account).then(() => {
       this._resolve(account)
       this.setState({ account })
     })
   }
 
-  userLogout() {
+  userLogout () {
     Data.Cache.clearAuth().then(account => {
       this._resolve()
       this.setState({ account: undefined })
     })
   }
 
-  _resolveTransitionFromURI(uri) {
-      const url = new URL(uri, true)
-      return {
-        name: `show${url.hostname.charAt(0).toUpperCase()}${url.hostname.substring(1).toLowerCase()}`,
-        type: url.protocol.slice(0, -1).toLowerCase(),
-        route: url.hostname
-      }
+  _resolveTransitionFromURI (uri) {
+    const url = new URL(uri, true)
+    return {
+      name: `show${url.hostname.charAt(0).toUpperCase()}${url.hostname.substring(1).toLowerCase()}`,
+      type: url.protocol.slice(0, -1).toLowerCase(),
+      route: url.hostname
+    }
   }
 
-  _createSectionNavigatorRoutes(element, section) {
+  _createSectionNavigatorRoutes (element, section) {
     // We want to look at a stack element and figure out its parent chunk;
     // Note that chunks may also have flavours so this looks for the flavor, if any
-    const [ chunkName, chunkFlavorName ] = element.split("/")
+    const [ chunkName, chunkFlavorName ] = element.split('/')
 
     // This is our chunk, if it actually exists
     const chunk = this.props.chunks[chunkName]
@@ -81,16 +82,21 @@ export default class App extends PureComponent {
     var globalTransitions = {}
 
     if (this.props.transitions) {
-        this.props.transitions.forEach(transitionUri => {
+      this.props.transitions.forEach(transitionUri => {
           // Let's resolve global transitions
-          const transition = this._resolveTransitionFromURI(transitionUri)
-          globalTransitions[transition.name] = transition
-        })
+        const transition = this._resolveTransitionFromURI(transitionUri)
+        globalTransitions[transition.name] = transition
+      })
     }
 
     for (let routeName in chunk.routes) {
       // Great, this chunk has routes, let's look through all of them
       var route = chunk.routes[routeName]
+
+      if (!route.screen) {
+        // This route has no screens
+        continue
+      }
 
       if (Object.keys(rootRoute).length === 0) {
         route.root = true
@@ -98,7 +104,7 @@ export default class App extends PureComponent {
         rootRoute = Object.assign({}, route)
         // Construct a menu
         if (!route.skipMenu) {
-          this._menu.push({ id: `${this.menu.length}`, title: route.menuTitle, link: `/${this.menu.length === 0 ? '' : route.path}` })
+          this._menu.push({ id: `${this.menu.length}`, icon: route.icon.replace('-', '_'), title: route.menuTitle, link: `/${this.menu.length === 0 ? '' : route.path}` })
         }
       } else {
         route.icon = rootRoute.icon
@@ -135,14 +141,14 @@ export default class App extends PureComponent {
       var menu = this.menu
       const screenProps = Object.assign({
         // Defaults
+        cache: cache,
         strings: {},
         account: section.account,
         onUserLogin: this._userLogin,
         onUserLogout: this._userLogout,
-        web: this.props.web,
         info: this.props.info,
         startOperationsOnMount: true
-      }, { theme, transitions, ...route, chunkName, menu })
+      }, { theme, transitions, ...route, chunkName, menu }, this.props.web)
 
       // Resolve strings
       var resolvedStrings = {}
@@ -154,51 +160,51 @@ export default class App extends PureComponent {
       // Now that we have properties, we're ready to initialize the route's screen
       const RouteScreen = route.screen
       const Screen = (props) => {
-        return <RouteScreen {...props} {...screenProps}/>
+        return <RouteScreen {...props} {...screenProps} />
       }
-      const ScreenPath = route.path || "/"
+      const ScreenPath = route.path || `/${routeName}`
+      const ScreenId = `${chunkName}/${routeName}/${route.path || ''}`
 
-      routes.push(<Route exact path={ScreenPath} key={ScreenPath} render={(props) => <Screen {...screenProps} {...props} />}/>)
+      routes.push(<Route exact path={ScreenPath} key={ScreenId} render={(props) => <Screen {...screenProps} {...props} />} />)
     }
-
 
     // We've got ourselves some routes so we should be done with this
     return routes
   }
 
-  _createSectionNavigator(section) {
+  _createSectionNavigator (section) {
     return createSectionRoutes(section, this._createSectionNavigatorRoutes.bind(this))
   }
 
-  _resolve(account) {
+  _resolve (account) {
     this._routes = []
     this._sections = []
 
-    for(const sectionName in this.props.sections) {
+    for (const sectionName in this.props.sections) {
       // Look through all the app's sections and for each, build defaults if necessary
       var section = this.props.sections[sectionName]
       section.name = sectionName
       section.account = account
-      section.layout = section.layout || "default"
+      section.layout = section.layout || 'default'
       section.navigator = this._createSectionNavigator(section)
       this._sections.push(section)
       this._routes = this._routes.concat(section.navigator.routes)
     }
   }
 
-  get menu() {
+  get menu () {
     return this._menu || {}
   }
 
-  get routes() {
+  get routes () {
     return this._routes || []
   }
 
-  get sections() {
+  get sections () {
     return this._sections || []
   }
 
-  renderStatic() {
+  renderStatic () {
     this._resolve()
     return (
       <StaticRouter location={this.props.route.location} context={this.props.route}>
@@ -208,23 +214,23 @@ export default class App extends PureComponent {
       </StaticRouter>)
   }
 
-  renderRoutes() {
+  renderRoutes () {
     return this.routes
   }
 
-  render() {
+  render () {
     if (this.props.route && !this.props.redirect) {
       return this.renderStatic()
     }
 
     if (!this.routes || this.routes.length === 0) {
-      return (<div/>)
+      return (<div />)
     }
 
     return (<BrowserRouter>
       <div>
         { this.renderRoutes() }
       </div>
-      </BrowserRouter>)
+    </BrowserRouter>)
   }
 }

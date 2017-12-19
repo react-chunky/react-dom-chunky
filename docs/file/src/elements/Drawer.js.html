@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/elements/Drawer.js | react-dom-chunky</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="The Chunky Web Framework"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="react-dom-chunky"><meta property="twitter:description" content="The Chunky Web Framework"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/react-chunky/react-dom-chunky"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/blob.js~Blob.html">Blob</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/features.js~Features.html">Features</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/summary.js~Summary.html">Summary</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Cache.js~Cache.html">Cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Screen.js~Screen.html">Screen</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#elements">elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Drawer.js~Drawer.html">Drawer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Layout.js~Layout.html">Layout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Media.js~Media.html">Media</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Text.js~Text.html">Text</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/elements/Drawer.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+import React, { PureComponent } from &apos;react&apos;
+import {
+  ListItem,
+  ListItemText,
+  TemporaryDrawer,
+  TemporaryDrawerHeader,
+  TemporaryDrawerContent
+} from &apos;rmwc&apos;
+
+/**
+ *  This is the Chunky Web Navigation Drawer that is usually used with a navigator
+ *  to control opening and closing the drawer.
+ *
+ *  @see https://github.com/react-chunky/react-dom-chunky
+ *
+ *  @example
+ *  // Render a closed drawer with the default style and one menu item
+ *  &lt;Drawer
+ *    menu={[{title: &quot;Home&quot;}]}
+ *    onClose={this._onDrawerClose}/&gt;
+ *  @example
+ *  // Render an open drawer with three menu items and a light gray header
+ *  &lt;Drawer
+ *    menu={[{title: &quot;Home&quot;}, {title: &quot;About&quot;}, {title: &quot;Contact&quot;}]}
+ *    open={true}
+ *    style={{headerStyle: &apos;#eeeeee&apos;}}
+ *    onClose={this._onDrawerClose}/&gt;
+ */
+export default class Drawer extends PureComponent {
+
+ /**
+  *  An instance of this class represents a Navigation Drawer element that
+  *  is meant to be displayed as an overlay on top of the visible window. The drawer
+  *  takes a list of menu items as input and displays them using a default
+  *  style can be overwritten. It can also be closed and opened.
+  *  @summary The Drawer element to be used in a navigation menu
+  *  @author I. Dan Calinescu &lt;http://github.com/idancali&gt;
+  *  @param {Object} props Drawer properties
+  *  @param {Array&lt;Object&gt;} props.menu a list of menu items to display
+  *  @param {String} props.menu.title the title of a menu item
+  *  @param {String} props.headerStyle the Drawer header style
+  *  @param {boolean} props.open whether the Drawer is open or closed
+  *  @param {function} props.onClose called when the Drawer is closed
+  */
+  constructor (props) {
+    super(props)
+
+    /** Will be called when the drawer is closed **/
+    this._onClosePressed = this._onClose.bind(this)
+  }
+
+  /**
+   *  Renders this drawer
+   */
+  render () {
+    return (&lt;TemporaryDrawer
+      open={this._open}
+      onClose={this._onClosePressed}&gt;
+      &lt;TemporaryDrawerHeader style={this._headerStyle} /&gt;
+      &lt;TemporaryDrawerContent&gt;
+        { this.renderMenu() }
+      &lt;/TemporaryDrawerContent&gt;
+    &lt;/TemporaryDrawer&gt;)
+  }
+
+  /**
+   *  Whether the drawer is meant to be displayed as open or closed
+   *
+   *  @returns {boolean} whether the drawer is open or closed, false by default
+   */
+  get _open () {
+    return this.props.open || false
+  }
+
+  /**
+   *  Uses the given style or a default one if one wasn&apos;t passed through the properties.
+   *  Override this if you want to completely take over the header style.
+   */
+  get _headerStyle () {
+    return this.props.headerStyle || styles.header
+  }
+
+  /**
+   *  The list of menu items
+   *
+   *  @returns {Array&lt;Object&gt;} a list of passed menu objects, or an empty list
+   **/
+  get _menu () {
+    return this.props.menu || []
+  }
+
+  /**
+   *  Called when the drawer is asked by the user to close
+   */
+  _onClose () {
+    this.props.onClose &amp;&amp; this.props.onClose()
+  }
+
+  /**
+   *  Renders a list o menu items, as
+   *
+   *  @returns {Array&lt;ListItem&gt;} a list of {ListItem}
+   */
+  renderMenu () {
+    var index = 0
+    return this._menu.map(item =&gt; (&lt;ListItem key={`menuItem${index++}`}&gt;
+      &lt;ListItemText&gt;{ item.title }&lt;/ListItemText&gt;
+    &lt;/ListItem&gt;))
+  }
+}
+
+/**
+ * Default styles
+ */
+const styles = {
+  header: {
+    backgroundColor: &apos;#eeeeee&apos;
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+{
+  "coverage": "6.83%",
+  "expectCount": 161,
+  "actualCount": 11,
+  "files": {
+    "src/components/blob.js": {
+      "expectCount": 8,
+      "actualCount": 0,
+      "undocumentLines": [
+        8,
+        10,
+        12,
+        15,
+        20,
+        30,
+        38,
+        53
+      ]
+    },
+    "src/components/features.js": {
+      "expectCount": 9,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        8,
+        10,
+        13,
+        17,
+        28,
+        57,
+        63,
+        81
+      ]
+    },
+    "src/components/summary.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        7,
+        9,
+        12,
+        16
+      ]
+    },
+    "src/core/App.js": {
+      "expectCount": 21,
+      "actualCount": 0,
+      "undocumentLines": [
+        10,
+        12,
+        14,
+        16,
+        17,
+        18,
+        21,
+        31,
+        38,
+        45,
+        54,
+        176,
+        180,
+        181,
+        182,
+        196,
+        200,
+        204,
+        208,
+        218,
+        222
+      ]
+    },
+    "src/core/Cache.js": {
+      "expectCount": 10,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        13,
+        17,
+        24,
+        34
+      ]
+    },
+    "src/core/Component.js": {
+      "expectCount": 22,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        6,
+        8,
+        11,
+        15,
+        19,
+        23,
+        27,
+        31,
+        35,
+        39,
+        45,
+        48,
+        52,
+        55,
+        58,
+        61,
+        64,
+        69,
+        74,
+        78,
+        85
+      ]
+    },
+    "src/core/Router.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/core/Screen.js": {
+      "expectCount": 34,
+      "actualCount": 0,
+      "undocumentLines": [
+        9,
+        11,
+        13,
+        14,
+        15,
+        19,
+        26,
+        31,
+        35,
+        39,
+        44,
+        60,
+        68,
+        72,
+        76,
+        80,
+        86,
+        92,
+        96,
+        100,
+        104,
+        108,
+        112,
+        116,
+        120,
+        124,
+        128,
+        132,
+        134,
+        154,
+        162,
+        168,
+        176,
+        201
+      ]
+    },
+    "src/elements/Drawer.js": {
+      "expectCount": 10,
+      "actualCount": 10,
+      "undocumentLines": []
+    },
+    "src/elements/Layout.js": {
+      "expectCount": 32,
+      "actualCount": 1,
+      "undocumentLines": [
+        30,
+        32,
+        35,
+        41,
+        45,
+        49,
+        53,
+        57,
+        61,
+        73,
+        81,
+        92,
+        96,
+        103,
+        109,
+        115,
+        122,
+        131,
+        139,
+        144,
+        150,
+        164,
+        188,
+        196,
+        209,
+        213,
+        229,
+        247,
+        253,
+        265,
+        283
+      ]
+    },
+    "src/elements/Media.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        8,
+        12,
+        14
+      ]
+    },
+    "src/elements/Text.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        7,
+        11,
+        15,
+        19
+      ]
+    }
+  }
+}

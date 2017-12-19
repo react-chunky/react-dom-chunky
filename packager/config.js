@@ -2,14 +2,14 @@ const path = require('path')
 const fs = require('fs-extra')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const StaticPlugin = require('./staticPlugin')
 const pages = require('./pages')
 
 module.exports = (options) => {
   return {
     entry: [
-       path.resolve(options.dir, 'node_modules', 'react-dom-chunky', 'app', 'index.js')
+      path.resolve(options.dir, 'node_modules', 'react-dom-chunky', 'app', 'index.js')
     ],
 
     output: {
@@ -25,12 +25,24 @@ module.exports = (options) => {
       extensions: ['.js', '.json'],
       modules: [
         path.resolve(options.dir),
-        "node_modules"
+        'node_modules'
       ]
     },
 
     module: {
       rules: [
+        {
+          test: /\.(png|gif|jpe?g)$/,
+          use: [{
+            loader: 'lqip-loader',
+            options: {
+              path: '/assets',
+              name: '[name].[ext]',
+              base64: true,
+              palette: false
+            }
+          }]
+        },
         {
           test: /\.(html)$/,
           use: {
@@ -43,30 +55,30 @@ module.exports = (options) => {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
             use: [{
-                loader: 'css-loader',
-                options: { modules: true }
+              loader: 'css-loader',
+              options: { modules: true }
             }]
-          }),
+          })
         },
         {
           test: /\.md$/,
           use: [
-              {
-                  loader: "html-loader"
-              },
-              {
-                  loader: "markdown-loader",
-                  options: {
-                  }
+            {
+              loader: 'html-loader'
+            },
+            {
+              loader: 'markdown-loader',
+              options: {
               }
+            }
           ]
         },
         {
           test: /\.js$/,
           include: [
-            path.resolve(options.dir, "node_modules", "react-chunky"),
-            path.resolve(options.dir, "node_modules", "react-dom-chunky"),
-            path.resolve(options.dir, "chunks")
+            path.resolve(options.dir, 'node_modules', 'react-chunky'),
+            path.resolve(options.dir, 'node_modules', 'react-dom-chunky'),
+            path.resolve(options.dir, 'chunks')
           ],
           use: {
             loader: 'babel-loader',
@@ -80,7 +92,7 @@ module.exports = (options) => {
                 path.resolve(options.dir, 'node_modules', 'babel-preset-stage-2')
               ],
               plugins: [
-                "styled-jsx/babel"
+                'styled-jsx/babel'
               ]
             }
           }
@@ -92,10 +104,10 @@ module.exports = (options) => {
       new ExtractTextPlugin('chunky.css'),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new CopyWebpackPlugin([
-        { from: { glob: path.resolve(options.dir, "node_modules", "react-dom-chunky", "app", "assets/**/*"), dot: false }, to: "assets", flatten: 'true' },
-        { from: { glob: path.resolve(options.dir, 'assets/**/*'), dot: false, to: "assets",  flatten: 'true' } }
+        { from: { glob: path.resolve(options.dir, 'node_modules', 'react-dom-chunky', 'app', 'assets/**/*'), dot: false }, to: 'assets', flatten: 'true' },
+        { from: { glob: path.resolve(options.dir, 'assets/**/*'), dot: false, to: 'assets', flatten: 'true' } }
       ])
-    ].concat(pages(options)).concat([new StaticPlugin(Object.assign({}, options )),
+    ].concat(pages(options)).concat([new StaticPlugin(Object.assign({}, options)),
       new webpack.optimize.UglifyJsPlugin({
         sourceMap: true,
         comments: false,

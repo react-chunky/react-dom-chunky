@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/components/features.js | react-dom-chunky</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="The Chunky Web Framework"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="react-dom-chunky"><meta property="twitter:description" content="The Chunky Web Framework"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/react-chunky/react-dom-chunky"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/blob.js~Blob.html">Blob</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/features.js~Features.html">Features</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/summary.js~Summary.html">Summary</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Cache.js~Cache.html">Cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Screen.js~Screen.html">Screen</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#elements">elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Drawer.js~Drawer.html">Drawer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Layout.js~Layout.html">Layout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Media.js~Media.html">Media</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Text.js~Text.html">Text</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/features.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
+import Component from &apos;../core/Component&apos;
+import Blob from &apos;./blob&apos;
+import { Card, Chip, Grid, Cell, ChipContact, Icon, CardText, Button, CardTitle, CardActions } from &apos;react-mdl&apos;
+
+export default class Features extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = { ...this.state }
+  }
+
+  componentDidMount () {
+    super.componentDidMount()
+  }
+
+  codeLinks ({ project, type }) {
+    const githubLink = `http://github.com/react-chunky/${project}`
+    const githubStarsBadge = `https://img.shields.io/github/stars/react-chunky/${project}.svg?style=social&amp;label=Stars`
+    const githubTagBadge = `https://img.shields.io/github/tag/react-chunky/${project}.svg?`
+    const npmLink = `http://npmjs.com/package/${project}`
+    const npmBadge = `https://img.shields.io/npm/v/${project}.svg`
+    const npmDownloadsBadge = `https://img.shields.io/npm/dm/${project}.svg`
+
+    return { githubLink, githubStarsBadge, githubTagBadge, npmLink, npmBadge, npmDownloadsBadge }
+  }
+
+  renderFeatureCodeContent (code) {
+    const codeLinks = this.codeLinks(code)
+
+    var links = (&lt;div&gt;
+      &lt;a href={codeLinks.githubLink} style={{ textDecoration: &apos;none&apos;}}&gt; &lt;img src={codeLinks.githubTagBadge} /&gt;&lt;/a&gt;
+    &lt;/div&gt;)
+
+    if (code.type === &apos;npm&apos;) {
+      links = (&lt;div&gt;
+        &lt;a href={codeLinks.npmLink} style={{ textDecoration: &apos;none&apos;}}&gt; &lt;img src={codeLinks.npmBadge} /&gt; &lt;/a&gt;
+        &lt;a href={codeLinks.npmLink} style={{ marginLeft: 10, extDecoration: &apos;none&apos;}}&gt; &lt;img src={codeLinks.npmDownloadsBadge} /&gt; &lt;/a&gt;
+      &lt;/div&gt;)
+    }
+
+    return (&lt;CardText style={{textAlign: &apos;left&apos;, paddingLeft: 20 }}&gt;
+      &lt;p&gt;
+        &lt;a href={codeLinks.githubLink} style={{ textDecoration: &apos;none&apos;}}&gt;
+          &lt;Chip&gt;
+            &lt;ChipContact&gt;
+              &lt;span className=&apos;octicon octicon-mark-github&apos; style={{fontSize: 24, marginTop: 4}} /&gt;
+            &lt;/ChipContact&gt;
+            { code.project }
+          &lt;/Chip&gt;
+        &lt;/a&gt;
+      &lt;/p&gt;
+      { links }
+    &lt;/CardText&gt;)
+  }
+
+  renderFeatureContent (text) {
+    return (&lt;CardText style={{textAlign: &apos;left&apos;, paddingLeft: 20 }}&gt;
+      { text }
+    &lt;/CardText&gt;)
+  }
+
+  renderFeature ({ id, title, color, icon, action, link, code, text }) {
+    return (
+      &lt;Cell phone={12} tablet={12} col={4} key={id}&gt;
+        &lt;div style={{ padding: 20, display: &apos;flex&apos;, flex: 1, margin: 20 }}&gt;
+          &lt;Card shadow={0} style={{width: &apos;320px&apos;, height: &apos;380px&apos;, margin: &apos;auto&apos;}}&gt;
+            &lt;CardTitle expand style={{color: &apos;#fff&apos;, paddingLeft: 20, background: `url(/assets/${icon}) bottom 100% right 10% no-repeat ${color}`}}&gt;
+              { title }
+            &lt;/CardTitle&gt;
+            { code ? this.renderFeatureCodeContent(code) : this.renderFeatureContent(text) }
+            &lt;CardActions border style={{textAlign: &apos;center&apos;, padding: 20}}&gt;
+              &lt;a href={link} className=&apos;mdl-button mdl-js-button mdl-button--colored&apos;&gt;{ action }
+                &lt;Icon name=&apos;chevron_right&apos; style={{marginTop: -3, padding: 0}} /&gt;
+              &lt;/a&gt;
+            &lt;/CardActions&gt;
+          &lt;/Card&gt;
+        &lt;/div&gt;&lt;/Cell&gt;)
+  }
+
+  renderComponent () {
+    const width = this.isLargeScreen ? 800 : this.width
+
+    return (&lt;div style={{ color: &apos;#607D8B&apos;, padding: 50, backgroundColor: &apos;#E1F5FE&apos;, position: &apos;relative&apos;, display: &apos;flex&apos;, flexDirection: &apos;column&apos;, alignItems: &apos;center&apos;, justifyContent: &apos;center&apos; }}&gt;
+      &lt;h2 style={{textAlign: &apos;center&apos; }}&gt; { this.props.header } &lt;/h2&gt;
+      &lt;div style={{ margin: 50 }}&gt;
+        &lt;Grid&gt;
+          { this.props.features.map(f =&gt; this.renderFeature(f)) }
+        &lt;/Grid&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;)
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

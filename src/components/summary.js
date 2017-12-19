@@ -1,25 +1,25 @@
 import React from 'react'
 import Component from '../core/Component'
-import Blob from './blob'
+import Text from '../elements/Text'
 
-export default class SummaryComponent extends Component {
+export default class Summary extends Component {
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = { ...this.state }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     super.componentDidMount()
   }
 
-  renderComponent() {
+  renderComponent () {
     const width = this.isLargeScreen ? 800 : this.width - 40
 
-    return (<div style={{ color: "#607D8B", position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    return (<div style={{ color: '#607D8B', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: `${width}px`, margin: 80 }}>
-          <Blob blob={this.props.blob}/>
+        <Text blob={this.props.blob} />
       </div>
-   </div>)
+    </div>)
   }
 }

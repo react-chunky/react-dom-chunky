@@ -7,55 +7,55 @@ let ejs = require('ejs')
 
 class Plugin {
 
-  constructor(context) {
+  constructor (context) {
     this._context = context
     this._startTime = new Date().getTime()
     this._spinner = new Ora()
   }
 
-  get context() {
+  get context () {
     return this._context
   }
 
-  get spinner() {
+  get spinner () {
     return chalk.gray.dim(this._spinner.frame())
   }
 
-  get startTime() {
+  get startTime () {
     return this._startTime
   }
 
-  log(message) {
-    console.log(`${chalk.bold("[Chunky]")} ${message}`)
+  log (message) {
+    console.log(`${chalk.bold('[Chunky]')} ${message}`)
   }
 
-  onStart() {
+  onStart () {
     this._startTime = new Date().getTime()
-    this.log(chalk.green("Getting ready to start packing"))
+    this.log(chalk.green('Getting ready to start packing'))
   }
 
-  onDone(done) {
-    const time = this.endTime(this.startTime);
-    this.log(chalk.green("✔ Finished packing in ") + chalk.bold(time));
+  onDone (done) {
+    const time = this.endTime(this.startTime)
+    this.log(chalk.green('✔ Finished packing in ') + chalk.bold(time))
     done && done()
   }
 
-  onModuleStart(module) {
+  onModuleStart (module) {
   }
 
-  onModuleFailure(module) {
+  onModuleFailure (module) {
     if (!module.resource) {
         // Ignore context logging
-        return
+      return
     }
 
-    this.log(chalk.red("✘ ") +  chalk.gray(module.resource))
+    this.log(chalk.red('✘ ') + chalk.gray(module.resource))
     this.log(chalk.red(module.error))
   }
 
-  onModuleSuccess(module) {
+  onModuleSuccess (module) {
     if (module.errors && module.errors.length > 0) {
-      this.log(chalk.red("✘ ") +  chalk.gray(module.resource))
+      this.log(chalk.red('✘ ') + chalk.gray(module.resource))
       this.log(chalk.red(module.errors[0]))
       return
     }
@@ -65,20 +65,20 @@ class Plugin {
       return
     }
 
-    this.log(chalk.green("✔ ") + chalk.gray(module.resource))
+    this.log(chalk.green('✔ ') + chalk.gray(module.resource))
   }
 
-  endTime(startTime) {
+  endTime (startTime) {
     const time = new Date().getTime() - startTime
-    return (time < 1000 ? time + "ms" : (parseFloat(time/1000).toFixed(2) + "s"))
+    return (time < 1000 ? time + 'ms' : (parseFloat(time / 1000).toFixed(2) + 's'))
   }
 
-  resolveHtml(data, html) {
+  resolveHtml (data, html) {
     const route = Object.assign({}, data.plugin.options.route, html ? { html } : {})
     const info = this.context.config.info
     const web = this.context.config.web
 
-    const vars =  JSON.stringify({ route: data.plugin.options.route })
+    const vars = JSON.stringify({ route: data.plugin.options.route })
 
     const chunky = { route, info, web, vars }
 
@@ -87,14 +87,14 @@ class Plugin {
     return data
   }
 
-  onPageGeneration(compilation, data, done) {
+  onPageGeneration (compilation, data, done) {
     done(null, this.resolveHtml(data))
   }
 
-  apply(compiler) {
-    compiler.plugin("compile", (params) => this.onStart())
+  apply (compiler) {
+    compiler.plugin('compile', (params) => this.onStart())
 
-    compiler.plugin("compilation", (compilation) => {
+    compiler.plugin('compilation', (compilation) => {
       compilation.plugin('html-webpack-plugin-before-html-processing', (data, done) => this.onPageGeneration(compilation, data, done))
       compilation.plugin('build-module', (module) => this.onModuleStart(module))
       compilation.plugin('failed-module', (module) => this.onModuleFailure(module))

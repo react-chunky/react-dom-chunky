@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/core/App.js | react-dom-chunky</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="The Chunky Web Framework"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="react-dom-chunky"><meta property="twitter:description" content="The Chunky Web Framework"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/react-chunky/react-dom-chunky"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/blob.js~Blob.html">Blob</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/features.js~Features.html">Features</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/summary.js~Summary.html">Summary</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Cache.js~Cache.html">Cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Screen.js~Screen.html">Screen</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#elements">elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Drawer.js~Drawer.html">Drawer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Layout.js~Layout.html">Layout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Media.js~Media.html">Media</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Text.js~Text.html">Text</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/core/App.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { PureComponent } from &apos;react&apos;
+import { StaticRouter, BrowserRouter, Route } from &apos;react-router-dom&apos;
+import URL from &apos;url-parse&apos;
+import { Data } from &apos;react-chunky&apos;
+import { createSectionRoutes } from &apos;./Router&apos;
+import { Redirect } from &apos;react-router&apos;
+import uuid from &apos;uuid&apos;
+import cache from &apos;./Cache&apos;
+
+export default class App extends PureComponent {
+
+  constructor (props) {
+    super(props)
+    this.state = { loading: true }
+
+    this._menu = []
+    this._userLogin = this.userLogin.bind(this)
+    this._userLogout = this.userLogout.bind(this)
+  }
+
+  componentDidMount () {
+    Data.Cache.retrieveAuth().then(account =&gt; {
+      this._resolve(account)
+      this.setState({ loading: false, account })
+    }).catch(error =&gt; {
+      this._resolve()
+      this.setState({ loading: false })
+    })
+  }
+
+  userLogin (account) {
+    Data.Cache.cacheAuth(account).then(() =&gt; {
+      this._resolve(account)
+      this.setState({ account })
+    })
+  }
+
+  userLogout () {
+    Data.Cache.clearAuth().then(account =&gt; {
+      this._resolve()
+      this.setState({ account: undefined })
+    })
+  }
+
+  _resolveTransitionFromURI (uri) {
+    const url = new URL(uri, true)
+    return {
+      name: `show${url.hostname.charAt(0).toUpperCase()}${url.hostname.substring(1).toLowerCase()}`,
+      type: url.protocol.slice(0, -1).toLowerCase(),
+      route: url.hostname
+    }
+  }
+
+  _createSectionNavigatorRoutes (element, section) {
+    // We want to look at a stack element and figure out its parent chunk;
+    // Note that chunks may also have flavours so this looks for the flavor, if any
+    const [ chunkName, chunkFlavorName ] = element.split(&apos;/&apos;)
+
+    // This is our chunk, if it actually exists
+    const chunk = this.props.chunks[chunkName]
+
+    if (!chunk) {
+      // Let&apos;s verify that it actually points to a real chunk
+      return
+    }
+
+    if (chunkFlavorName &amp;&amp; (!chunk.flavors || !chunk.flavors[chunkFlavorName])) {
+      // Great, let&apos;s check the flavor now
+      return
+    }
+
+    if (!chunk.routes || chunk.routes.length === 0) {
+      // One last thing, let&apos;s also make sure the chunk has routes
+      return
+    }
+
+    // These routes will be the ones we want to parse out of the chunk, as necessary
+    var routes = []
+
+    var rootRoute = {}
+
+    // Let&apos;s build up global transitions, if any
+    var globalTransitions = {}
+
+    if (this.props.transitions) {
+      this.props.transitions.forEach(transitionUri =&gt; {
+          // Let&apos;s resolve global transitions
+        const transition = this._resolveTransitionFromURI(transitionUri)
+        globalTransitions[transition.name] = transition
+      })
+    }
+
+    for (let routeName in chunk.routes) {
+      // Great, this chunk has routes, let&apos;s look through all of them
+      var route = chunk.routes[routeName]
+
+      if (!route.screen) {
+        // This route has no screens
+        continue
+      }
+
+      if (Object.keys(rootRoute).length === 0) {
+        route.root = true
+        route.menuTitle = route.title
+        rootRoute = Object.assign({}, route)
+        // Construct a menu
+        if (!route.skipMenu) {
+          this._menu.push({ id: `${this.menu.length}`, icon: route.icon.replace(&apos;-&apos;, &apos;_&apos;), title: route.menuTitle, link: `/${this.menu.length === 0 ? &apos;&apos; : route.path}` })
+        }
+      } else {
+        route.icon = rootRoute.icon
+        route.menuTitle = rootRoute.menuTitle
+      }
+
+      // Let&apos;s build up the transitions, if any
+      var transitions = {}
+
+      if (chunk.transitions) {
+        chunk.transitions.forEach(transitionUri =&gt; {
+          // Parse this transition&apos;s URI
+          const transition = this._resolveTransitionFromURI(transitionUri)
+          const routeData = chunk.routes[transition.route]
+          if (transition.route &amp;&amp; routeData) {
+            // This is a local transition, so let&apos;s resolve locally
+            transition.data = Object.assign({}, routeData)
+            transition.route = `${section.name}/${chunkName}/${transition.route}`
+            transitions[transition.name] = transition
+            return
+          }
+
+          if (globalTransitions[transition.name]) {
+            // Let&apos;s look through the global transitions, if any
+            transitions[transition.name] = Object.assign({}, globalTransitions[transition.name])
+          }
+        })
+      }
+
+      // Let&apos;s pass over the theme as well
+      const theme = this.props.theme
+
+      // For each route, we want to compose its properties
+      var menu = this.menu
+      const screenProps = Object.assign({
+        // Defaults
+        cache: cache,
+        strings: {},
+        account: section.account,
+        onUserLogin: this._userLogin,
+        onUserLogout: this._userLogout,
+        info: this.props.info,
+        startOperationsOnMount: true
+      }, { theme, transitions, ...route, chunkName, menu }, this.props.web)
+
+      // Resolve strings
+      var resolvedStrings = {}
+      for (const string in screenProps.strings) {
+        resolvedStrings[string] = this.props.strings[screenProps.strings[string]] || `??${screenProps.strings[string]}??`
+      }
+      screenProps.strings = Object.assign({}, this.props.strings, resolvedStrings)
+
+      // Now that we have properties, we&apos;re ready to initialize the route&apos;s screen
+      const RouteScreen = route.screen
+      const Screen = (props) =&gt; {
+        return &lt;RouteScreen {...props} {...screenProps} /&gt;
+      }
+      const ScreenPath = route.path || `/${routeName}`
+      const ScreenId = `${chunkName}/${routeName}/${route.path || &apos;&apos;}`
+
+      routes.push(&lt;Route exact path={ScreenPath} key={ScreenId} render={(props) =&gt; &lt;Screen {...screenProps} {...props} /&gt;} /&gt;)
+    }
+
+    // We&apos;ve got ourselves some routes so we should be done with this
+    return routes
+  }
+
+  _createSectionNavigator (section) {
+    return createSectionRoutes(section, this._createSectionNavigatorRoutes.bind(this))
+  }
+
+  _resolve (account) {
+    this._routes = []
+    this._sections = []
+
+    for (const sectionName in this.props.sections) {
+      // Look through all the app&apos;s sections and for each, build defaults if necessary
+      var section = this.props.sections[sectionName]
+      section.name = sectionName
+      section.account = account
+      section.layout = section.layout || &apos;default&apos;
+      section.navigator = this._createSectionNavigator(section)
+      this._sections.push(section)
+      this._routes = this._routes.concat(section.navigator.routes)
+    }
+  }
+
+  get menu () {
+    return this._menu || {}
+  }
+
+  get routes () {
+    return this._routes || []
+  }
+
+  get sections () {
+    return this._sections || []
+  }
+
+  renderStatic () {
+    this._resolve()
+    return (
+      &lt;StaticRouter location={this.props.route.location} context={this.props.route}&gt;
+        &lt;div&gt;
+          { this.routes }
+        &lt;/div&gt;
+      &lt;/StaticRouter&gt;)
+  }
+
+  renderRoutes () {
+    return this.routes
+  }
+
+  render () {
+    if (this.props.route &amp;&amp; !this.props.redirect) {
+      return this.renderStatic()
+    }
+
+    if (!this.routes || this.routes.length === 0) {
+      return (&lt;div /&gt;)
+    }
+
+    return (&lt;BrowserRouter&gt;
+      &lt;div&gt;
+        { this.renderRoutes() }
+      &lt;/div&gt;
+    &lt;/BrowserRouter&gt;)
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

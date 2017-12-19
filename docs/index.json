@@ -1,0 +1,4078 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/components/blob.js",
+    "content": "import React from 'react'\nimport Component from '../core/Component'\nimport 'react-placeholder/lib/reactPlaceholder.css'\nimport { ProgressBar } from 'react-mdl'\nimport ReactPlaceholder from 'react-placeholder'\nimport {TextBlock, MediaBlock, TextRow, RectShape, RoundShape} from 'react-placeholder/lib/placeholders'\n\nexport default class Blob extends Component {\n\n  constructor (props) {\n    super(props)\n    this.state = { ...this.state, loading: true }\n  }\n\n  componentDidMount () {\n    super.componentDidMount()\n    this.loadContent()\n  }\n\n  loadContent () {\n    this.loadBlob(this.props.blob)\n            .then(text => {\n              this.setState({ loading: false, text })\n            })\n            .catch(error => {\n              this.setState({ error })\n            })\n  }\n\n  get placeholder () {\n    return (<div style={{justifyContent: 'center'}}>\n      <RectShape color='#CFD8DC' style={{ height: 40, marginBottom: 10}} />\n      <ProgressBar indeterminate style={{ width: '100%', marginBottom: 10 }} />\n      <TextBlock rows={7} color='#ECEFF1' />\n    </div>)\n  }\n\n  renderComponentContent ({ titleColor, textColor }) {\n    const className = `_blob-${this.id}`\n    return (<div>\n      <div className={className} dangerouslySetInnerHTML={{ __html: this.state.text }} />\n      <style jsx>{`\n           {\n             .${className} :global(h2) {\n             }\n             .${className} :global(p) {\n             }\n            }\n        `}</style>\n    </div>)\n  }\n\n  renderComponent () {\n    return (<div>\n      <ReactPlaceholder showLoadingAnimation rows={7} ready={!this.state.loading} customPlaceholder={this.placeholder}>\n        { this.renderComponentContent({ titleColor: '#263238', textColor: '#455A64' }) }\n      </ReactPlaceholder>\n    </div>)\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/components/blob.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "Blob",
+    "memberof": "src/components/blob.js",
+    "static": true,
+    "longname": "src/components/blob.js~Blob",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/components/blob.js",
+    "importStyle": "Blob",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/core/Component.js~Component"
+    ]
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/blob.js~Blob",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/blob.js~Blob#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/blob.js~Blob",
+    "static": false,
+    "longname": "src/components/blob.js~Blob#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{...undefined: Object, \"loading\": boolean}"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "method",
+    "name": "componentDidMount",
+    "memberof": "src/components/blob.js~Blob",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/blob.js~Blob#componentDidMount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 53,
+    "kind": "method",
+    "name": "loadContent",
+    "memberof": "src/components/blob.js~Blob",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/blob.js~Blob#loadContent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 54,
+    "kind": "get",
+    "name": "placeholder",
+    "memberof": "src/components/blob.js~Blob",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/blob.js~Blob#placeholder",
+    "access": "public",
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "name": "renderComponentContent",
+    "memberof": "src/components/blob.js~Blob",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/blob.js~Blob#renderComponentContent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"titleColor\": *, \"textColor\": *}"
+        ],
+        "defaultRaw": {
+          "titleColor": null,
+          "textColor": null
+        },
+        "defaultValue": "{\"titleColor\":null,\"textColor\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "name": "renderComponent",
+    "memberof": "src/components/blob.js~Blob",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/blob.js~Blob#renderComponent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "file",
+    "name": "src/components/features.js",
+    "content": "import React from 'react'\nimport Component from '../core/Component'\nimport Blob from './blob'\nimport { Card, Chip, Grid, Cell, ChipContact, Icon, CardText, Button, CardTitle, CardActions } from 'react-mdl'\n\nexport default class Features extends Component {\n\n  constructor (props) {\n    super(props)\n    this.state = { ...this.state }\n  }\n\n  componentDidMount () {\n    super.componentDidMount()\n  }\n\n  codeLinks ({ project, type }) {\n    const githubLink = `http://github.com/react-chunky/${project}`\n    const githubStarsBadge = `https://img.shields.io/github/stars/react-chunky/${project}.svg?style=social&label=Stars`\n    const githubTagBadge = `https://img.shields.io/github/tag/react-chunky/${project}.svg?`\n    const npmLink = `http://npmjs.com/package/${project}`\n    const npmBadge = `https://img.shields.io/npm/v/${project}.svg`\n    const npmDownloadsBadge = `https://img.shields.io/npm/dm/${project}.svg`\n\n    return { githubLink, githubStarsBadge, githubTagBadge, npmLink, npmBadge, npmDownloadsBadge }\n  }\n\n  renderFeatureCodeContent (code) {\n    const codeLinks = this.codeLinks(code)\n\n    var links = (<div>\n      <a href={codeLinks.githubLink} style={{ textDecoration: 'none'}}> <img src={codeLinks.githubTagBadge} /></a>\n    </div>)\n\n    if (code.type === 'npm') {\n      links = (<div>\n        <a href={codeLinks.npmLink} style={{ textDecoration: 'none'}}> <img src={codeLinks.npmBadge} /> </a>\n        <a href={codeLinks.npmLink} style={{ marginLeft: 10, extDecoration: 'none'}}> <img src={codeLinks.npmDownloadsBadge} /> </a>\n      </div>)\n    }\n\n    return (<CardText style={{textAlign: 'left', paddingLeft: 20 }}>\n      <p>\n        <a href={codeLinks.githubLink} style={{ textDecoration: 'none'}}>\n          <Chip>\n            <ChipContact>\n              <span className='octicon octicon-mark-github' style={{fontSize: 24, marginTop: 4}} />\n            </ChipContact>\n            { code.project }\n          </Chip>\n        </a>\n      </p>\n      { links }\n    </CardText>)\n  }\n\n  renderFeatureContent (text) {\n    return (<CardText style={{textAlign: 'left', paddingLeft: 20 }}>\n      { text }\n    </CardText>)\n  }\n\n  renderFeature ({ id, title, color, icon, action, link, code, text }) {\n    return (\n      <Cell phone={12} tablet={12} col={4} key={id}>\n        <div style={{ padding: 20, display: 'flex', flex: 1, margin: 20 }}>\n          <Card shadow={0} style={{width: '320px', height: '380px', margin: 'auto'}}>\n            <CardTitle expand style={{color: '#fff', paddingLeft: 20, background: `url(/assets/${icon}) bottom 100% right 10% no-repeat ${color}`}}>\n              { title }\n            </CardTitle>\n            { code ? this.renderFeatureCodeContent(code) : this.renderFeatureContent(text) }\n            <CardActions border style={{textAlign: 'center', padding: 20}}>\n              <a href={link} className='mdl-button mdl-js-button mdl-button--colored'>{ action }\n                <Icon name='chevron_right' style={{marginTop: -3, padding: 0}} />\n              </a>\n            </CardActions>\n          </Card>\n        </div></Cell>)\n  }\n\n  renderComponent () {\n    const width = this.isLargeScreen ? 800 : this.width\n\n    return (<div style={{ color: '#607D8B', padding: 50, backgroundColor: '#E1F5FE', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>\n      <h2 style={{textAlign: 'center' }}> { this.props.header } </h2>\n      <div style={{ margin: 50 }}>\n        <Grid>\n          { this.props.features.map(f => this.renderFeature(f)) }\n        </Grid>\n      </div>\n    </div>)\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/components/features.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 58,
+    "kind": "class",
+    "name": "Features",
+    "memberof": "src/components/features.js",
+    "static": true,
+    "longname": "src/components/features.js~Features",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/components/features.js",
+    "importStyle": "Features",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/core/Component.js~Component"
+    ]
+  },
+  {
+    "__docId__": 59,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/features.js~Features",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/features.js~Features#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/features.js~Features",
+    "static": false,
+    "longname": "src/components/features.js~Features#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{...undefined: Object}"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "componentDidMount",
+    "memberof": "src/components/features.js~Features",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/features.js~Features#componentDidMount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "codeLinks",
+    "memberof": "src/components/features.js~Features",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/features.js~Features#codeLinks",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"project\": *, \"type\": *}"
+        ],
+        "defaultRaw": {
+          "project": null,
+          "type": null
+        },
+        "defaultValue": "{\"project\":null,\"type\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"githubLink\": *, \"githubStarsBadge\": *, \"githubTagBadge\": *, \"npmLink\": *, \"npmBadge\": *, \"npmDownloadsBadge\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "method",
+    "name": "renderFeatureCodeContent",
+    "memberof": "src/components/features.js~Features",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/features.js~Features#renderFeatureCodeContent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "params": [
+      {
+        "name": "code",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "renderFeatureContent",
+    "memberof": "src/components/features.js~Features",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/features.js~Features#renderFeatureContent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "params": [
+      {
+        "name": "text",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "name": "renderFeature",
+    "memberof": "src/components/features.js~Features",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/features.js~Features#renderFeature",
+    "access": "public",
+    "description": null,
+    "lineNumber": 63,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"id\": *, \"title\": *, \"color\": *, \"icon\": *, \"action\": *, \"link\": *, \"code\": *, \"text\": *}"
+        ],
+        "defaultRaw": {
+          "id": null,
+          "title": null,
+          "color": null,
+          "icon": null,
+          "action": null,
+          "link": null,
+          "code": null,
+          "text": null
+        },
+        "defaultValue": "{\"id\":null,\"title\":null,\"color\":null,\"icon\":null,\"action\":null,\"link\":null,\"code\":null,\"text\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "name": "renderComponent",
+    "memberof": "src/components/features.js~Features",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/features.js~Features#renderComponent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 81,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "file",
+    "name": "src/components/index.js",
+    "content": "export { default as Summary } from './summary'\nexport { default as Blob } from './blob'\nexport { default as Features } from './features'\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/components/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 68,
+    "kind": "file",
+    "name": "src/components/summary.js",
+    "content": "import React from 'react'\nimport Component from '../core/Component'\nimport Blob from './blob'\n\nexport default class Summary extends Component {\n\n  constructor (props) {\n    super(props)\n    this.state = { ...this.state }\n  }\n\n  componentDidMount () {\n    super.componentDidMount()\n  }\n\n  renderComponent () {\n    const width = this.isLargeScreen ? 800 : this.width - 40\n\n    return (<div style={{ color: '#607D8B', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>\n      <div style={{ width: `${width}px`, margin: 80 }}>\n        <Blob blob={this.props.blob} />\n      </div>\n    </div>)\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/components/summary.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 69,
+    "kind": "class",
+    "name": "Summary",
+    "memberof": "src/components/summary.js",
+    "static": true,
+    "longname": "src/components/summary.js~Summary",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/components/summary.js",
+    "importStyle": "Summary",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/core/Component.js~Component"
+    ]
+  },
+  {
+    "__docId__": 70,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/summary.js~Summary",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/summary.js~Summary#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/summary.js~Summary",
+    "static": false,
+    "longname": "src/components/summary.js~Summary#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{...undefined: Object}"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "componentDidMount",
+    "memberof": "src/components/summary.js~Summary",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/summary.js~Summary#componentDidMount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "renderComponent",
+    "memberof": "src/components/summary.js~Summary",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/summary.js~Summary#renderComponent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "file",
+    "name": "src/core/App.js",
+    "content": "import React, { PureComponent } from 'react'\nimport { StaticRouter, BrowserRouter, Route } from 'react-router-dom'\nimport URL from 'url-parse'\nimport { Data } from 'react-chunky'\nimport { createSectionRoutes } from './Router'\nimport { Redirect } from 'react-router'\nimport uuid from 'uuid'\nimport cache from './Cache'\n\nexport default class App extends PureComponent {\n\n  constructor (props) {\n    super(props)\n    this.state = { loading: true }\n\n    this._menu = []\n    this._userLogin = this.userLogin.bind(this)\n    this._userLogout = this.userLogout.bind(this)\n  }\n\n  componentDidMount () {\n    Data.Cache.retrieveAuth().then(account => {\n      this._resolve(account)\n      this.setState({ loading: false, account })\n    }).catch(error => {\n      this._resolve()\n      this.setState({ loading: false })\n    })\n  }\n\n  userLogin (account) {\n    Data.Cache.cacheAuth(account).then(() => {\n      this._resolve(account)\n      this.setState({ account })\n    })\n  }\n\n  userLogout () {\n    Data.Cache.clearAuth().then(account => {\n      this._resolve()\n      this.setState({ account: undefined })\n    })\n  }\n\n  _resolveTransitionFromURI (uri) {\n    const url = new URL(uri, true)\n    return {\n      name: `show${url.hostname.charAt(0).toUpperCase()}${url.hostname.substring(1).toLowerCase()}`,\n      type: url.protocol.slice(0, -1).toLowerCase(),\n      route: url.hostname\n    }\n  }\n\n  _createSectionNavigatorRoutes (element, section) {\n    // We want to look at a stack element and figure out its parent chunk;\n    // Note that chunks may also have flavours so this looks for the flavor, if any\n    const [ chunkName, chunkFlavorName ] = element.split('/')\n\n    // This is our chunk, if it actually exists\n    const chunk = this.props.chunks[chunkName]\n\n    if (!chunk) {\n      // Let's verify that it actually points to a real chunk\n      return\n    }\n\n    if (chunkFlavorName && (!chunk.flavors || !chunk.flavors[chunkFlavorName])) {\n      // Great, let's check the flavor now\n      return\n    }\n\n    if (!chunk.routes || chunk.routes.length === 0) {\n      // One last thing, let's also make sure the chunk has routes\n      return\n    }\n\n    // These routes will be the ones we want to parse out of the chunk, as necessary\n    var routes = []\n\n    var rootRoute = {}\n\n    // Let's build up global transitions, if any\n    var globalTransitions = {}\n\n    if (this.props.transitions) {\n      this.props.transitions.forEach(transitionUri => {\n          // Let's resolve global transitions\n        const transition = this._resolveTransitionFromURI(transitionUri)\n        globalTransitions[transition.name] = transition\n      })\n    }\n\n    for (let routeName in chunk.routes) {\n      // Great, this chunk has routes, let's look through all of them\n      var route = chunk.routes[routeName]\n\n      if (!route.screen) {\n        // This route has no screens\n        continue\n      }\n\n      if (Object.keys(rootRoute).length === 0) {\n        route.root = true\n        route.menuTitle = route.title\n        rootRoute = Object.assign({}, route)\n        // Construct a menu\n        if (!route.skipMenu) {\n          this._menu.push({ id: `${this.menu.length}`, icon: route.icon.replace('-', '_'), title: route.menuTitle, link: `/${this.menu.length === 0 ? '' : route.path}` })\n        }\n      } else {\n        route.icon = rootRoute.icon\n        route.menuTitle = rootRoute.menuTitle\n      }\n\n      // Let's build up the transitions, if any\n      var transitions = {}\n\n      if (chunk.transitions) {\n        chunk.transitions.forEach(transitionUri => {\n          // Parse this transition's URI\n          const transition = this._resolveTransitionFromURI(transitionUri)\n          const routeData = chunk.routes[transition.route]\n          if (transition.route && routeData) {\n            // This is a local transition, so let's resolve locally\n            transition.data = Object.assign({}, routeData)\n            transition.route = `${section.name}/${chunkName}/${transition.route}`\n            transitions[transition.name] = transition\n            return\n          }\n\n          if (globalTransitions[transition.name]) {\n            // Let's look through the global transitions, if any\n            transitions[transition.name] = Object.assign({}, globalTransitions[transition.name])\n          }\n        })\n      }\n\n      // Let's pass over the theme as well\n      const theme = this.props.theme\n\n      // For each route, we want to compose its properties\n      var menu = this.menu\n      const screenProps = Object.assign({\n        // Defaults\n        cache: cache,\n        strings: {},\n        account: section.account,\n        onUserLogin: this._userLogin,\n        onUserLogout: this._userLogout,\n        info: this.props.info,\n        startOperationsOnMount: true\n      }, { theme, transitions, ...route, chunkName, menu }, this.props.web)\n\n      // Resolve strings\n      var resolvedStrings = {}\n      for (const string in screenProps.strings) {\n        resolvedStrings[string] = this.props.strings[screenProps.strings[string]] || `??${screenProps.strings[string]}??`\n      }\n      screenProps.strings = Object.assign({}, this.props.strings, resolvedStrings)\n\n      // Now that we have properties, we're ready to initialize the route's screen\n      const RouteScreen = route.screen\n      const Screen = (props) => {\n        return <RouteScreen {...props} {...screenProps} />\n      }\n      const ScreenPath = route.path || `/${routeName}`\n      const ScreenId = `${chunkName}/${routeName}/${route.path || ''}`\n\n      routes.push(<Route exact path={ScreenPath} key={ScreenId} render={(props) => <Screen {...screenProps} {...props} />} />)\n    }\n\n    // We've got ourselves some routes so we should be done with this\n    return routes\n  }\n\n  _createSectionNavigator (section) {\n    return createSectionRoutes(section, this._createSectionNavigatorRoutes.bind(this))\n  }\n\n  _resolve (account) {\n    this._routes = []\n    this._sections = []\n\n    for (const sectionName in this.props.sections) {\n      // Look through all the app's sections and for each, build defaults if necessary\n      var section = this.props.sections[sectionName]\n      section.name = sectionName\n      section.account = account\n      section.layout = section.layout || 'default'\n      section.navigator = this._createSectionNavigator(section)\n      this._sections.push(section)\n      this._routes = this._routes.concat(section.navigator.routes)\n    }\n  }\n\n  get menu () {\n    return this._menu || {}\n  }\n\n  get routes () {\n    return this._routes || []\n  }\n\n  get sections () {\n    return this._sections || []\n  }\n\n  renderStatic () {\n    this._resolve()\n    return (\n      <StaticRouter location={this.props.route.location} context={this.props.route}>\n        <div>\n          { this.routes }\n        </div>\n      </StaticRouter>)\n  }\n\n  renderRoutes () {\n    return this.routes\n  }\n\n  render () {\n    if (this.props.route && !this.props.redirect) {\n      return this.renderStatic()\n    }\n\n    if (!this.routes || this.routes.length === 0) {\n      return (<div />)\n    }\n\n    return (<BrowserRouter>\n      <div>\n        { this.renderRoutes() }\n      </div>\n    </BrowserRouter>)\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/core/App.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 75,
+    "kind": "class",
+    "name": "App",
+    "memberof": "src/core/App.js",
+    "static": true,
+    "longname": "src/core/App.js~App",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/core/App.js",
+    "importStyle": "App",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 76,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/core/App.js~App",
+    "static": false,
+    "longname": "src/core/App.js~App#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"loading\": boolean}"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "member",
+    "name": "_menu",
+    "memberof": "src/core/App.js~App",
+    "static": false,
+    "longname": "src/core/App.js~App#_menu",
+    "access": "private",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "member",
+    "name": "_userLogin",
+    "memberof": "src/core/App.js~App",
+    "static": false,
+    "longname": "src/core/App.js~App#_userLogin",
+    "access": "private",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 80,
+    "kind": "member",
+    "name": "_userLogout",
+    "memberof": "src/core/App.js~App",
+    "static": false,
+    "longname": "src/core/App.js~App#_userLogout",
+    "access": "private",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "method",
+    "name": "componentDidMount",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#componentDidMount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "userLogin",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#userLogin",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "params": [
+      {
+        "name": "account",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 83,
+    "kind": "method",
+    "name": "userLogout",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#userLogout",
+    "access": "public",
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "_resolveTransitionFromURI",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#_resolveTransitionFromURI",
+    "access": "private",
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [
+      {
+        "name": "uri",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"name\": *, \"type\": *, \"route\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "_createSectionNavigatorRoutes",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#_createSectionNavigatorRoutes",
+    "access": "private",
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "section",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "_createSectionNavigator",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#_createSectionNavigator",
+    "access": "private",
+    "description": null,
+    "lineNumber": 176,
+    "undocument": true,
+    "params": [
+      {
+        "name": "section",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "_resolve",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#_resolve",
+    "access": "private",
+    "description": null,
+    "lineNumber": 180,
+    "undocument": true,
+    "params": [
+      {
+        "name": "account",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 88,
+    "kind": "member",
+    "name": "_routes",
+    "memberof": "src/core/App.js~App",
+    "static": false,
+    "longname": "src/core/App.js~App#_routes",
+    "access": "private",
+    "description": null,
+    "lineNumber": 181,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "member",
+    "name": "_sections",
+    "memberof": "src/core/App.js~App",
+    "static": false,
+    "longname": "src/core/App.js~App#_sections",
+    "access": "private",
+    "description": null,
+    "lineNumber": 182,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 91,
+    "kind": "get",
+    "name": "menu",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#menu",
+    "access": "public",
+    "description": null,
+    "lineNumber": 196,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 92,
+    "kind": "get",
+    "name": "routes",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#routes",
+    "access": "public",
+    "description": null,
+    "lineNumber": 200,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "get",
+    "name": "sections",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#sections",
+    "access": "public",
+    "description": null,
+    "lineNumber": 204,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "method",
+    "name": "renderStatic",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#renderStatic",
+    "access": "public",
+    "description": null,
+    "lineNumber": 208,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "method",
+    "name": "renderRoutes",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#renderRoutes",
+    "access": "public",
+    "description": null,
+    "lineNumber": 218,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/core/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/App.js~App#render",
+    "access": "public",
+    "description": null,
+    "lineNumber": 222,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "file",
+    "name": "src/core/Cache.js",
+    "content": "export class Cache {\n\n  constructor (props) {\n    this._images = {}\n    this._timestamp = Date.now()\n    this._imagesContext = require.context('assets', false, /\\.(png|jpe?g|svg|gif)$/)\n  }\n\n  get images () {\n    return this._images\n  }\n\n  hasImage (name) {\n    return (this.images[name] !== undefined)\n  }\n\n  cacheImage (id) {\n    const name = `./${id}`\n    const data = this._imagesContext(name, true)\n    const timestamp = Date.now()\n    this._images[id] = { data, timestamp }\n  }\n\n  image (name) {\n    if (!this.hasImage(name)) {\n      this.cacheImage(name)\n    }\n\n    return this.images[name]\n  }\n}\n\nconst cache = new Cache()\nexport default cache\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/core/Cache.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 98,
+    "kind": "class",
+    "name": "Cache",
+    "memberof": "src/core/Cache.js",
+    "static": true,
+    "longname": "src/core/Cache.js~Cache",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/core/Cache.js",
+    "importStyle": "{Cache}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 99,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/core/Cache.js~Cache",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Cache.js~Cache#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true
+  },
+  {
+    "__docId__": 100,
+    "kind": "member",
+    "name": "_images",
+    "memberof": "src/core/Cache.js~Cache",
+    "static": false,
+    "longname": "src/core/Cache.js~Cache#_images",
+    "access": "private",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "member",
+    "name": "_timestamp",
+    "memberof": "src/core/Cache.js~Cache",
+    "static": false,
+    "longname": "src/core/Cache.js~Cache#_timestamp",
+    "access": "private",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "member",
+    "name": "_imagesContext",
+    "memberof": "src/core/Cache.js~Cache",
+    "static": false,
+    "longname": "src/core/Cache.js~Cache#_imagesContext",
+    "access": "private",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "get",
+    "name": "images",
+    "memberof": "src/core/Cache.js~Cache",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Cache.js~Cache#images",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 104,
+    "kind": "method",
+    "name": "hasImage",
+    "memberof": "src/core/Cache.js~Cache",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Cache.js~Cache#hasImage",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [
+      {
+        "name": "name",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 105,
+    "kind": "method",
+    "name": "cacheImage",
+    "memberof": "src/core/Cache.js~Cache",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Cache.js~Cache#cacheImage",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [
+      {
+        "name": "id",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 106,
+    "kind": "method",
+    "name": "image",
+    "memberof": "src/core/Cache.js~Cache",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Cache.js~Cache#image",
+    "access": "public",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "params": [
+      {
+        "name": "name",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 107,
+    "kind": "variable",
+    "name": "cache",
+    "memberof": "src/core/Cache.js",
+    "static": true,
+    "longname": "src/core/Cache.js~cache",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/core/Cache.js",
+    "importStyle": "cache",
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "type": {
+      "types": [
+        "src/core/Cache.js~Cache"
+      ]
+    }
+  },
+  {
+    "__docId__": 108,
+    "kind": "file",
+    "name": "src/core/Component.js",
+    "content": "import React, { PureComponent } from 'react'\nimport uuid from 'uuid'\n\nexport default class Component extends PureComponent {\n\n  constructor (props) {\n    super(props)\n    this._id = `chunky-${uuid.v1()}`\n  }\n\n  get smallScreenBreakPoint () {\n    return this.props.smallScreenBreakPoint\n  }\n\n  get isLargeScreen () {\n    return (this.props.width > this.smallScreenBreakPoint)\n  }\n\n  get id () {\n    return this._id\n  }\n\n  get width () {\n    return this.props.width\n  }\n\n  get height () {\n    return this.props.height\n  }\n\n  get cardWidth () {\n    return (this.isLargeScreen ? this.smallScreenBreakPoint : this.width - 20)\n  }\n\n  get cardHeight () {\n    return (this.isLargeScreen ? 320 : 400)\n  }\n\n  loadBlob (blob) {\n    return fetch(`/assets/blobs/${blob}.md`)\n           .then(response => response.text())\n           .then(markdown => marked(markdown, {}))\n  }\n\n  componentDidMount () {\n  }\n\n  componentWillAppear (callback) {\n    callback()\n  }\n\n  componentDidAppear () {\n  }\n\n  componentDidEnter () {\n  }\n\n  componentDidLeave () {\n  }\n\n  componentWillUnmount () {\n  }\n\n  componentWillEnter (callback) {\n    const el = this.container\n    TweenMax.fromTo(el, 0.3, {y: 100, opacity: 0}, {y: 0, opacity: 1, onComplete: callback})\n  }\n\n  componentWillLeave (callback) {\n    const el = this.container\n    TweenMax.fromTo(el, 0.3, {y: 0, opacity: 1}, {y: -100, opacity: 0, onComplete: callback})\n  }\n\n  renderComponent () {\n    return (<div />)\n  }\n\n  render () {\n    return (<div style={styles.container} ref={c => this.container = c}>\n      { this.renderComponent() }\n    </div>)\n  }\n}\n\nconst styles = {\n  container: {\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/core/Component.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 109,
+    "kind": "class",
+    "name": "Component",
+    "memberof": "src/core/Component.js",
+    "static": true,
+    "longname": "src/core/Component.js~Component",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/core/Component.js",
+    "importStyle": "Component",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 110,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true
+  },
+  {
+    "__docId__": 111,
+    "kind": "member",
+    "name": "_id",
+    "memberof": "src/core/Component.js~Component",
+    "static": false,
+    "longname": "src/core/Component.js~Component#_id",
+    "access": "private",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 112,
+    "kind": "get",
+    "name": "smallScreenBreakPoint",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#smallScreenBreakPoint",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 113,
+    "kind": "get",
+    "name": "isLargeScreen",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#isLargeScreen",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 114,
+    "kind": "get",
+    "name": "id",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#id",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 115,
+    "kind": "get",
+    "name": "width",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#width",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 116,
+    "kind": "get",
+    "name": "height",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#height",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 117,
+    "kind": "get",
+    "name": "cardWidth",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#cardWidth",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 118,
+    "kind": "get",
+    "name": "cardHeight",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#cardHeight",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 119,
+    "kind": "method",
+    "name": "loadBlob",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#loadBlob",
+    "access": "public",
+    "description": null,
+    "lineNumber": 39,
+    "undocument": true,
+    "params": [
+      {
+        "name": "blob",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 120,
+    "kind": "method",
+    "name": "componentDidMount",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#componentDidMount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 121,
+    "kind": "method",
+    "name": "componentWillAppear",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#componentWillAppear",
+    "access": "public",
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
+    "params": [
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 122,
+    "kind": "method",
+    "name": "componentDidAppear",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#componentDidAppear",
+    "access": "public",
+    "description": null,
+    "lineNumber": 52,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 123,
+    "kind": "method",
+    "name": "componentDidEnter",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#componentDidEnter",
+    "access": "public",
+    "description": null,
+    "lineNumber": 55,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 124,
+    "kind": "method",
+    "name": "componentDidLeave",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#componentDidLeave",
+    "access": "public",
+    "description": null,
+    "lineNumber": 58,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 125,
+    "kind": "method",
+    "name": "componentWillUnmount",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#componentWillUnmount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 61,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 126,
+    "kind": "method",
+    "name": "componentWillEnter",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#componentWillEnter",
+    "access": "public",
+    "description": null,
+    "lineNumber": 64,
+    "undocument": true,
+    "params": [
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 127,
+    "kind": "method",
+    "name": "componentWillLeave",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#componentWillLeave",
+    "access": "public",
+    "description": null,
+    "lineNumber": 69,
+    "undocument": true,
+    "params": [
+      {
+        "name": "callback",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 128,
+    "kind": "method",
+    "name": "renderComponent",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#renderComponent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 74,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 129,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/core/Component.js~Component",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Component.js~Component#render",
+    "access": "public",
+    "description": null,
+    "lineNumber": 78,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 130,
+    "kind": "variable",
+    "name": "styles",
+    "memberof": "src/core/Component.js",
+    "static": true,
+    "longname": "src/core/Component.js~styles",
+    "access": "public",
+    "export": false,
+    "importPath": "react-dom-chunky/src/core/Component.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 85,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"container\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 131,
+    "kind": "file",
+    "name": "src/core/Router.js",
+    "content": "function createSectionRoutes(section, generator) {\n  if (!section || !section.stack) {\n    // We don't even consider stackless sections\n    return\n  }\n\n  // These are the routes that we need to compile for this section's navigator\n  var routes = []\n  var menu = []\n\n  // Let's look through the stack and build some routes for this section's navigator\n  var elementIndex = 0\n  section.stack.forEach(element => {\n    var elementRoutes = []\n    if (element && typeof element === 'string') {\n      // The first kind of element in the stack is a plain string, that signifies a chunk\n      elementRoutes = elementRoutes.concat(generator(element, section))\n    } else if (element &&  Array.isArray(element) && element.length > 0) {\n      // Another type of element in the sack is a list of strings, that each signifies a chunk\n      var composedRoutes = []\n      element.forEach(subElement => { composedRoutes = composedRoutes.concat(generator(subElement, section)) })\n      elementRoutes = elementRoutes.concat(composedRoutes)\n    }\n\n    routes = routes.concat(elementRoutes)\n  })\n\n  return { routes, menu }\n}\n\nmodule.exports = { createSectionRoutes }\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/core/Router.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 132,
+    "kind": "function",
+    "name": "createSectionRoutes",
+    "memberof": "src/core/Router.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/core/Router.js~createSectionRoutes",
+    "access": "public",
+    "export": false,
+    "importPath": "react-dom-chunky/src/core/Router.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "section",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "generator",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"routes\": *, \"menu\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 133,
+    "kind": "file",
+    "name": "src/core/Screen.js",
+    "content": "import React from 'react'\nimport TransitionGroup from 'react-addons-transition-group'\nimport { Core } from 'react-chunky'\nimport { Redirect } from 'react-router'\nimport { default as Component } from './Component'\nimport merge from 'deepmerge'\nimport { default as Layout } from '../elements/Layout'\n\nexport default class Screen extends Core.Screen {\n\n  constructor (props) {\n    super(props)\n    this.state = { ...this.state, progress: false, progressTitle: this.progressTitle, height: 0, width: 0, scroll: 0 }\n    this._updateScroll = this.updateScroll.bind(this)\n    this._updateWindowDimensions = this.updateWindowDimensions.bind(this)\n    this._injectVariant()\n  }\n\n  componentDidMount () {\n    super.componentDidMount()\n    this._updateWindowDimensions()\n    window.addEventListener('resize', this._updateWindowDimensions)\n    window.addEventListener('scroll', this._updateScroll)\n  }\n\n  componentWillUnmount () {\n    window.removeEventListener('resize', this._updateWindowDimensions)\n    window.removeEventListener('scroll', this._updateScroll)\n  }\n\n  get expectsVariants () {\n    return (this.props.path && this.props.path.indexOf(':path') >= 0)\n  }\n\n  updateWindowDimensions () {\n    this.setState({ width: window.innerWidth, height: window.innerHeight })\n  }\n\n  updateScroll () {\n    const scroll = window.scrollY\n    this.setState({ scroll })\n  }\n\n  _injectVariant () {\n    if (!this.expectsVariants || !this.props.pathData) {\n      return\n    }\n\n    try {\n      // Try to load the variants\n      const variants = require(`chunks/${this.props.chunkName}/data/${this.props.pathData}.json`)\n\n      // Check the location\n      const locationPath = this.props.location.pathname\n\n      variants.forEach(variant => {\n        if (variant.path === locationPath || locationPath === `/${variant.path}` ||\n            locationPath === `/${variant.path}/` || locationPath === `${variant.path}/`) {\n            // We've got a match\n          this._variant = Object.assign({}, variant)\n        }\n      })\n    } catch (e) {\n      // Could not load variant path data\n    }\n  }\n\n  get isVariantValid () {\n    return (this.expectsVariants && this.variant)\n  }\n\n  get _props () {\n    return (this.variant ? merge.all([this.props, this.variant]) : this.props)\n  }\n\n  get variant () {\n    return this._variant\n  }\n\n  pushTransition (transition, data) {\n    var pathname = (transition.data.path.charAt(0) === ':' ? (data[transition.data.path.substring(1)] || transition.data.path) : transition.data.path)\n\n    this.setState({ redirect: { transition, data, push: true, pathname }})\n  }\n\n  replaceTransition (transition, data) {\n    var pathname = (transition.data.path.charAt(0) === ':' ? (data[transition.data.path.substring(1)] || transition.data.path) : transition.data.path)\n\n    this.setState({ redirect: { transition, data, push: false, pathname }})\n  }\n\n  get account () {\n    return this.props.account\n  }\n\n  get isLoggedIn () {\n    return this.account\n  }\n\n  get width () {\n    return this.state.width\n  }\n\n  get height () {\n    return this.state.height\n  }\n\n  get scroll () {\n    return this.state.scroll\n  }\n\n  get path () {\n    return this.props.location.pathname\n  }\n\n  get mainMenu () {\n    return this.props.menu\n  }\n\n  get components () {\n    return []\n  }\n\n  logout () {\n    this.props.onUserLogout && this.props.onUserLogout()\n  }\n\n  userDidLogin (account) {\n    this.props.onUserLogin && this.props.onUserLogin(account)\n  }\n\n  renderProgress () {}\n\n  renderComponent (OriginalComponent, index) {\n    var props = Object.assign({}, {\n      width: this.state.width,\n      height: this.state.height,\n      smallScreenBreakPoint: this.smallScreenBreakPoint\n    }, this.props)\n\n    var ComponentContainer = React.cloneElement(OriginalComponent, props)\n\n    if ((typeof OriginalComponent.type) === 'string') {\n      ComponentContainer = OriginalComponent\n    }\n\n    return (\n      <TransitionGroup key={`${index}`} style={{ alignSelf: 'stretch' }}>\n        { ComponentContainer }\n      </TransitionGroup>\n    )\n  }\n\n  renderComponents () {\n    var index = 1\n    return this.components.map(component => {\n      index = index + 1\n      return this.renderComponent(component, index)\n    })\n  }\n\n  redirect (pathname, push) {\n    return (<Redirect push={push} to={{\n      pathname\n    }} />)\n  }\n\n  renderScreenLayout () {\n    return <Layout\n      scroll={this.state.scroll}\n      width={this.state.width}\n      height={this.state.height}\n      {...this.props} />\n  }\n\n  render () {\n    if (this.state.height === 0) {\n      return <div />\n    }\n\n    if (this.state.redirect) {\n      const { transition, data, push, pathname } = this.state.redirect\n      return this.redirect(pathname, push)\n    }\n    var height = `${this.height}px`\n\n    return (<div style={{ height, position: 'relative' }}>\n      { this.renderScreenLayout() }\n      <style jsx>{`{\n        :global(body){\n            background-color: ${this.props.backgroundColor};\n            margin: 0;\n            padding: 0;\n        }`}\n      </style>\n    </div>\n    )\n  }\n}\n\nconst styles = {\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/core/Screen.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 134,
+    "kind": "class",
+    "name": "Screen",
+    "memberof": "src/core/Screen.js",
+    "static": true,
+    "longname": "src/core/Screen.js~Screen",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/core/Screen.js",
+    "importStyle": "Screen",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react-chunky~Core.Screen"
+    ]
+  },
+  {
+    "__docId__": 135,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true
+  },
+  {
+    "__docId__": 136,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/core/Screen.js~Screen",
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{...undefined: Object, \"progress\": *, \"progressTitle\": *, \"height\": *, \"width\": *, \"scroll\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 137,
+    "kind": "member",
+    "name": "_updateScroll",
+    "memberof": "src/core/Screen.js~Screen",
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#_updateScroll",
+    "access": "private",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 138,
+    "kind": "member",
+    "name": "_updateWindowDimensions",
+    "memberof": "src/core/Screen.js~Screen",
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#_updateWindowDimensions",
+    "access": "private",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 139,
+    "kind": "method",
+    "name": "componentDidMount",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#componentDidMount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 140,
+    "kind": "method",
+    "name": "componentWillUnmount",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#componentWillUnmount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 141,
+    "kind": "get",
+    "name": "expectsVariants",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#expectsVariants",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 142,
+    "kind": "method",
+    "name": "updateWindowDimensions",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#updateWindowDimensions",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 143,
+    "kind": "method",
+    "name": "updateScroll",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#updateScroll",
+    "access": "public",
+    "description": null,
+    "lineNumber": 39,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 144,
+    "kind": "method",
+    "name": "_injectVariant",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#_injectVariant",
+    "access": "private",
+    "description": null,
+    "lineNumber": 44,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 145,
+    "kind": "member",
+    "name": "_variant",
+    "memberof": "src/core/Screen.js~Screen",
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#_variant",
+    "access": "private",
+    "description": null,
+    "lineNumber": 60,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 146,
+    "kind": "get",
+    "name": "isVariantValid",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#isVariantValid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 68,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 147,
+    "kind": "get",
+    "name": "_props",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#_props",
+    "access": "private",
+    "description": null,
+    "lineNumber": 72,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 148,
+    "kind": "get",
+    "name": "variant",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#variant",
+    "access": "public",
+    "description": null,
+    "lineNumber": 76,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 149,
+    "kind": "method",
+    "name": "pushTransition",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#pushTransition",
+    "access": "public",
+    "description": null,
+    "lineNumber": 80,
+    "undocument": true,
+    "params": [
+      {
+        "name": "transition",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 150,
+    "kind": "method",
+    "name": "replaceTransition",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#replaceTransition",
+    "access": "public",
+    "description": null,
+    "lineNumber": 86,
+    "undocument": true,
+    "params": [
+      {
+        "name": "transition",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 151,
+    "kind": "get",
+    "name": "account",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#account",
+    "access": "public",
+    "description": null,
+    "lineNumber": 92,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 152,
+    "kind": "get",
+    "name": "isLoggedIn",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#isLoggedIn",
+    "access": "public",
+    "description": null,
+    "lineNumber": 96,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 153,
+    "kind": "get",
+    "name": "width",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#width",
+    "access": "public",
+    "description": null,
+    "lineNumber": 100,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 154,
+    "kind": "get",
+    "name": "height",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#height",
+    "access": "public",
+    "description": null,
+    "lineNumber": 104,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 155,
+    "kind": "get",
+    "name": "scroll",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#scroll",
+    "access": "public",
+    "description": null,
+    "lineNumber": 108,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 156,
+    "kind": "get",
+    "name": "path",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#path",
+    "access": "public",
+    "description": null,
+    "lineNumber": 112,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 157,
+    "kind": "get",
+    "name": "mainMenu",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#mainMenu",
+    "access": "public",
+    "description": null,
+    "lineNumber": 116,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 158,
+    "kind": "get",
+    "name": "components",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#components",
+    "access": "public",
+    "description": null,
+    "lineNumber": 120,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 159,
+    "kind": "method",
+    "name": "logout",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#logout",
+    "access": "public",
+    "description": null,
+    "lineNumber": 124,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 160,
+    "kind": "method",
+    "name": "userDidLogin",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#userDidLogin",
+    "access": "public",
+    "description": null,
+    "lineNumber": 128,
+    "undocument": true,
+    "params": [
+      {
+        "name": "account",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 161,
+    "kind": "method",
+    "name": "renderProgress",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#renderProgress",
+    "access": "public",
+    "description": null,
+    "lineNumber": 132,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 162,
+    "kind": "method",
+    "name": "renderComponent",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#renderComponent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 134,
+    "undocument": true,
+    "params": [
+      {
+        "name": "OriginalComponent",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 163,
+    "kind": "method",
+    "name": "renderComponents",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#renderComponents",
+    "access": "public",
+    "description": null,
+    "lineNumber": 154,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 164,
+    "kind": "method",
+    "name": "redirect",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#redirect",
+    "access": "public",
+    "description": null,
+    "lineNumber": 162,
+    "undocument": true,
+    "params": [
+      {
+        "name": "pathname",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "push",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 165,
+    "kind": "method",
+    "name": "renderScreenLayout",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#renderScreenLayout",
+    "access": "public",
+    "description": null,
+    "lineNumber": 168,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 166,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/core/Screen.js~Screen",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/core/Screen.js~Screen#render",
+    "access": "public",
+    "description": null,
+    "lineNumber": 176,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 167,
+    "kind": "variable",
+    "name": "styles",
+    "memberof": "src/core/Screen.js",
+    "static": true,
+    "longname": "src/core/Screen.js~styles",
+    "access": "public",
+    "export": false,
+    "importPath": "react-dom-chunky/src/core/Screen.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 201,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 168,
+    "kind": "file",
+    "name": "src/elements/Drawer.js",
+    "content": "\nimport React, { PureComponent } from 'react'\nimport {\n  ListItem,\n  ListItemText,\n  TemporaryDrawer,\n  TemporaryDrawerHeader,\n  TemporaryDrawerContent\n} from 'rmwc'\n\n/**\n *  This is the Chunky Web Navigation Drawer that is usually used with a navigator\n *  to control opening and closing the drawer.\n *\n *  @see https://github.com/react-chunky/react-dom-chunky\n *\n *  @example\n *  // Render a closed drawer with the default style and one menu item\n *  <Drawer\n *    menu={[{title: \"Home\"}]}\n *    onClose={this._onDrawerClose}/>\n *  @example\n *  // Render an open drawer with three menu items and a light gray header\n *  <Drawer\n *    menu={[{title: \"Home\"}, {title: \"About\"}, {title: \"Contact\"}]}\n *    open={true}\n *    style={{headerStyle: '#eeeeee'}}\n *    onClose={this._onDrawerClose}/>\n */\nexport default class Drawer extends PureComponent {\n\n /**\n  *  An instance of this class represents a Navigation Drawer element that\n  *  is meant to be displayed as an overlay on top of the visible window. The drawer\n  *  takes a list of menu items as input and displays them using a default\n  *  style can be overwritten. It can also be closed and opened.\n  *  @summary The Drawer element to be used in a navigation menu\n  *  @author I. Dan Calinescu <http://github.com/idancali>\n  *  @param {Object} props Drawer properties\n  *  @param {Array<Object>} props.menu a list of menu items to display\n  *  @param {String} props.menu.title the title of a menu item\n  *  @param {String} props.headerStyle the Drawer header style\n  *  @param {boolean} props.open whether the Drawer is open or closed\n  *  @param {function} props.onClose called when the Drawer is closed\n  */\n  constructor (props) {\n    super(props)\n\n    /** Will be called when the drawer is closed **/\n    this._onClosePressed = this._onClose.bind(this)\n  }\n\n  /**\n   *  Renders this drawer\n   */\n  render () {\n    return (<TemporaryDrawer\n      open={this._open}\n      onClose={this._onClosePressed}>\n      <TemporaryDrawerHeader style={this._headerStyle} />\n      <TemporaryDrawerContent>\n        { this.renderMenu() }\n      </TemporaryDrawerContent>\n    </TemporaryDrawer>)\n  }\n\n  /**\n   *  Whether the drawer is meant to be displayed as open or closed\n   *\n   *  @returns {boolean} whether the drawer is open or closed, false by default\n   */\n  get _open () {\n    return this.props.open || false\n  }\n\n  /**\n   *  Uses the given style or a default one if one wasn't passed through the properties.\n   *  Override this if you want to completely take over the header style.\n   */\n  get _headerStyle () {\n    return this.props.headerStyle || styles.header\n  }\n\n  /**\n   *  The list of menu items\n   *\n   *  @returns {Array<Object>} a list of passed menu objects, or an empty list\n   **/\n  get _menu () {\n    return this.props.menu || []\n  }\n\n  /**\n   *  Called when the drawer is asked by the user to close\n   */\n  _onClose () {\n    this.props.onClose && this.props.onClose()\n  }\n\n  /**\n   *  Renders a list o menu items, as\n   *\n   *  @returns {Array<ListItem>} a list of {ListItem}\n   */\n  renderMenu () {\n    var index = 0\n    return this._menu.map(item => (<ListItem key={`menuItem${index++}`}>\n      <ListItemText>{ item.title }</ListItemText>\n    </ListItem>))\n  }\n}\n\n/**\n * Default styles\n */\nconst styles = {\n  header: {\n    backgroundColor: '#eeeeee'\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/elements/Drawer.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 169,
+    "kind": "class",
+    "name": "Drawer",
+    "memberof": "src/elements/Drawer.js",
+    "static": true,
+    "longname": "src/elements/Drawer.js~Drawer",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/elements/Drawer.js",
+    "importStyle": "Drawer",
+    "description": " This is the Chunky Web Navigation Drawer that is usually used with a navigator\n to control opening and closing the drawer.",
+    "examples": [
+      " // Render a closed drawer with the default style and one menu item\n <Drawer\n   menu={[{title: \"Home\"}]}\n   onClose={this._onDrawerClose}/>",
+      " // Render an open drawer with three menu items and a light gray header\n <Drawer\n   menu={[{title: \"Home\"}, {title: \"About\"}, {title: \"Contact\"}]}\n   open={true}\n   style={{headerStyle: '#eeeeee'}}\n   onClose={this._onDrawerClose}/>"
+    ],
+    "see": [
+      "https://github.com/react-chunky/react-dom-chunky"
+    ],
+    "lineNumber": 30,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 170,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/elements/Drawer.js~Drawer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Drawer.js~Drawer#constructor",
+    "access": "public",
+    "description": " An instance of this class represents a Navigation Drawer element that\n is meant to be displayed as an overlay on top of the visible window. The drawer\n takes a list of menu items as input and displays them using a default\n style can be overwritten. It can also be closed and opened.",
+    "lineNumber": 46,
+    "unknown": [
+      {
+        "tagName": "@summary",
+        "tagValue": "The Drawer element to be used in a navigation menu"
+      },
+      {
+        "tagName": "@author",
+        "tagValue": "I. Dan Calinescu <http://github.com/idancali>"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props",
+        "description": "Drawer properties"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Array<Object>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props.menu",
+        "description": "a list of menu items to display"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props.menu.title",
+        "description": "the title of a menu item"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props.headerStyle",
+        "description": "the Drawer header style"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props.open",
+        "description": "whether the Drawer is open or closed"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props.onClose",
+        "description": "called when the Drawer is closed"
+      }
+    ]
+  },
+  {
+    "__docId__": 171,
+    "kind": "member",
+    "name": "_onClosePressed",
+    "memberof": "src/elements/Drawer.js~Drawer",
+    "static": false,
+    "longname": "src/elements/Drawer.js~Drawer#_onClosePressed",
+    "access": "private",
+    "description": "Will be called when the drawer is closed *",
+    "lineNumber": 50,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 172,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/elements/Drawer.js~Drawer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Drawer.js~Drawer#render",
+    "access": "public",
+    "description": " Renders this drawer",
+    "lineNumber": 56,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 173,
+    "kind": "get",
+    "name": "_open",
+    "memberof": "src/elements/Drawer.js~Drawer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Drawer.js~Drawer#_open",
+    "access": "private",
+    "description": " Whether the drawer is meant to be displayed as open or closed",
+    "lineNumber": 72,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} whether the drawer is open or closed, false by default"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "whether the drawer is open or closed, false by default"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 174,
+    "kind": "get",
+    "name": "_headerStyle",
+    "memberof": "src/elements/Drawer.js~Drawer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Drawer.js~Drawer#_headerStyle",
+    "access": "private",
+    "description": " Uses the given style or a default one if one wasn't passed through the properties.\n Override this if you want to completely take over the header style.",
+    "lineNumber": 80,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 175,
+    "kind": "get",
+    "name": "_menu",
+    "memberof": "src/elements/Drawer.js~Drawer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Drawer.js~Drawer#_menu",
+    "access": "private",
+    "description": " The list of menu items",
+    "lineNumber": 89,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Array<Object>} a list of passed menu objects, or an empty list"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array<Object>"
+      ],
+      "spread": false,
+      "description": "a list of passed menu objects, or an empty list"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 176,
+    "kind": "method",
+    "name": "_onClose",
+    "memberof": "src/elements/Drawer.js~Drawer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Drawer.js~Drawer#_onClose",
+    "access": "private",
+    "description": " Called when the drawer is asked by the user to close",
+    "lineNumber": 96,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 177,
+    "kind": "method",
+    "name": "renderMenu",
+    "memberof": "src/elements/Drawer.js~Drawer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Drawer.js~Drawer#renderMenu",
+    "access": "public",
+    "description": " Renders a list o menu items, as",
+    "lineNumber": 105,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Array<ListItem>} a list of {ListItem}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array<ListItem>"
+      ],
+      "spread": false,
+      "description": "a list of {ListItem}"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 178,
+    "kind": "variable",
+    "name": "styles",
+    "memberof": "src/elements/Drawer.js",
+    "static": true,
+    "longname": "src/elements/Drawer.js~styles",
+    "access": "public",
+    "export": false,
+    "importPath": "react-dom-chunky/src/elements/Drawer.js",
+    "importStyle": null,
+    "description": "Default styles",
+    "lineNumber": 116,
+    "type": {
+      "types": [
+        "{\"header\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 179,
+    "kind": "file",
+    "name": "src/elements/Layout.js",
+    "content": "import React, { PureComponent } from 'react'\nimport {\n  Icon,\n  Theme,\n  Grid,\n  GridCell,\n  List,\n  ListItem,\n  ListItemText,\n  Button,\n  Toolbar,\n  ToolbarRow,\n  ToolbarIcon,\n  ToolbarTitle,\n  ToolbarMenuIcon,\n  ToolbarSection,\n  ToolbarFixedAdjust\n} from 'rmwc'\nimport 'node_modules/material-components-web/dist/material-components-web.css'\nimport MediaQuery from 'react-responsive'\nimport css from 'styled-jsx/css'\nimport Drawer from '../elements/Drawer'\nimport Media from '../elements/Media'\n\n/**\n *\n */\nexport default class Layout extends PureComponent {\n\n  constructor (props) {\n    super(props)\n    this.state = { menuOpened: false, fixed: false }\n  }\n\n  get breakpoints () {\n    return {\n      main: 1224\n    }\n  }\n\n  get isLargeScreen () {\n    return (this.props.width >= this.breakpoints.main)\n  }\n\n  get styles () {\n    return styles\n  }\n\n  get cover () {\n    return Object.assign({}, this.props.cover, {})\n  }\n\n  get hasCover () {\n    return (this.props.cover !== undefined)\n  }\n\n  get navigationHeight () {\n    return (this.isLargeScreen ? 64 : 56)\n  }\n\n  get coverOffset () {\n    if (this.hasCover && !this.cover.navigation && this.props.layout.fixed) {\n      return this.navigationHeight\n    }\n\n    if (this.hasCover && this.cover.navigation && !this.props.layout.fixed) {\n      return -this.navigationHeight\n    }\n\n    return 0\n  }\n\n  get navigationUncover () {\n    if (this.hasCover && this.cover.navigation && !this.props.layout.fixed) {\n      return true\n    }\n\n    return (this.hasCover && this.cover.navigation && this.props.scroll < 10)\n  }\n\n  isColorLight (c) {\n    var c = c.substring(1)\n    const rgb = parseInt(c, 16)\n    const r = (rgb >> 16) & 0xff\n    const g = (rgb >> 8) & 0xff\n    const b = (rgb >> 0) & 0xff\n\n    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b\n    return (luma > 210)\n  }\n\n  renderDrawer () {\n    return (<Drawer open={this.state.menuOpened} />)\n  }\n\n  renderDrawerMenu () {\n    var index = 0\n    return this.props.menu.map(item => (<ListItem key={`menuItem${index++}`}>\n      <ListItemText>{ item.title }</ListItemText>\n    </ListItem>))\n  }\n\n  renderResponsiveLarge (component) {\n    return (<MediaQuery minDeviceWidth={this.breakpoints.main}>\n      { component }\n    </MediaQuery>)\n  }\n\n  renderResponsiveSmall (component) {\n    return (<MediaQuery maxDeviceWidth={this.breakpoints.main}>\n      { component }\n    </MediaQuery>)\n  }\n\n  renderResponsive (key, small, large) {\n    return (<div key={key}>\n      { this.renderResponsiveSmall(small) }\n      { this.renderResponsiveLarge(large) }\n    </div>)\n  }\n\n  get theme () {\n    const navigationColor = (this.navigationUncover ? `rgba(0,0,0,0)` : this.props.theme.navigationColor)\n    const navigationTintColor = (this.navigationUncover ? '#FFFFFF' : this.props.theme.navigationTintColor)\n\n    return Object.assign({}, this.props.theme, {\n      navigationColor, navigationTintColor\n    })\n  }\n\n  renderNavigationMenuItem (item, index) {\n    return this.renderResponsive(`menuItem${index++}`,\n      <ToolbarIcon use={item.icon} style={{color: this.theme.navigationTintColor}} />,\n      <Button style={{color: this.theme.navigationTintColor, marginRight: '20px'}}>\n        { item.title }\n      </Button>)\n  }\n\n  renderNavigationMenu () {\n    var index = 0\n    return this.props.menu.map(item => this.renderNavigationMenuItem(item, index++))\n  }\n\n  renderNavigationLogo () {\n    // return this.renderResponsive('logo',\n    //   <ToolbarMenuIcon use='menu' style={{color: this.theme.navigationTintColor}} onClick={() => this.setState({menuOpened: !this.state.menuOpened})} />,\n    //   <Icon> /assets/logo.png </Icon>)\n  }\n\n  renderNavigation () {\n    return (<Toolbar waterfall fixed={this.props.layout.fixed} style={{\n      backgroundColor: this.theme.navigationColor}}>\n      <ToolbarRow>\n        <ToolbarSection alignStart>\n          { this.renderNavigationLogo() }\n        </ToolbarSection>\n        <ToolbarSection alignEnd>\n          { this.renderNavigationMenu() }\n        </ToolbarSection>\n      </ToolbarRow>\n    </Toolbar>)\n  }\n\n  renderCover () {\n    if (!this.hasCover) {\n      return\n    }\n\n    const coverStyle = { width: '100%', height: 'auto'}\n    const coverPlaying = (this.props.scroll < 200)\n    const height = this.props.height\n\n    return (<div style={{\n      backgroundColor: this.cover.backgroundColor,\n      marginTop: `${this.coverOffset}px`,\n      boxShadow: `inset 0 0 0 1600px rgba(0,0,0,${this.cover.opacity})`,\n      height: `${height}px`,\n      display: 'flex',\n      flex: 1,\n      alignItems: 'center',\n      flexDirection: 'column',\n      justifyContent: 'center'\n    }}>\n      <Media video={this.cover.video} image={this.cover.image} playing={coverPlaying} style={coverStyle} />\n    </div>)\n  }\n\n  renderFooterSectionElement (element) {\n    return (<ListItem key={element.id} style={{}}>\n      <Button style={{color: this.theme.footerTintColor}}>\n        { element.title }\n      </Button>\n    </ListItem>)\n  }\n\n  renderFooterSection (section) {\n    return (<div key={`footerSection${section.id}`} style={{\n      marginRight: '20px'\n    }}>\n      <List>\n        <ListItem style={{marginLeft: '15px'}}>\n          <ListItemText style={{color: this.theme.footerHeaderColor}}> {section.title} </ListItemText>\n        </ListItem>\n        { section.elements.map(element => this.renderFooterSectionElement(element)) }\n      </List>\n    </div>)\n  }\n\n  renderFooterSections () {\n    return this.props.footer.sections.map(section => this.renderFooterSection(section))\n  }\n\n  renderFooterLegal () {\n    return (<List style={{\n      display: 'flex',\n      flex: '1',\n      alignSelf: 'flex-start',\n      justifyContent: 'flex-end',\n      flexDirection: 'column'\n    }}>\n      <ListItem style={{marginRight: '20px', color: this.props.theme.footerHeaderColor,\n        alignSelf: 'flex-end'\n      }}>\n        <ListItemText> {this.props.info.copyright} </ListItemText>\n      </ListItem>\n    </List>)\n  }\n\n  renderFooter () {\n    return (<div style={{\n      backgroundColor: this.props.theme.footerColor,\n      minHeight: '80px',\n      padding: '10px',\n      display: 'flex',\n      flexWrap: 'wrap',\n      flex: 1,\n      alignItems: 'start',\n      flexDirection: 'row',\n      justifyContent: 'start',\n      color: '#ECEFF1'\n    }}>\n      { this.renderFooterSections() }\n      { this.renderFooterLegal() }\n    </div>)\n  }\n\n  renderComponent (component, index) {\n    return (<div key={`component${index}`} style={this.styles.component}>\n      { component }\n    </div>)\n  }\n\n  renderComponents () {\n    var components = this.props.children || []\n    var index = 0\n    const marginTop = (this.props.layout.fixed && !this.hasCover ? this.navigationHeight : 0)\n\n    return (<main style={{\n      marginTop: `${marginTop}px`\n    }}>\n      { components.map(c => this.renderComponent(c, index++)) }\n    </main>)\n  }\n\n  render () {\n    return (<div style={this.styles.container} ref={c => this.container = c}>\n      { this.renderDrawer() }\n      { this.renderNavigation() }\n      { this.renderCover() }\n      { this.renderComponents() }\n      { this.renderFooter() }\n\n      <style jsx>{`{\n        :global(:root) {\n          --mdc-theme-primary: ${this.props.theme.primaryColor};\n        }\n      }`}\n      </style>\n    </div>)\n  }\n}\n\nconst styles = {\n  component: {\n    backgroundColor: '#FFFFFF',\n    display: 'flex',\n    flex: 1,\n    alignItems: 'center',\n    flexDirection: 'column',\n    justifyContent: 'center',\n    color: '#455A64'\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/elements/Layout.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 180,
+    "kind": "class",
+    "name": "Layout",
+    "memberof": "src/elements/Layout.js",
+    "static": true,
+    "longname": "src/elements/Layout.js~Layout",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/elements/Layout.js",
+    "importStyle": "Layout",
+    "description": "",
+    "lineNumber": 28,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 181,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true
+  },
+  {
+    "__docId__": 182,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/elements/Layout.js~Layout",
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"menuOpened\": *, \"fixed\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 183,
+    "kind": "get",
+    "name": "breakpoints",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#breakpoints",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"main\": number}"
+      ]
+    }
+  },
+  {
+    "__docId__": 184,
+    "kind": "get",
+    "name": "isLargeScreen",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#isLargeScreen",
+    "access": "public",
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 185,
+    "kind": "get",
+    "name": "styles",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#styles",
+    "access": "public",
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 186,
+    "kind": "get",
+    "name": "cover",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#cover",
+    "access": "public",
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 187,
+    "kind": "get",
+    "name": "hasCover",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#hasCover",
+    "access": "public",
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 188,
+    "kind": "get",
+    "name": "navigationHeight",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#navigationHeight",
+    "access": "public",
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 189,
+    "kind": "get",
+    "name": "coverOffset",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#coverOffset",
+    "access": "public",
+    "description": null,
+    "lineNumber": 61,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 190,
+    "kind": "get",
+    "name": "navigationUncover",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#navigationUncover",
+    "access": "public",
+    "description": null,
+    "lineNumber": 73,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 191,
+    "kind": "method",
+    "name": "isColorLight",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#isColorLight",
+    "access": "public",
+    "description": null,
+    "lineNumber": 81,
+    "undocument": true,
+    "params": [
+      {
+        "name": "c",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 192,
+    "kind": "method",
+    "name": "renderDrawer",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderDrawer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 92,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 193,
+    "kind": "method",
+    "name": "renderDrawerMenu",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderDrawerMenu",
+    "access": "public",
+    "description": null,
+    "lineNumber": 96,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 194,
+    "kind": "method",
+    "name": "renderResponsiveLarge",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderResponsiveLarge",
+    "access": "public",
+    "description": null,
+    "lineNumber": 103,
+    "undocument": true,
+    "params": [
+      {
+        "name": "component",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 195,
+    "kind": "method",
+    "name": "renderResponsiveSmall",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderResponsiveSmall",
+    "access": "public",
+    "description": null,
+    "lineNumber": 109,
+    "undocument": true,
+    "params": [
+      {
+        "name": "component",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 196,
+    "kind": "method",
+    "name": "renderResponsive",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderResponsive",
+    "access": "public",
+    "description": null,
+    "lineNumber": 115,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "small",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "large",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 197,
+    "kind": "get",
+    "name": "theme",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#theme",
+    "access": "public",
+    "description": null,
+    "lineNumber": 122,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 198,
+    "kind": "method",
+    "name": "renderNavigationMenuItem",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderNavigationMenuItem",
+    "access": "public",
+    "description": null,
+    "lineNumber": 131,
+    "undocument": true,
+    "params": [
+      {
+        "name": "item",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 199,
+    "kind": "method",
+    "name": "renderNavigationMenu",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderNavigationMenu",
+    "access": "public",
+    "description": null,
+    "lineNumber": 139,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 200,
+    "kind": "method",
+    "name": "renderNavigationLogo",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderNavigationLogo",
+    "access": "public",
+    "description": null,
+    "lineNumber": 144,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 201,
+    "kind": "method",
+    "name": "renderNavigation",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderNavigation",
+    "access": "public",
+    "description": null,
+    "lineNumber": 150,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 202,
+    "kind": "method",
+    "name": "renderCover",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderCover",
+    "access": "public",
+    "description": null,
+    "lineNumber": 164,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 203,
+    "kind": "method",
+    "name": "renderFooterSectionElement",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderFooterSectionElement",
+    "access": "public",
+    "description": null,
+    "lineNumber": 188,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 204,
+    "kind": "method",
+    "name": "renderFooterSection",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderFooterSection",
+    "access": "public",
+    "description": null,
+    "lineNumber": 196,
+    "undocument": true,
+    "params": [
+      {
+        "name": "section",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 205,
+    "kind": "method",
+    "name": "renderFooterSections",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderFooterSections",
+    "access": "public",
+    "description": null,
+    "lineNumber": 209,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 206,
+    "kind": "method",
+    "name": "renderFooterLegal",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderFooterLegal",
+    "access": "public",
+    "description": null,
+    "lineNumber": 213,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 207,
+    "kind": "method",
+    "name": "renderFooter",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderFooter",
+    "access": "public",
+    "description": null,
+    "lineNumber": 229,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 208,
+    "kind": "method",
+    "name": "renderComponent",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderComponent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 247,
+    "undocument": true,
+    "params": [
+      {
+        "name": "component",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 209,
+    "kind": "method",
+    "name": "renderComponents",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#renderComponents",
+    "access": "public",
+    "description": null,
+    "lineNumber": 253,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 210,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/elements/Layout.js~Layout",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Layout.js~Layout#render",
+    "access": "public",
+    "description": null,
+    "lineNumber": 265,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 211,
+    "kind": "variable",
+    "name": "styles",
+    "memberof": "src/elements/Layout.js",
+    "static": true,
+    "longname": "src/elements/Layout.js~styles",
+    "access": "public",
+    "export": false,
+    "importPath": "react-dom-chunky/src/elements/Layout.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 283,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"component\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 212,
+    "kind": "file",
+    "name": "src/elements/Media.js",
+    "content": "import React, { PureComponent } from 'react'\nimport ProgressiveImage from 'react-progressive-image'\nimport cache from '../core/Cache'\nimport ReactPlayer from 'react-player'\n\nexport default class Media extends PureComponent {\n\n  constructor (props) {\n    super(props)\n  }\n\n  render () {\n    if (this.props.video) {\n      return (<ReactPlayer ref={(player) => { this.coverPlayer = player }} url={this.props.video} playing={this.props.playing} width='100%'\n        height='100%' />)\n    }\n\n    if (!this.props.image) {\n      return\n    }\n\n    const i = cache.image(this.props.image)\n\n    return (<ProgressiveImage src={i.data.src} placeholder={i.data.preSrc}>\n      {(src, loading) => (\n        <img style={Object.assign({}, this.props.style, { opacity: loading ? 0.5 : 1 })} src={src} alt={this.props.image} />\n    )}\n    </ProgressiveImage>)\n  }\n\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/elements/Media.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 213,
+    "kind": "class",
+    "name": "Media",
+    "memberof": "src/elements/Media.js",
+    "static": true,
+    "longname": "src/elements/Media.js~Media",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/elements/Media.js",
+    "importStyle": "Media",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 214,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/elements/Media.js~Media",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Media.js~Media#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 215,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/elements/Media.js~Media",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Media.js~Media#render",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 216,
+    "kind": "member",
+    "name": "coverPlayer",
+    "memberof": "src/elements/Media.js~Media",
+    "static": false,
+    "longname": "src/elements/Media.js~Media#coverPlayer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 217,
+    "kind": "file",
+    "name": "src/elements/Text.js",
+    "content": "import React, { PureComponent } from 'react'\nimport marked from 'marked'\nimport cache from '../core/Cache'\n\nexport default class Text extends PureComponent {\n\n  constructor (props) {\n    super(props)\n  }\n\n  markedString (key) {\n    return marked(this.string(key))\n  }\n\n  rawString (key) {\n    return (this.props.strings[key] || key)\n  }\n\n  render () {\n    const i = cache.image(this.props.name)\n\n    return (<ProgressiveImage src={i.data.src} placeholder={i.data.preSrc}>\n      {(src, loading) => (\n        <img style={Object.assign({}, this.props.style, { opacity: loading ? 0.5 : 1 })} src={src} alt={this.props.name} />\n    )}\n    </ProgressiveImage>)\n  }\n\n}\n",
+    "static": true,
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/src/elements/Text.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 218,
+    "kind": "class",
+    "name": "Text",
+    "memberof": "src/elements/Text.js",
+    "static": true,
+    "longname": "src/elements/Text.js~Text",
+    "access": "public",
+    "export": true,
+    "importPath": "react-dom-chunky/src/elements/Text.js",
+    "importStyle": "Text",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 219,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/elements/Text.js~Text",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Text.js~Text#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true
+  },
+  {
+    "__docId__": 220,
+    "kind": "method",
+    "name": "markedString",
+    "memberof": "src/elements/Text.js~Text",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Text.js~Text#markedString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 221,
+    "kind": "method",
+    "name": "rawString",
+    "memberof": "src/elements/Text.js~Text",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Text.js~Text#rawString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 222,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/elements/Text.js~Text",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/elements/Text.js~Text#render",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# react-dom-chunky\nReact DOM Chunky\n",
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"react-dom-chunky\",\n  \"version\": \"0.8.21\",\n  \"description\": \"The Chunky Web Framework\",\n  \"scripts\": {\n    \"test\": \"react-savor test\",\n    \"lint\": \"react-savor lint\",\n    \"coverage\": \"react-savor coverage\",\n    \"codeclimate\": \"react-savor codeclimate\",\n    \"docs\": \"react-savor docs\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/react-chunky/react-dom-chunky.git\"\n  },\n  \"author\": \"I. Dan Calinescu <idancalinescu@gmail.com>\",\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/react-chunky/react-dom-chunky/issues\"\n  },\n  \"homepage\": \"https://github.com/react-chunky/react-dom-chunky\",\n  \"dependencies\": {\n    \"autoprefixer\": \"7.1.1\",\n    \"babel-core\": \"^6.22.1\",\n    \"babel-eslint\": \"^7.1.1\",\n    \"babel-loader\": \"^6.2.10\",\n    \"babel-plugin-react-css-modules\": \"^3.2.1\",\n    \"babel-preset-env\": \"^1.6.0\",\n    \"babel-preset-es2015\": \"^6.22.0\",\n    \"babel-preset-react\": \"^6.22.0\",\n    \"babel-preset-stage-2\": \"^6.24.1\",\n    \"case-sensitive-paths-webpack-plugin\": \"2.1.1\",\n    \"chalk\": \"^2.1.0\",\n    \"compression-webpack-plugin\": \"^1.0.1\",\n    \"copy-webpack-plugin\": \"^4.0.1\",\n    \"copyfiles\": \"^1.2.0\",\n    \"cross-env\": \"^3.1.4\",\n    \"css-loader\": \"^0.28.4\",\n    \"ejs\": \"^2.5.7\",\n    \"eslint\": \"3.19.0\",\n    \"eslint-config-react-app\": \"^1.0.5\",\n    \"eslint-loader\": \"1.7.1\",\n    \"eslint-plugin-flowtype\": \"2.34.0\",\n    \"eslint-plugin-import\": \"2.2.0\",\n    \"eslint-plugin-jsx-a11y\": \"5.0.3\",\n    \"eslint-plugin-react\": \"7.1.0\",\n    \"extract-text-webpack-plugin\": \"^2.1.2\",\n    \"file-loader\": \"0.11.2\",\n    \"firebase\": \"^4.3.1\",\n    \"html-loader\": \"^0.5.1\",\n    \"html-webpack-plugin\": \"^2.29.0\",\n    \"log-update\": \"^2.1.0\",\n    \"lqip\": \"^2.0.2\",\n    \"lqip-loader\": \"^2.0.2\",\n    \"markdown-it\": \"^8.4.0\",\n    \"markdown-it-front-matter\": \"^0.1.2\",\n    \"markdown-loader\": \"^2.0.1\",\n    \"marked\": \"^0.3.6\",\n    \"material-ui\": \"^1.0.0-beta.13\",\n    \"material-ui-icons\": \"^1.0.0-beta.14\",\n    \"node-sass-chokidar\": \"0.0.3\",\n    \"ora\": \"^1.3.0\",\n    \"postcss-flexbugs-fixes\": \"3.0.0\",\n    \"postcss-loader\": \"2.0.6\",\n    \"react\": \"^15.4.2\",\n    \"react-addons-transition-group\": \"^15.6.0\",\n    \"react-chunky\": \"0.x\",\n    \"react-css-modules\": \"^4.7.1\",\n    \"react-dom\": \"^15.4.2\",\n    \"react-hot-loader\": \"^3.0.0-beta.6\",\n    \"react-mdl\": \"^1.10.3\",\n    \"react-placeholder\": \"^1.0.7\",\n    \"react-player\": \"^0.25.3\",\n    \"react-responsive\": \"^1.3.4\",\n    \"react-router-dom\": \"^4.2.2\",\n    \"recharts\": \"^1.0.0-alpha.4\",\n    \"require-from-string\": \"^2.0.1\",\n    \"responsive-loader\": \"^1.1.0\",\n    \"rimraf\": \"^2.6.0\",\n    \"rmwc\": \"0.0.1-rc9\",\n    \"sass-loader\": \"^6.0.6\",\n    \"sharp\": \"^0.18.4\",\n    \"static-site-generator-webpack-plugin\": \"^3.4.1\",\n    \"style-loader\": \"^0.18.2\",\n    \"styled-jsx\": \"^2.2.1\",\n    \"sw-precache-webpack-plugin\": \"0.11.3\",\n    \"url-loader\": \"0.5.9\",\n    \"webpack\": \"^2.2.0\",\n    \"webpack-dev-server\": \"^2.2.0\"\n  },\n  \"devDependencies\": {\n    \"react-savor\": \"0.x\"\n  }\n}\n",
+    "longname": "/Users/dancali/dev/chunky/react-dom-chunky/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

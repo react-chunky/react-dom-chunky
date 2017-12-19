@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/elements/Layout.js | react-dom-chunky</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="The Chunky Web Framework"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="react-dom-chunky"><meta property="twitter:description" content="The Chunky Web Framework"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/react-chunky/react-dom-chunky"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/blob.js~Blob.html">Blob</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/features.js~Features.html">Features</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/summary.js~Summary.html">Summary</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Cache.js~Cache.html">Cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Screen.js~Screen.html">Screen</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#elements">elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Drawer.js~Drawer.html">Drawer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Layout.js~Layout.html">Layout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Media.js~Media.html">Media</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Text.js~Text.html">Text</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/elements/Layout.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { PureComponent } from &apos;react&apos;
+import {
+  Icon,
+  Theme,
+  Grid,
+  GridCell,
+  List,
+  ListItem,
+  ListItemText,
+  Button,
+  Toolbar,
+  ToolbarRow,
+  ToolbarIcon,
+  ToolbarTitle,
+  ToolbarMenuIcon,
+  ToolbarSection,
+  ToolbarFixedAdjust
+} from &apos;rmwc&apos;
+import &apos;node_modules/material-components-web/dist/material-components-web.css&apos;
+import MediaQuery from &apos;react-responsive&apos;
+import css from &apos;styled-jsx/css&apos;
+import Drawer from &apos;../elements/Drawer&apos;
+import Media from &apos;../elements/Media&apos;
+
+/**
+ *
+ */
+export default class Layout extends PureComponent {
+
+  constructor (props) {
+    super(props)
+    this.state = { menuOpened: false, fixed: false }
+  }
+
+  get breakpoints () {
+    return {
+      main: 1224
+    }
+  }
+
+  get isLargeScreen () {
+    return (this.props.width &gt;= this.breakpoints.main)
+  }
+
+  get styles () {
+    return styles
+  }
+
+  get cover () {
+    return Object.assign({}, this.props.cover, {})
+  }
+
+  get hasCover () {
+    return (this.props.cover !== undefined)
+  }
+
+  get navigationHeight () {
+    return (this.isLargeScreen ? 64 : 56)
+  }
+
+  get coverOffset () {
+    if (this.hasCover &amp;&amp; !this.cover.navigation &amp;&amp; this.props.layout.fixed) {
+      return this.navigationHeight
+    }
+
+    if (this.hasCover &amp;&amp; this.cover.navigation &amp;&amp; !this.props.layout.fixed) {
+      return -this.navigationHeight
+    }
+
+    return 0
+  }
+
+  get navigationUncover () {
+    if (this.hasCover &amp;&amp; this.cover.navigation &amp;&amp; !this.props.layout.fixed) {
+      return true
+    }
+
+    return (this.hasCover &amp;&amp; this.cover.navigation &amp;&amp; this.props.scroll &lt; 10)
+  }
+
+  isColorLight (c) {
+    var c = c.substring(1)
+    const rgb = parseInt(c, 16)
+    const r = (rgb &gt;&gt; 16) &amp; 0xff
+    const g = (rgb &gt;&gt; 8) &amp; 0xff
+    const b = (rgb &gt;&gt; 0) &amp; 0xff
+
+    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    return (luma &gt; 210)
+  }
+
+  renderDrawer () {
+    return (&lt;Drawer open={this.state.menuOpened} /&gt;)
+  }
+
+  renderDrawerMenu () {
+    var index = 0
+    return this.props.menu.map(item =&gt; (&lt;ListItem key={`menuItem${index++}`}&gt;
+      &lt;ListItemText&gt;{ item.title }&lt;/ListItemText&gt;
+    &lt;/ListItem&gt;))
+  }
+
+  renderResponsiveLarge (component) {
+    return (&lt;MediaQuery minDeviceWidth={this.breakpoints.main}&gt;
+      { component }
+    &lt;/MediaQuery&gt;)
+  }
+
+  renderResponsiveSmall (component) {
+    return (&lt;MediaQuery maxDeviceWidth={this.breakpoints.main}&gt;
+      { component }
+    &lt;/MediaQuery&gt;)
+  }
+
+  renderResponsive (key, small, large) {
+    return (&lt;div key={key}&gt;
+      { this.renderResponsiveSmall(small) }
+      { this.renderResponsiveLarge(large) }
+    &lt;/div&gt;)
+  }
+
+  get theme () {
+    const navigationColor = (this.navigationUncover ? `rgba(0,0,0,0)` : this.props.theme.navigationColor)
+    const navigationTintColor = (this.navigationUncover ? &apos;#FFFFFF&apos; : this.props.theme.navigationTintColor)
+
+    return Object.assign({}, this.props.theme, {
+      navigationColor, navigationTintColor
+    })
+  }
+
+  renderNavigationMenuItem (item, index) {
+    return this.renderResponsive(`menuItem${index++}`,
+      &lt;ToolbarIcon use={item.icon} style={{color: this.theme.navigationTintColor}} /&gt;,
+      &lt;Button style={{color: this.theme.navigationTintColor, marginRight: &apos;20px&apos;}}&gt;
+        { item.title }
+      &lt;/Button&gt;)
+  }
+
+  renderNavigationMenu () {
+    var index = 0
+    return this.props.menu.map(item =&gt; this.renderNavigationMenuItem(item, index++))
+  }
+
+  renderNavigationLogo () {
+    // return this.renderResponsive(&apos;logo&apos;,
+    //   &lt;ToolbarMenuIcon use=&apos;menu&apos; style={{color: this.theme.navigationTintColor}} onClick={() =&gt; this.setState({menuOpened: !this.state.menuOpened})} /&gt;,
+    //   &lt;Icon&gt; /assets/logo.png &lt;/Icon&gt;)
+  }
+
+  renderNavigation () {
+    return (&lt;Toolbar waterfall fixed={this.props.layout.fixed} style={{
+      backgroundColor: this.theme.navigationColor}}&gt;
+      &lt;ToolbarRow&gt;
+        &lt;ToolbarSection alignStart&gt;
+          { this.renderNavigationLogo() }
+        &lt;/ToolbarSection&gt;
+        &lt;ToolbarSection alignEnd&gt;
+          { this.renderNavigationMenu() }
+        &lt;/ToolbarSection&gt;
+      &lt;/ToolbarRow&gt;
+    &lt;/Toolbar&gt;)
+  }
+
+  renderCover () {
+    if (!this.hasCover) {
+      return
+    }
+
+    const coverStyle = { width: &apos;100%&apos;, height: &apos;auto&apos;}
+    const coverPlaying = (this.props.scroll &lt; 200)
+    const height = this.props.height
+
+    return (&lt;div style={{
+      backgroundColor: this.cover.backgroundColor,
+      marginTop: `${this.coverOffset}px`,
+      boxShadow: `inset 0 0 0 1600px rgba(0,0,0,${this.cover.opacity})`,
+      height: `${height}px`,
+      display: &apos;flex&apos;,
+      flex: 1,
+      alignItems: &apos;center&apos;,
+      flexDirection: &apos;column&apos;,
+      justifyContent: &apos;center&apos;
+    }}&gt;
+      &lt;Media video={this.cover.video} image={this.cover.image} playing={coverPlaying} style={coverStyle} /&gt;
+    &lt;/div&gt;)
+  }
+
+  renderFooterSectionElement (element) {
+    return (&lt;ListItem key={element.id} style={{}}&gt;
+      &lt;Button style={{color: this.theme.footerTintColor}}&gt;
+        { element.title }
+      &lt;/Button&gt;
+    &lt;/ListItem&gt;)
+  }
+
+  renderFooterSection (section) {
+    return (&lt;div key={`footerSection${section.id}`} style={{
+      marginRight: &apos;20px&apos;
+    }}&gt;
+      &lt;List&gt;
+        &lt;ListItem style={{marginLeft: &apos;15px&apos;}}&gt;
+          &lt;ListItemText style={{color: this.theme.footerHeaderColor}}&gt; {section.title} &lt;/ListItemText&gt;
+        &lt;/ListItem&gt;
+        { section.elements.map(element =&gt; this.renderFooterSectionElement(element)) }
+      &lt;/List&gt;
+    &lt;/div&gt;)
+  }
+
+  renderFooterSections () {
+    return this.props.footer.sections.map(section =&gt; this.renderFooterSection(section))
+  }
+
+  renderFooterLegal () {
+    return (&lt;List style={{
+      display: &apos;flex&apos;,
+      flex: &apos;1&apos;,
+      alignSelf: &apos;flex-start&apos;,
+      justifyContent: &apos;flex-end&apos;,
+      flexDirection: &apos;column&apos;
+    }}&gt;
+      &lt;ListItem style={{marginRight: &apos;20px&apos;, color: this.props.theme.footerHeaderColor,
+        alignSelf: &apos;flex-end&apos;
+      }}&gt;
+        &lt;ListItemText&gt; {this.props.info.copyright} &lt;/ListItemText&gt;
+      &lt;/ListItem&gt;
+    &lt;/List&gt;)
+  }
+
+  renderFooter () {
+    return (&lt;div style={{
+      backgroundColor: this.props.theme.footerColor,
+      minHeight: &apos;80px&apos;,
+      padding: &apos;10px&apos;,
+      display: &apos;flex&apos;,
+      flexWrap: &apos;wrap&apos;,
+      flex: 1,
+      alignItems: &apos;start&apos;,
+      flexDirection: &apos;row&apos;,
+      justifyContent: &apos;start&apos;,
+      color: &apos;#ECEFF1&apos;
+    }}&gt;
+      { this.renderFooterSections() }
+      { this.renderFooterLegal() }
+    &lt;/div&gt;)
+  }
+
+  renderComponent (component, index) {
+    return (&lt;div key={`component${index}`} style={this.styles.component}&gt;
+      { component }
+    &lt;/div&gt;)
+  }
+
+  renderComponents () {
+    var components = this.props.children || []
+    var index = 0
+    const marginTop = (this.props.layout.fixed &amp;&amp; !this.hasCover ? this.navigationHeight : 0)
+
+    return (&lt;main style={{
+      marginTop: `${marginTop}px`
+    }}&gt;
+      { components.map(c =&gt; this.renderComponent(c, index++)) }
+    &lt;/main&gt;)
+  }
+
+  render () {
+    return (&lt;div style={this.styles.container} ref={c =&gt; this.container = c}&gt;
+      { this.renderDrawer() }
+      { this.renderNavigation() }
+      { this.renderCover() }
+      { this.renderComponents() }
+      { this.renderFooter() }
+
+      &lt;style jsx&gt;{`{
+        :global(:root) {
+          --mdc-theme-primary: ${this.props.theme.primaryColor};
+        }
+      }`}
+      &lt;/style&gt;
+    &lt;/div&gt;)
+  }
+}
+
+const styles = {
+  component: {
+    backgroundColor: &apos;#FFFFFF&apos;,
+    display: &apos;flex&apos;,
+    flex: 1,
+    alignItems: &apos;center&apos;,
+    flexDirection: &apos;column&apos;,
+    justifyContent: &apos;center&apos;,
+    color: &apos;#455A64&apos;
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

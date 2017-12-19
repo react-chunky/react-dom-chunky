@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/core/Component.js | react-dom-chunky</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="The Chunky Web Framework"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="react-dom-chunky"><meta property="twitter:description" content="The Chunky Web Framework"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/react-chunky/react-dom-chunky"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/blob.js~Blob.html">Blob</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/features.js~Features.html">Features</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/summary.js~Summary.html">Summary</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Cache.js~Cache.html">Cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Screen.js~Screen.html">Screen</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#elements">elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Drawer.js~Drawer.html">Drawer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Layout.js~Layout.html">Layout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Media.js~Media.html">Media</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Text.js~Text.html">Text</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/core/Component.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { PureComponent } from &apos;react&apos;
+import uuid from &apos;uuid&apos;
+
+export default class Component extends PureComponent {
+
+  constructor (props) {
+    super(props)
+    this._id = `chunky-${uuid.v1()}`
+  }
+
+  get smallScreenBreakPoint () {
+    return this.props.smallScreenBreakPoint
+  }
+
+  get isLargeScreen () {
+    return (this.props.width &gt; this.smallScreenBreakPoint)
+  }
+
+  get id () {
+    return this._id
+  }
+
+  get width () {
+    return this.props.width
+  }
+
+  get height () {
+    return this.props.height
+  }
+
+  get cardWidth () {
+    return (this.isLargeScreen ? this.smallScreenBreakPoint : this.width - 20)
+  }
+
+  get cardHeight () {
+    return (this.isLargeScreen ? 320 : 400)
+  }
+
+  loadBlob (blob) {
+    return fetch(`/assets/blobs/${blob}.md`)
+           .then(response =&gt; response.text())
+           .then(markdown =&gt; marked(markdown, {}))
+  }
+
+  componentDidMount () {
+  }
+
+  componentWillAppear (callback) {
+    callback()
+  }
+
+  componentDidAppear () {
+  }
+
+  componentDidEnter () {
+  }
+
+  componentDidLeave () {
+  }
+
+  componentWillUnmount () {
+  }
+
+  componentWillEnter (callback) {
+    const el = this.container
+    TweenMax.fromTo(el, 0.3, {y: 100, opacity: 0}, {y: 0, opacity: 1, onComplete: callback})
+  }
+
+  componentWillLeave (callback) {
+    const el = this.container
+    TweenMax.fromTo(el, 0.3, {y: 0, opacity: 1}, {y: -100, opacity: 0, onComplete: callback})
+  }
+
+  renderComponent () {
+    return (&lt;div /&gt;)
+  }
+
+  render () {
+    return (&lt;div style={styles.container} ref={c =&gt; this.container = c}&gt;
+      { this.renderComponent() }
+    &lt;/div&gt;)
+  }
+}
+
+const styles = {
+  container: {
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

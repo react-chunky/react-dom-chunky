@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/core/Screen.js | react-dom-chunky</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="The Chunky Web Framework"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="react-dom-chunky"><meta property="twitter:description" content="The Chunky Web Framework"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/react-chunky/react-dom-chunky"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/blob.js~Blob.html">Blob</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/features.js~Features.html">Features</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/summary.js~Summary.html">Summary</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Cache.js~Cache.html">Cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Screen.js~Screen.html">Screen</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#elements">elements</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Drawer.js~Drawer.html">Drawer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Layout.js~Layout.html">Layout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Media.js~Media.html">Media</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Text.js~Text.html">Text</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/core/Screen.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
+import TransitionGroup from &apos;react-addons-transition-group&apos;
+import { Core } from &apos;react-chunky&apos;
+import { Redirect } from &apos;react-router&apos;
+import { default as Component } from &apos;./Component&apos;
+import merge from &apos;deepmerge&apos;
+import { default as Layout } from &apos;../elements/Layout&apos;
+
+export default class Screen extends Core.Screen {
+
+  constructor (props) {
+    super(props)
+    this.state = { ...this.state, progress: false, progressTitle: this.progressTitle, height: 0, width: 0, scroll: 0 }
+    this._updateScroll = this.updateScroll.bind(this)
+    this._updateWindowDimensions = this.updateWindowDimensions.bind(this)
+    this._injectVariant()
+  }
+
+  componentDidMount () {
+    super.componentDidMount()
+    this._updateWindowDimensions()
+    window.addEventListener(&apos;resize&apos;, this._updateWindowDimensions)
+    window.addEventListener(&apos;scroll&apos;, this._updateScroll)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener(&apos;resize&apos;, this._updateWindowDimensions)
+    window.removeEventListener(&apos;scroll&apos;, this._updateScroll)
+  }
+
+  get expectsVariants () {
+    return (this.props.path &amp;&amp; this.props.path.indexOf(&apos;:path&apos;) &gt;= 0)
+  }
+
+  updateWindowDimensions () {
+    this.setState({ width: window.innerWidth, height: window.innerHeight })
+  }
+
+  updateScroll () {
+    const scroll = window.scrollY
+    this.setState({ scroll })
+  }
+
+  _injectVariant () {
+    if (!this.expectsVariants || !this.props.pathData) {
+      return
+    }
+
+    try {
+      // Try to load the variants
+      const variants = require(`chunks/${this.props.chunkName}/data/${this.props.pathData}.json`)
+
+      // Check the location
+      const locationPath = this.props.location.pathname
+
+      variants.forEach(variant =&gt; {
+        if (variant.path === locationPath || locationPath === `/${variant.path}` ||
+            locationPath === `/${variant.path}/` || locationPath === `${variant.path}/`) {
+            // We&apos;ve got a match
+          this._variant = Object.assign({}, variant)
+        }
+      })
+    } catch (e) {
+      // Could not load variant path data
+    }
+  }
+
+  get isVariantValid () {
+    return (this.expectsVariants &amp;&amp; this.variant)
+  }
+
+  get _props () {
+    return (this.variant ? merge.all([this.props, this.variant]) : this.props)
+  }
+
+  get variant () {
+    return this._variant
+  }
+
+  pushTransition (transition, data) {
+    var pathname = (transition.data.path.charAt(0) === &apos;:&apos; ? (data[transition.data.path.substring(1)] || transition.data.path) : transition.data.path)
+
+    this.setState({ redirect: { transition, data, push: true, pathname }})
+  }
+
+  replaceTransition (transition, data) {
+    var pathname = (transition.data.path.charAt(0) === &apos;:&apos; ? (data[transition.data.path.substring(1)] || transition.data.path) : transition.data.path)
+
+    this.setState({ redirect: { transition, data, push: false, pathname }})
+  }
+
+  get account () {
+    return this.props.account
+  }
+
+  get isLoggedIn () {
+    return this.account
+  }
+
+  get width () {
+    return this.state.width
+  }
+
+  get height () {
+    return this.state.height
+  }
+
+  get scroll () {
+    return this.state.scroll
+  }
+
+  get path () {
+    return this.props.location.pathname
+  }
+
+  get mainMenu () {
+    return this.props.menu
+  }
+
+  get components () {
+    return []
+  }
+
+  logout () {
+    this.props.onUserLogout &amp;&amp; this.props.onUserLogout()
+  }
+
+  userDidLogin (account) {
+    this.props.onUserLogin &amp;&amp; this.props.onUserLogin(account)
+  }
+
+  renderProgress () {}
+
+  renderComponent (OriginalComponent, index) {
+    var props = Object.assign({}, {
+      width: this.state.width,
+      height: this.state.height,
+      smallScreenBreakPoint: this.smallScreenBreakPoint
+    }, this.props)
+
+    var ComponentContainer = React.cloneElement(OriginalComponent, props)
+
+    if ((typeof OriginalComponent.type) === &apos;string&apos;) {
+      ComponentContainer = OriginalComponent
+    }
+
+    return (
+      &lt;TransitionGroup key={`${index}`} style={{ alignSelf: &apos;stretch&apos; }}&gt;
+        { ComponentContainer }
+      &lt;/TransitionGroup&gt;
+    )
+  }
+
+  renderComponents () {
+    var index = 1
+    return this.components.map(component =&gt; {
+      index = index + 1
+      return this.renderComponent(component, index)
+    })
+  }
+
+  redirect (pathname, push) {
+    return (&lt;Redirect push={push} to={{
+      pathname
+    }} /&gt;)
+  }
+
+  renderScreenLayout () {
+    return &lt;Layout
+      scroll={this.state.scroll}
+      width={this.state.width}
+      height={this.state.height}
+      {...this.props} /&gt;
+  }
+
+  render () {
+    if (this.state.height === 0) {
+      return &lt;div /&gt;
+    }
+
+    if (this.state.redirect) {
+      const { transition, data, push, pathname } = this.state.redirect
+      return this.redirect(pathname, push)
+    }
+    var height = `${this.height}px`
+
+    return (&lt;div style={{ height, position: &apos;relative&apos; }}&gt;
+      { this.renderScreenLayout() }
+      &lt;style jsx&gt;{`{
+        :global(body){
+            background-color: ${this.props.backgroundColor};
+            margin: 0;
+            padding: 0;
+        }`}
+      &lt;/style&gt;
+    &lt;/div&gt;
+    )
+  }
+}
+
+const styles = {
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

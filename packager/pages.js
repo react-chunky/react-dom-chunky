@@ -5,16 +5,16 @@ const path = require('path')
 const fs = require('fs-extra')
 const Router = require('../src/core/Router')
 
-function generateDevPage(options, route) {
+function generateDevPage (options, route) {
   return new HtmlWebpackPlugin({
     filename: 'index.html',
     route,
     inject: 'true',
-    template: path.resolve(options.dir, "node_modules", "react-dom-chunky", "app", "pages", "default.html")
+    template: path.resolve(options.dir, 'node_modules', 'react-dom-chunky', 'app', 'pages', 'default.html')
   })
 }
 
-function generateStaticPage(options, route) {
+function generateStaticPage (options, route) {
   return new HtmlWebpackPlugin({
     cache: false,
     route,
@@ -26,14 +26,14 @@ function generateStaticPage(options, route) {
       conservativeCollapse: true,
       removeComments: true
     },
-    filename: `${route.path ? route.path + '/' : ''}index.html`,
-    template: path.resolve(options.dir, "node_modules", "react-dom-chunky", "app", "pages", `${route.template || 'default'}.html`)
+    filename: `${(route.path && route.path !== '/') ? route.path + '/' : ''}index.html`,
+    template: path.resolve(options.dir, 'node_modules', 'react-dom-chunky', 'app', 'pages', `${route.template || 'default'}.html`)
   })
 }
 
-function chunkRoutes(chunk, options) {
+function chunkRoutes (chunk, options) {
   var r = []
-  for(const routeName in chunk.routes) {
+  for (const routeName in chunk.routes) {
     const route = chunk.routes[routeName]
 
     if (!route.path || (route.path && route.path.indexOf(':path') < 0)) {
@@ -46,7 +46,7 @@ function chunkRoutes(chunk, options) {
     }
 
     try {
-      const variants = require(path.resolve(options.dir, "chunks", chunk.name, 'data', `${route.pathData}.json`))
+      const variants = require(path.resolve(options.dir, 'chunks', chunk.name, 'data', `${route.pathData}.json`))
       if (!variants || variants.length === 0) {
         return []
       }
@@ -61,13 +61,13 @@ function chunkRoutes(chunk, options) {
   return r
 }
 
-function routes(options) {
+function routes (options) {
   var r = []
 
-  for(const sectionName in options.config.sections) {
+  for (const sectionName in options.config.sections) {
     const section = options.config.sections[sectionName]
     const sectionRoutes = Router.createSectionRoutes(section, (element, section) => {
-      var chunk = undefined
+      var chunk
 
       options.chunks.forEach(c => {
         if (c.name === element) {
@@ -84,7 +84,7 @@ function routes(options) {
   return r
 }
 
-function pages(options, dev) {
+function pages (options, dev) {
   const r = routes(options)
 
   if (dev) {
