@@ -1,6 +1,7 @@
 import React from 'react'
 import Component from '../core/Component'
 import Text from './Text'
+import { renderResponsive } from '../utils/responsive'
 
 export default class Summary extends Component {
 
@@ -13,13 +14,32 @@ export default class Summary extends Component {
     super.componentDidMount()
   }
 
-  renderComponent () {
-    const width = this.isLargeScreen ? 800 : this.width - 40
+  renderBlob () {
+    return renderResponsive('blob',
+      <Text blob={this.props.blob} style={{
+        width: `90vw`,
+        padding: '20px'
+      }} />,
+      <Text blob={this.props.blob} style={{
+        width: `50vw`,
+        paddingBottom: '60px'
+      }} />)
+  }
 
-    return (<div style={{ color: '#607D8B', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ width: `${width}px`, margin: 80 }}>
-        <Text blob={this.props.blob} />
-      </div>
+  renderComponent () {
+    return (<div style={{
+      color: '#607D8B',
+      position: 'relative',
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center' }}>
+      <img src='/assets/logo-chunky.png' style={{
+        width: '200px',
+        marginTop: '60px'
+      }} />
+      { this.renderBlob() }
     </div>)
   }
 }

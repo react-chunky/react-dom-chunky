@@ -1,9 +1,9 @@
 import React from 'react'
 import Component from '../core/Component'
-import 'react-placeholder/lib/reactPlaceholder.css'
 import ReactPlaceholder from 'react-placeholder'
 import { TextBlock, MediaBlock, TextRow, RectShape, RoundShape } from 'react-placeholder/lib/placeholders'
 import marked from 'marked'
+import 'react-placeholder/lib/reactPlaceholder.css'
 
 export default class Text extends Component {
 
@@ -46,9 +46,17 @@ export default class Text extends Component {
       <div className={className} dangerouslySetInnerHTML={{ __html: this.state.text }} />
       <style jsx>{`
            {
+             .${className} :global(h1) {
+               font-weight: 300;
+               font-size: 48px;
+             }
              .${className} :global(h2) {
+               font-weight: 300;
+               font-size: 32px;
              }
              .${className} :global(p) {
+               font-size: 24px;
+               text-align: justify;
              }
             }
         `}</style>
@@ -56,8 +64,14 @@ export default class Text extends Component {
   }
 
   renderComponent () {
-    return (<div>
-      <ReactPlaceholder showLoadingAnimation rows={7} ready={!this.state.loading} customPlaceholder={this.placeholder}>
+    return (<div style={Object.assign({}, {
+      textAlign: 'center'
+    }, this.props.style)}>
+      <ReactPlaceholder
+        showLoadingAnimation
+        rows={7}
+        ready={!this.state.loading}
+        customPlaceholder={this.placeholder}>
         { this.renderComponentContent({ titleColor: '#263238', textColor: '#455A64' }) }
       </ReactPlaceholder>
     </div>)
