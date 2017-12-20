@@ -14,6 +14,7 @@ class Plugin extends WebPlugin {
     // We're only loading chunky once
     const bundle = compilation.assets['chunky.js']
     const source = bundle.source()
+
     try {
       this._mainModule = requireFromString(source)
       return this._mainModule

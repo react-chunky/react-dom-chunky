@@ -33,13 +33,13 @@ module.exports = (options) => {
       rules: [
         {
           test: /\.(png|gif|jpe?g)$/,
-          use: [{
-            loader: 'lqip-loader',
+          use: [ {
+            loader: 'responsive-loader',
             options: {
-              path: '/assets',
-              name: '[name].[ext]',
-              base64: true,
-              palette: false
+              sizes: [600, 2000],
+              placeholder: true,
+              placeholderSize: 50,
+              adapter: require('responsive-loader/sharp')
             }
           }]
         },

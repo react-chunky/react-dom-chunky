@@ -40,37 +40,71 @@ export default class Footer extends PureComponent {
     return this.props.footer.sections.map(section => this.renderFooterSection(section))
   }
 
-  renderFooterLegal () {
-    return (<List style={{
-      display: 'flex',
+  renderFooterLegal (compact) {
+    return (<div style={{display: 'flex',
       flex: '1',
-      alignSelf: 'flex-start',
-      justifyContent: 'flex-end',
-      flexDirection: 'column'
-    }}>
-      <ListItem style={{marginRight: '20px', color: this.props.theme.footerHeaderColor,
-        alignSelf: 'flex-end'
+      alignSelf: 'center',
+      justifyContent: 'center',
+      width: '100vw',
+      backgroundColor: this.props.theme.footerBottomColor,
+      flexDirection: (compact ? 'row' : 'column')}}>
+      <List style={{
+        display: 'flex',
+        flex: '1',
+        alignSelf: 'centers',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        textAlign: 'center'
       }}>
-        <ListItemText> {this.props.info.copyright} </ListItemText>
-      </ListItem>
-    </List>)
+        <ListItem style={{color: this.props.theme.footerHeaderColor,
+          alignSelf: 'center'
+        }}>
+          <ListItemText> {this.props.info.watermark} </ListItemText>
+        </ListItem>
+      </List>
+      <List style={{
+        display: 'flex',
+        flex: '1',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        textAlign: 'center'
+      }}>
+        <ListItem style={{marginRight: '20px', color: this.props.theme.footerHeaderColor,
+          alignSelf: 'center'
+        }}>
+          <ListItemText> {this.props.info.copyright} </ListItemText>
+        </ListItem>
+      </List>
+    </div>)
   }
 
   renderDefault () {
-    return (<div style={{
-      backgroundColor: this.props.theme.footerColor,
+    return (<div style={{backgroundColor: this.props.theme.footerColor,
       minHeight: '80px',
-      padding: '10px',
+      padding: '0px',
       display: 'flex',
       flexWrap: 'wrap',
       flex: 1,
-      alignItems: 'start',
-      flexDirection: 'row',
-      justifyContent: 'start',
-      color: '#ECEFF1'
-    }}>
-      { this.renderFooterSections() }
-      { this.renderFooterLegal() }
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      color: '#ECEFF1'}}>
+      <div style={{
+        backgroundColor: this.props.theme.footerColor,
+        minHeight: '80px',
+        padding: '10px',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flex: 1,
+        alignItems: 'start',
+        flexDirection: 'row',
+        justifyContent: 'start',
+        color: '#ECEFF1'
+      }}>
+        { this.renderFooterSections() }
+      </div>
+      { renderResponsive('footer-bottom', this.renderFooterLegal(), this.renderFooterLegal(true)) }
     </div>)
   }
 
