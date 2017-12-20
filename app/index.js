@@ -1,27 +1,25 @@
-const React = require('react')
-const ReactDOM = require('react-dom')
-const ReactDOMServer = require('react-dom/server')
-const Router = require('react-router-dom')
-const App = require('../src/core/App')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import ReactDOMServer from 'react-dom/server'
+import App from '../src/core/App'
+import { Core } from 'react-chunky'
+import './global'
 
-try {
-  require('./global')
+const main = (route, redirect) => (<Core.AppContainer {...chunky.config}>
+  <App {...chunky.config} route={route} redirect={redirect} />
+</Core.AppContainer>)
 
-  if (typeof window !== 'undefined' || typeof document !== 'undefined') {
-    ReactDOM.render(chunky.main(App, chunky.route, true), document.getElementById('chunky'))
-  }
-} catch (e) {
+if (typeof window !== 'undefined' || typeof document !== 'undefined') {
+  ReactDOM.render(main(chunky.route, true), document.getElementById('chunky'))
 }
 
-function renderStaticPage (route) {
+export function renderStaticPage (route) {
   return new Promise((resolve, reject) => {
     try {
-      const html = ReactDOMServer.renderToStaticMarkup(chunky.main(route))
+      const html = ReactDOMServer.renderToStaticMarkup(main(route))
       resolve(html)
     } catch (e) {
       reject(e)
     }
   })
 }
-
-module.exports = { renderStaticPage }

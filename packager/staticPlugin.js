@@ -6,7 +6,7 @@ let ejs = require('ejs')
 
 class Plugin extends WebPlugin {
 
-  loadMainModule(compilation) {
+  loadMainModule (compilation) {
     if (this._mainModule) {
       return this._mainModule
     }
@@ -18,16 +18,17 @@ class Plugin extends WebPlugin {
       this._mainModule = requireFromString(source)
       return this._mainModule
     } catch (e) {
+      console.log(e)
     }
   }
 
-  onPageGeneration(compilation, data, done) {
+  onPageGeneration (compilation, data, done) {
     const main = this.loadMainModule(compilation)
     const route = data.plugin.options.route
 
-    main.renderStaticPage(route).
-         then(html => done(null, this.resolveHtml(data, html))).
-         catch((error) => done(error))
+    main.renderStaticPage(route)
+         .then(html => done(null, this.resolveHtml(data, html)))
+         .catch((error) => done(error))
   }
 }
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Core } from 'react-chunky'
 import config from './config'
 import firebaseConfig from 'web/firebase-config.json'
 import firebase from 'firebase'
@@ -7,11 +6,7 @@ import firebase from 'firebase'
 config.id = 'chunky'
 config.firebase = firebaseConfig
 
-const main = (Component, route, redirect) => (<Core.AppContainer {...config}>
-  <Component {...config} route={route} redirect={redirect} />
-</Core.AppContainer>)
-
-global.chunky = Object.assign({}, global.chunky, { config, main })
+global.chunky = Object.assign({}, global.chunky, { config })
 global.firebase = firebase
 global.storage = {
   setItem: function (key, value, callback) {

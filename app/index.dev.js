@@ -2,15 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import App from '../src/core/App'
+import { Core } from 'react-chunky'
 import './global'
+
+const main = (Component, route, redirect) => (<Core.AppContainer {...chunky.config}>
+  <Component {...chunky.config} route={route} redirect={redirect} />
+</Core.AppContainer>)
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      { chunky.main(Component) }
+      { main(Component) }
     </AppContainer>,
-  document.getElementById('chunky')
-)
+  document.getElementById('chunky'))
 }
 
 render(App)
