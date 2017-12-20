@@ -63,6 +63,7 @@
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.6",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-addons-transition-group": "^15.6.0",
     "react-chunky": "0.x",
     "react-css-modules": "^4.7.1",

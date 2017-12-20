@@ -1,26 +1,19 @@
 import React, { PureComponent } from 'react'
 import 'node_modules/material-components-web/dist/material-components-web.css'
-import css from 'styled-jsx/css'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Cover from '../components/Cover'
 import Drawer from '../components/Drawer'
-import Media from '../components/Media'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation'
-import { CSSTransitionGroup } from 'react-transition-group'
 
 /**
  *
  */
 export default class Layout extends PureComponent {
-
   constructor (props) {
     super(props)
     this.state = { menuOpened: false, fixed: false }
     this._onPrimaryAction = this.onPrimaryAction.bind(this)
-  }
-
-  get isLargeScreen () {
-    return (this.props.width >= this.breakpoints.main)
   }
 
   get styles () {
@@ -63,13 +56,6 @@ export default class Layout extends PureComponent {
     this.props.onPrimaryAction && this.props.onPrimaryAction()
   }
 
-  renderDrawer () {
-    return (<Drawer
-      open={this.state.menuOpened}
-      menu={this.props.menu}
-      />)
-  }
-
   get theme () {
     const navigationColor = (this.navigationUncover ? `rgba(0,0,0,0)` : this.props.theme.navigationColor)
     const navigationTintColor = (this.navigationUncover ? '#FFFFFF' : this.props.theme.navigationTintColor)
@@ -77,6 +63,13 @@ export default class Layout extends PureComponent {
     return Object.assign({}, this.props.theme, {
       navigationColor, navigationTintColor
     })
+  }
+
+  renderDrawer () {
+    return (<Drawer
+      open={this.state.menuOpened}
+      menu={this.props.menu}
+      />)
   }
 
   renderNavigation () {
@@ -93,32 +86,16 @@ export default class Layout extends PureComponent {
       return
     }
 
-    const coverStyle = { width: '100%', height: '100vh', objectFit: 'cover', objectPosition: 'center center' }
-    const coverPlaying = (this.props.scroll < 200)
-    const midY = (this.props.height / 2)
-    const height = this.props.height
-
-    return (<div style={{
-      backgroundColor: this.cover.backgroundColor,
-      marginTop: `${this.coverOffset}px`,
-      height: `${height}px`,
-      display: 'flex',
-      flex: 1,
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyContent: 'center'
-    }}>
-      <Media cache={this.props.cache} video={this.cover.video} image={this.cover.image} playing={coverPlaying} style={coverStyle} />
-      <Cover {...this.props.cover} onPrimaryAction={this._onPrimaryAction} />
-    </div>)
+    return (<Cover
+      {...this.props}
+      {...this.props.cover}
+      onPrimaryAction={this._onPrimaryAction}
+      offset={this.coverOffset}
+    />)
   }
 
   renderFooter () {
-    return <Footer
-      info={this.props.info}
-      footer={this.props.footer}
-      theme={this.props.theme}
-    />
+    return <Footer {...this.props} />
   }
 
   renderComponent (component, index) {
@@ -140,7 +117,7 @@ export default class Layout extends PureComponent {
   }
 
   render () {
-    return (<div style={this.styles.container} ref={c => this.container = c}>
+    return (<div style={this.styles.container} ref={c => { this.container = c }}>
       { this.renderDrawer() }
       { this.renderNavigation() }
       { this.renderCover() }
@@ -157,6 +134,15 @@ export default class Layout extends PureComponent {
           font-family: Roboto Condensed, sans-serif;
           color: #ffffff;
         }
+
+        .animation-fadeIn-appear {
+          opacity: 0.01;
+        }
+
+        .animation-fadeIn-appear.animation-fadeIn-appear-active {
+          opacity: 1;
+          transition: opacity .5s ease-in;
+        }
       }`}
       </style>
     </div>)
@@ -164,6 +150,9 @@ export default class Layout extends PureComponent {
 }
 
 const styles = {
+  container: {
+
+  },
   component: {
     backgroundColor: '#FFFFFF',
     display: 'flex',

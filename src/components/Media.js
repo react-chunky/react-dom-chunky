@@ -12,7 +12,12 @@ export default class Media extends PureComponent {
   renderImage (name, src, placeholder) {
     return (<ProgressiveImage src={src} placeholder={placeholder}>
       {(src, loading) => {
-        return <img style={Object.assign({}, this.props.style, { opacity: loading ? 0.5 : 1 })} src={src} alt={name} />
+        const style = Object.assign({}, this.props.style, {
+          opacity: loading ? 0.5 : 1,
+          height: '100vh',
+          width: '100vw'
+        })
+        return <img style={style} src={src} alt={name} />
       }}
     </ProgressiveImage>)
   }
@@ -26,8 +31,9 @@ export default class Media extends PureComponent {
 
   render () {
     if (this.props.video) {
-      return (<ReactPlayer ref={(player) => { this.coverPlayer = player }} url={this.props.video} playing={this.props.playing} width='100%'
-        height='100%' />)
+      return (<ReactPlayer ref={(player) => { this.coverPlayer = player }} url={this.props.video} playing={this.props.playing}
+        width='100vw'
+        height='100vh' />)
     }
 
     if (!this.props.image) {

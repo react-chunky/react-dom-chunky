@@ -5,6 +5,7 @@ import {
   Button,
   Typography
 } from 'rmwc'
+import Media from './Media'
 
 export default class Cover extends PureComponent {
 
@@ -24,8 +25,8 @@ export default class Cover extends PureComponent {
     return (<div style={{
       position: 'absolute',
       backgroundColor: `rgba(0,0,0,${this.props.opacity})`,
-      width: '100%',
-      height: '100%',
+      width: '100vw',
+      height: '100vh',
       top: 0,
       left: 0,
       display: 'flex',
@@ -51,8 +52,29 @@ export default class Cover extends PureComponent {
     </div>)
   }
 
+  renderDefault () {
+    const coverStyle = { width: '100%', height: '100vh', objectFit: 'cover', objectPosition: 'center center' }
+    const coverPlaying = (this.props.scroll < 200)
+    const midY = (this.props.height / 2)
+    const height = this.props.height
+
+    return (<div style={{
+      backgroundColor: this.props.backgroundColor,
+      marginTop: `${this.props.offset}px`,
+      height: `${height}px`,
+      display: 'flex',
+      flex: 1,
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    }}>
+      <Media cache={this.props.cache} video={this.props.video} image={this.props.image} playing={coverPlaying} style={coverStyle} />
+      { this.renderContent() }
+    </div>)
+  }
+
   render () {
-    return this.renderContent()
+    return this.renderDefault()
   }
 
 }
