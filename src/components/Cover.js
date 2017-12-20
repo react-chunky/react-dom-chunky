@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Text from '../elements/Text'
+import Text from './Text'
 import {
   Icon,
   Button,
@@ -20,7 +20,7 @@ export default class Cover extends PureComponent {
     this.props.onPrimaryAction && this.props.onPrimaryAction()
   }
 
-  render () {
+  renderContent () {
     return (<div style={{
       position: 'absolute',
       backgroundColor: `rgba(0,0,0,${this.props.opacity})`,
@@ -50,4 +50,9 @@ export default class Cover extends PureComponent {
       </div>
     </div>)
   }
+
+  render () {
+    return this.renderContent()
+  }
+
 }

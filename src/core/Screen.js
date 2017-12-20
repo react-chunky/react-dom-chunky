@@ -4,7 +4,7 @@ import { Core } from 'react-chunky'
 import { Redirect } from 'react-router'
 import { default as Component } from './Component'
 import merge from 'deepmerge'
-import { default as Layout } from '../elements/Layout'
+import { default as Layout } from './Layout'
 
 export default class Screen extends Core.Screen {
 
@@ -27,6 +27,10 @@ export default class Screen extends Core.Screen {
   componentWillUnmount () {
     window.removeEventListener('resize', this._updateWindowDimensions)
     window.removeEventListener('scroll', this._updateScroll)
+  }
+
+  get layout () {
+    return Layout
   }
 
   get expectsVariants () {
@@ -134,6 +138,7 @@ export default class Screen extends Core.Screen {
 
   renderComponent (OriginalComponent, index) {
     var props = Object.assign({}, {
+      cache: this.cache,
       width: this.state.width,
       height: this.state.height,
       smallScreenBreakPoint: this.smallScreenBreakPoint
@@ -179,14 +184,15 @@ export default class Screen extends Core.Screen {
   }
 
   renderScreenLayout () {
-    return <Layout
+    const ScreenLayout = this.layout
+    return <ScreenLayout
       onPrimaryAction={this._onPrimaryAction}
       scroll={this.state.scroll}
       width={this.state.width}
       height={this.state.height}
       {...this.props}>
       {this.renderComponents()}
-    </Layout>
+    </ScreenLayout>
   }
 
   render () {

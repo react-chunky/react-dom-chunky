@@ -1,6 +1,6 @@
 import React from 'react'
 import Component from '../core/Component'
-import Text from '../elements/Text'
+import Text from './Text'
 
 export default class Summary extends Component {
 

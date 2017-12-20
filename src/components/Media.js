@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import ProgressiveImage from 'react-progressive-image'
-import cache from '../core/Cache'
 import ReactPlayer from 'react-player'
 import { renderResponsive } from '../utils/responsive'
 
@@ -35,7 +34,7 @@ export default class Media extends PureComponent {
       return
     }
 
-    const i = cache.image(this.props.image)
+    const i = this.props.cache.image(this.props.image)
     return this.renderResponsiveImage(i)
   }
 

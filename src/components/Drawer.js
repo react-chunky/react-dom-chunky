@@ -50,6 +50,13 @@ export default class Drawer extends PureComponent {
     this._onClosePressed = this._onClose.bind(this)
   }
 
+  renderDrawerMenu () {
+    var index = 0
+    return this.props.menu.map(item => (<ListItem key={`menuItem${index++}`}>
+      <ListItemText>{ item.title }</ListItemText>
+    </ListItem>))
+  }
+
   /**
    *  Renders this drawer
    */

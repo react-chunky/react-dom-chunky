@@ -1,4 +1,4 @@
-export class Cache {
+export default class Cache {
 
   constructor (props) {
     this._images = {}
@@ -39,6 +39,3 @@ export class Cache {
     return this.images[name]
   }
 }
-
-const cache = new Cache()
-export default cache

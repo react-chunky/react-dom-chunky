@@ -5,7 +5,7 @@ import { Data } from 'react-chunky'
 import { createSectionRoutes } from './Router'
 import { Redirect } from 'react-router'
 import uuid from 'uuid'
-import cache from './Cache'
+import Cache from './Cache'
 
 export default class App extends PureComponent {
 
@@ -13,6 +13,7 @@ export default class App extends PureComponent {
     super(props)
     this.state = { loading: true }
     this._menu = []
+    this._cache = new Cache()
     this._userLogin = this.userLogin.bind(this)
     this._userLogout = this.userLogout.bind(this)
   }
@@ -25,6 +26,10 @@ export default class App extends PureComponent {
       this._resolve()
       this.setState({ loading: false })
     })
+  }
+
+  get cache () {
+    return this._cache
   }
 
   userLogin (account) {
@@ -141,7 +146,7 @@ export default class App extends PureComponent {
       var menu = this.menu
       const screenProps = Object.assign({
         // Defaults
-        cache: cache,
+        cache: this.cache,
         strings: {},
         account: section.account,
         onUserLogin: this._userLogin,
