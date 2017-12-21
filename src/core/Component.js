@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import uuid from 'uuid'
+import { renderResponsive } from '../utils/responsive'
 
 export default class Component extends PureComponent {
 
@@ -65,13 +66,17 @@ export default class Component extends PureComponent {
     TweenMax.fromTo(el, 0.3, {y: 0, opacity: 1}, {y: -100, opacity: 0, onComplete: callback})
   }
 
+  renderComponentCompact () {
+    return this.renderComponent()
+  }
+
   renderComponent () {
     return (<div />)
   }
 
   render () {
     return (<div style={styles.container} ref={c => this.container = c}>
-      { this.renderComponent() }
+      { renderResponsive(this.id, this.renderComponentCompact(), this.renderComponent()) }
     </div>)
   }
 }

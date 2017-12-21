@@ -28,14 +28,14 @@ export default class Summary extends Component {
 
   renderComponent () {
     return (<div style={{
-      color: '#607D8B',
+      color: this.props.textColor,
       position: 'relative',
       display: 'flex',
       flex: 1,
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center' }}>
-      <img src='/assets/logo-chunky.png' style={{
+      <img src={`/assets/${this.props.image}`} style={{
         width: '200px',
         marginTop: '60px'
       }} />
