@@ -9,7 +9,7 @@ import {
   Typography
 } from 'rmwc'
 
-export default class Feature extends Component {
+export default class Benefits extends Component {
 
   constructor (props) {
     super(props)
@@ -20,14 +20,14 @@ export default class Feature extends Component {
     super.componentDidMount()
   }
 
-  blob () {
+  blob (name, index, total) {
     return renderResponsive('blob',
-      <Text blob={this.props.blob} style={{
+      <Text blob={name} style={{
         width: `90vw`,
         color: this.props.textColor
       }} />,
-      <Text blob={this.props.blob} style={{
-        width: `50vw`,
+      <Text blob={name} style={{
+        width: `${80 / total}vw`,
         color: this.props.textColor
       }} />)
   }
@@ -36,15 +36,16 @@ export default class Feature extends Component {
     return <div />
   }
 
-  image () {
-    return renderResponsive('image', <img src={`/assets/${this.props.image}`} style={{
+  image (image, index, total) {
+    return renderResponsive('image', <img src={`/assets/${image}`} style={{
       width: '90vw'
     }} />,
-      <img src={`/assets/${this.props.image}`} style={{
+      <img src={`/assets/${image}`} style={{
+        width: `${70 / total}vw`
       }} />)
   }
 
-  renderBlock (block, index) {
+  renderBlock (block, index, total) {
     return <div
       key={`block${index}`}
       style={{
@@ -54,37 +55,29 @@ export default class Feature extends Component {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-      { block }
+      { this.image(block.image, index, total) }
+      { this.blob(block.blob, index, total) }
     </div>
   }
 
-  renderBlocks (blocks, compact) {
+  renderBlocks (benefits, compact) {
     var index = 0
+    var total = benefits.length
     return <div style={{
-      color: '#607D8B',
+      color: this.props.textColor,
       position: 'relative',
       display: 'flex',
       flex: 1,
       flexDirection: (compact ? 'column' : 'row'),
-      alignItems: 'center',
+      alignItems: (compact ? 'center' : 'flex-start'),
       backgroundColor: this.props.backgroundColor,
       justifyContent: 'center' }}>
-      { blocks.map(b => this.renderBlock(b, index++)) }
+      { benefits.map(b => this.renderBlock(b, index++, total)) }
     </div>
   }
 
   renderDefault (compact) {
-    return this.renderBlocks([
-      this.image(),
-      this.blob()
-    ], compact)
-  }
-
-  renderReversed (compact) {
-    return this.renderBlocks([
-      this.blob(),
-      this.image()
-    ], compact)
+    return this.renderBlocks(this.props.benefits, compact)
   }
 
   renderComponentCompact () {
@@ -92,6 +85,6 @@ export default class Feature extends Component {
   }
 
   renderComponent () {
-    return (this.props.reversed ? this.renderReversed() : this.renderDefault())
+    return this.renderDefault()
   }
 }

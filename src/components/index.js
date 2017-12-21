@@ -1,3 +1,4 @@
+export { default as Benefits } from './Benefits'
 export { default as Cover } from './Cover'
 export { default as Drawer } from './Drawer'
 export { default as Feature } from './Feature'
