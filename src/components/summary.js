@@ -18,10 +18,11 @@ export default class Summary extends Component {
     return renderResponsive('blob',
       <Text blob={this.props.blob} style={{
         width: `90vw`,
-        padding: '20px'
+        padding: '10px',
+        paddingBottom: '60px'
       }} />,
       <Text blob={this.props.blob} style={{
-        width: `50vw`,
+        width: `70vw`,
         paddingBottom: '60px'
       }} />)
   }
@@ -37,7 +38,8 @@ export default class Summary extends Component {
       justifyContent: 'center' }}>
       <img src={`/assets/${this.props.image}`} style={{
         width: '200px',
-        marginTop: '60px'
+        marginTop: '20px',
+        marginBottom: '-20px'
       }} />
       { this.renderBlob() }
     </div>)

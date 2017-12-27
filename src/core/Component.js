@@ -7,15 +7,24 @@ export default class Component extends PureComponent {
   constructor (props) {
     super(props)
     this._id = `chunky-${uuid.v1()}`
+    this._type = `${this.constructor.name.toLowerCase()}`
+    this._name = props.name || `${this.id}`
+    this.triggerEvent = (event, data) => this.onEvent.bind(this, event, data)
   }
 
-  // get smallScreenBreakPoint () {
-  //   return this.props.smallScreenBreakPoint
-  // }
-  //
-  // get isLargeScreen () {
-  //   return (this.props.width > this.smallScreenBreakPoint)
-  // }
+  onEvent (event, data) {
+    this.props.onEvent && this.props.onEvent(
+      Object.assign({}, {id: `${this.type}/${this.name}/${event}`}, data && data)
+    )
+  }
+
+  get type () {
+    return this._type
+  }
+
+  get name () {
+    return this._name
+  }
 
   get id () {
     return this._id
@@ -28,14 +37,6 @@ export default class Component extends PureComponent {
   get height () {
     return this.props.height
   }
-
-  // get cardWidth () {
-  //   return (this.isLargeScreen ? this.smallScreenBreakPoint : this.width - 20)
-  // }
-  //
-  // get cardHeight () {
-  //   return (this.isLargeScreen ? 320 : 400)
-  // }
 
   componentDidMount () {
   }

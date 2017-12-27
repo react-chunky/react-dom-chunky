@@ -56,7 +56,7 @@ export default class Text extends Component {
              }
              .${className} :global(p) {
                font-size: 24px;
-               text-align: justify;
+               text-align: justify  ;
              }
             }
         `}</style>

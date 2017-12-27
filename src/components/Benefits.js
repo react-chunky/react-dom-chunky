@@ -41,7 +41,7 @@ export default class Benefits extends Component {
       width: '90vw'
     }} />,
       <img src={`/assets/${image}`} style={{
-        width: `${70 / total}vw`
+        width: `${100 / total}vw`
       }} />)
   }
 

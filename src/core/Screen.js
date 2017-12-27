@@ -13,7 +13,6 @@ export default class Screen extends Core.Screen {
     this.state = { ...this.state, progress: false, progressTitle: this.progressTitle, height: 0, width: 0, scroll: 0 }
     this._updateScroll = this.updateScroll.bind(this)
     this._updateWindowDimensions = this.updateWindowDimensions.bind(this)
-    this._onPrimaryAction = this.onPrimaryAction.bind(this)
     this._injectVariant()
   }
 
@@ -44,6 +43,14 @@ export default class Screen extends Core.Screen {
   updateScroll () {
     const scroll = window.scrollY
     this.setState({ scroll })
+  }
+
+  handleRedirectEvent (fullPath) {
+    this.triggerRedirect(fullPath)
+  }
+
+  handleDefaultEvent (fullPath) {
+    this.triggerRawRedirect(fullPath)
   }
 
   _injectVariant () {
@@ -85,13 +92,13 @@ export default class Screen extends Core.Screen {
   pushTransition (transition, data) {
     var pathname = (transition.data.path.charAt(0) === ':' ? (data[transition.data.path.substring(1)] || transition.data.path) : transition.data.path)
 
-    this.setState({ redirect: { transition, data, push: true, pathname }})
+    this.setState({redirect: { transition, data, push: true, pathname }})
   }
 
   replaceTransition (transition, data) {
     var pathname = (transition.data.path.charAt(0) === ':' ? (data[transition.data.path.substring(1)] || transition.data.path) : transition.data.path)
 
-    this.setState({ redirect: { transition, data, push: false, pathname }})
+    this.setState({redirect: { transition, data, push: false, pathname }})
   }
 
   get account () {
@@ -139,6 +146,7 @@ export default class Screen extends Core.Screen {
   renderComponent (OriginalComponent, index) {
     var props = Object.assign({}, {
       cache: this.cache,
+      onEvent: this._onEvent,
       width: this.state.width,
       height: this.state.height,
       smallScreenBreakPoint: this.smallScreenBreakPoint
@@ -169,24 +177,23 @@ export default class Screen extends Core.Screen {
     })
   }
 
-  redirect (pathname, push) {
-    return (<Redirect push={push} to={{
+  redirect (pathname) {
+    return (<Redirect exact push to={{
       pathname
     }} />)
   }
 
-  goToLink (link) {
-    this.setState({redirect: link})
+  triggerRedirect (link) {
+    this.setState({redirect: {push: true, pathname: link}})
   }
 
-  onPrimaryAction () {
-
+  triggerRawRedirect (link) {
+    window.location.href = link
   }
 
   renderScreenLayout () {
     const ScreenLayout = this.layout
     return <ScreenLayout
-      onPrimaryAction={this._onPrimaryAction}
       scroll={this.state.scroll}
       width={this.state.width}
       height={this.state.height}
@@ -201,9 +208,10 @@ export default class Screen extends Core.Screen {
     }
 
     if (this.state.redirect) {
-      const { transition, data, push, pathname } = this.state.redirect
+      const { pathname, push } = this.state.redirect
       return this.redirect(pathname, push)
     }
+
     var height = `${this.height}px`
 
     return (<div style={{ height, position: 'relative' }}>
