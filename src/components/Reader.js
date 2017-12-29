@@ -125,10 +125,10 @@ export default class Reader extends Component {
     }}>
       { this.renderText() }
       <style jsx global>{`
-        h1 {
+        .text h1 {
           text-align: left;
         }
-        h2 {
+        .text h2 {
           text-align: left;
         }
    `}</style>

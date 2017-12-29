@@ -4,6 +4,7 @@ import ReactPlaceholder from 'react-placeholder'
 import { TextBlock, MediaBlock, TextRow, RectShape, RoundShape } from 'react-placeholder/lib/placeholders'
 import marked from 'marked'
 import 'react-placeholder/lib/reactPlaceholder.css'
+import URL from 'url-parse'
 
 export default class Text extends Component {
 
@@ -17,14 +18,39 @@ export default class Text extends Component {
     this.loadContent()
   }
 
-  loadText (name) {
-    return fetch(`/assets/text/${name}.md`)
+  parseUrl (source) {
+    const ref = new URL(source)
+    const type = ref.protocol.slice(0, -1).toLowerCase()
+    const fullPath = `${ref.hostname}${ref.pathname ? ref.pathname : ''}`
+
+    switch (type) {
+      case 'local':
+        return `/assets/text/${fullPath}.md`
+      case 'github':
+        return `https://raw.githubusercontent.com/${fullPath}.md`
+      case 'dropbox':
+        return `https://dl.dropboxusercontent.com/s/${fullPath}.md?raw=1&dl=1`
+      case 'https':
+      case 'http':
+        return source
+      default:
+    }
+  }
+
+  loadFromUrl (url) {
+    return fetch(url)
            .then(response => response.text())
            .then(markdown => marked(markdown, {}))
   }
 
   loadContent () {
-    this.loadText(this.props.source)
+    const url = this.parseUrl(this.props.source)
+
+    if (!url) {
+      return
+    }
+
+    this.loadFromUrl(url)
             .then(text => {
               this.setState({ loading: false, text })
             })
@@ -49,7 +75,8 @@ export default class Text extends Component {
 
   renderComponent () {
     return (<div style={Object.assign({}, {
-      textAlign: 'center'
+      textAlign: 'center',
+      padding: '20px'
     }, this.props.style)}>
       <ReactPlaceholder
         showLoadingAnimation

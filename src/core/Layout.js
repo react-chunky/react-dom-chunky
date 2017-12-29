@@ -162,14 +162,24 @@ export default class Layout extends PureComponent {
           width: 90%;
         }
 
+        .text {
+          text-align: left;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
         h1 {
           font-weight: 300;
           font-size: 48px;
+          text-align: center;
         }
 
         h2 {
           font-weight: 300;
           font-size: 32px;
+          text-align: center;
         }
 
         h3 {
