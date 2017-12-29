@@ -22,12 +22,17 @@ export default class Navigation extends PureComponent {
   constructor (props) {
     super(props)
     this._onMenuToggle = this.onMenuToggle.bind(this)
+    this._onMenuItem = (item) => this.onMenuItem.bind(this, item)
+  }
+
+  onMenuItem (item) {
+    this.props.onMenuItem && this.props.onMenuItem(item)
   }
 
   renderNavigationMenuItem (item, index) {
     return renderResponsive(`menuItem${index++}`,
       <ToolbarIcon use={item.icon} style={{color: this.props.theme.navigationTintColor}} />,
-      <Button style={{color: this.props.theme.navigationTintColor, marginRight: '20px'}}>
+      <Button onClick={this._onMenuItem(item)} style={{color: this.props.theme.navigationTintColor, marginRight: '20px'}}>
         { item.title }
       </Button>)
   }

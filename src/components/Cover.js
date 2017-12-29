@@ -21,7 +21,7 @@ export default class Cover extends PureComponent {
     this.props.onPrimaryAction && this.props.onPrimaryAction()
   }
 
-  renderContent () {
+  renderDefaultContent () {
     return (<div style={{
       position: 'absolute',
       backgroundColor: `rgba(0,0,0,${this.props.opacity})`,
@@ -52,6 +52,40 @@ export default class Cover extends PureComponent {
     </div>)
   }
 
+  get simpleHeight () {
+    return 200
+  }
+
+  renderSimpleContent () {
+    return (<div style={{
+      position: 'absolute',
+      width: '100vw',
+      height: `${this.simpleHeight}px`,
+      top: 0,
+      left: 0,
+      display: 'flex',
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column'
+    }}>
+      <Typography use='display1' style={{margin: '20px', color: this.props.color}}> {this.props.title} </Typography>
+    </div>)
+  }
+
+  renderMedia (style, playing) {
+    if (!this.props.image && !this.props.video) {
+      return <div />
+    }
+
+    return <Media
+      cache={this.props.cache}
+      video={this.props.video}
+      image={this.props.image}
+      playing={playing}
+      style={style} />
+  }
+
   renderDefault () {
     const coverStyle = { width: '100%', height: '100vh', objectFit: 'cover', objectPosition: 'center center' }
     const coverPlaying = (this.props.scroll < 200)
@@ -68,13 +102,42 @@ export default class Cover extends PureComponent {
       flexDirection: 'column',
       justifyContent: 'center'
     }}>
-      <Media cache={this.props.cache} video={this.props.video} image={this.props.image} playing={coverPlaying} style={coverStyle} />
-      { this.renderContent() }
+      { this.renderMedia(coverStyle, coverPlaying) }
+      { this.renderDefaultContent() }
     </div>)
   }
 
+  renderSimple () {
+    const coverStyle = { width: '100%', height: '100vh', objectFit: 'cover', objectPosition: 'center center' }
+    const coverPlaying = (this.props.scroll < 200)
+    const height = this.simpleHeight
+
+    return (<div style={{
+      backgroundColor: this.props.backgroundColor,
+      marginTop: `${this.props.offset}px`,
+      height: `${height}px`,
+      display: 'flex',
+      flex: 1,
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    }}>
+      { this.renderMedia(coverStyle, coverPlaying) }
+      { this.renderSimpleContent() }
+    </div>)
+  }
+
+  get type () {
+    return this.props.type || 'default'
+  }
+
   render () {
-    return this.renderDefault()
+    switch (this.type) {
+      case 'simple':
+        return this.renderSimple()
+      default:
+        return this.renderDefault()
+    }
   }
 
 }

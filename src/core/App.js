@@ -107,9 +107,16 @@ export default class App extends PureComponent {
         route.root = true
         route.menuTitle = route.title
         rootRoute = Object.assign({}, route)
+
         // Construct a menu
         if (!route.skipMenu) {
-          this._menu.push({ id: `${this.menu.length}`, icon: route.icon.replace('-', '_'), title: route.menuTitle, link: `/${this.menu.length === 0 ? '' : route.path}` })
+          var link = `${this.menu.length === 0 ? '/' : route.path}`
+          this._menu.push({
+            id: `${this.menu.length}`,
+            icon: route.icon.replace('-', '_'),
+            title: route.menuTitle,
+            path: link
+          })
         }
       } else {
         route.icon = rootRoute.icon
@@ -143,7 +150,6 @@ export default class App extends PureComponent {
       const theme = this.props.theme
 
       // For each route, we want to compose its properties
-      var menu = this.menu
       const screenProps = Object.assign({
         // Defaults
         cache: this.cache,
@@ -153,7 +159,7 @@ export default class App extends PureComponent {
         onUserLogout: this._userLogout,
         info: this.props.info,
         startOperationsOnMount: true
-      }, { theme, transitions, ...route, chunkName, menu }, this.props.web)
+      }, { theme, transitions, ...route, chunkName, menu: this.menu }, this.props.web)
 
       // Resolve strings
       var resolvedStrings = {}
@@ -162,19 +168,34 @@ export default class App extends PureComponent {
       }
       screenProps.strings = Object.assign({}, this.props.strings, resolvedStrings)
 
-      // Now that we have properties, we're ready to initialize the route's screen
-      const RouteScreen = route.screen
-      const Screen = (props) => {
-        return <RouteScreen {...props} {...screenProps} />
-      }
-      const ScreenPath = route.path || `/${routeName}`
-      const ScreenId = `${chunkName}/${routeName}/${route.path || ''}`
+      const screenPath = route.path || `/${routeName}`
+      const screenId = `${chunkName}/${routeName}`
 
-      routes.push(<Route exact path={ScreenPath} key={ScreenId} render={(props) => <Screen {...screenProps} {...props} />} />)
+      const ScreenRoute = this._makeScreenRoute(screenPath, screenId, route, screenProps)
+      routes.push(ScreenRoute)
+
+      if (route.variants) {
+        const ScreenVariantRoute = this._makeScreenRoute(`${screenPath}/:variant`, screenId, route, screenProps)
+        routes.push(ScreenVariantRoute)
+      }
     }
 
     // We've got ourselves some routes so we should be done with this
     return routes
+  }
+
+  _makeScreenRoute (screenPath, screenId, route, screenProps) {
+    const RouteScreen = route.screen
+    const Screen = (props) => {
+      return <RouteScreen {...props} {...screenProps} />
+    }
+
+    return <Route
+      exact
+      refresh
+      key={`${screenId}${screenPath}`}
+      path={screenPath}
+      render={(props) => <Screen {...screenProps} {...props} />} />
   }
 
   _createSectionNavigator (section) {

@@ -35,7 +35,7 @@ export default class Text extends Component {
 
   get placeholder () {
     return (<div style={{justifyContent: 'center'}}>
-      <RectShape color='#CFD8DC' style={{ height: 40, marginBottom: 10}} />
+      <RectShape color='#CFD8DC' style={{height: 40, marginBottom: 10}} />
       <TextBlock rows={7} color='#ECEFF1' />
     </div>)
   }
@@ -50,13 +50,21 @@ export default class Text extends Component {
                font-weight: 300;
                font-size: 48px;
              }
+
              .${className} :global(h2) {
                font-weight: 300;
                font-size: 32px;
              }
+
+             .${className} :global(h3) {
+               font-weight: 300;
+               font-size: 26px;
+               text-align: left;
+             }
+
              .${className} :global(p) {
-               font-size: 24px;
-               text-align: justify  ;
+               font-size: 22px;
+               text-align: left;
              }
             }
         `}</style>

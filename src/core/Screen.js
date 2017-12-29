@@ -10,10 +10,10 @@ export default class Screen extends Core.Screen {
 
   constructor (props) {
     super(props)
-    this.state = { ...this.state, progress: false, progressTitle: this.progressTitle, height: 0, width: 0, scroll: 0 }
+    this.state = { ...this.state, progress: true, progressTitle: this.progressTitle, height: 0, width: 0, scroll: 0 }
     this._updateScroll = this.updateScroll.bind(this)
     this._updateWindowDimensions = this.updateWindowDimensions.bind(this)
-    this._injectVariant()
+    this._onMenuItem = this.onMenuItem.bind(this)
   }
 
   componentDidMount () {
@@ -21,6 +21,7 @@ export default class Screen extends Core.Screen {
     this._updateWindowDimensions()
     window.addEventListener('resize', this._updateWindowDimensions)
     window.addEventListener('scroll', this._updateScroll)
+    this._load()
   }
 
   componentWillUnmount () {
@@ -28,12 +29,16 @@ export default class Screen extends Core.Screen {
     window.removeEventListener('scroll', this._updateScroll)
   }
 
+  onMenuItem (item) {
+    this.triggerRedirect(item.path)
+  }
+
   get layout () {
     return Layout
   }
 
   get expectsVariants () {
-    return (this.props.path && this.props.path.indexOf(':path') >= 0)
+    return (this.props.variants !== undefined)
   }
 
   updateWindowDimensions () {
@@ -53,28 +58,77 @@ export default class Screen extends Core.Screen {
     this.triggerRawRedirect(fullPath)
   }
 
-  _injectVariant () {
-    if (!this.expectsVariants || !this.props.pathData) {
+  importData (name) {
+    try {
+      return require(`chunks/${this.props.chunkName}/data/${name}.json`)
+    } catch (e) {
+    }
+  }
+
+  _loadVariants () {
+    const data = this.importData(this.props.variants)
+
+    if (!data || !Array.isArray(data) || data.length === 0) {
       return
     }
 
+    this._variants = [].concat(data)
+  }
+
+  get variants () {
+    return this._variants
+  }
+
+  get hasVariants () {
+    return (this._variants !== undefined)
+  }
+
+  get isRootPath () {
+    return this.isSamePath(this.path, this.props.path)
+  }
+
+  isSamePath (first, second) {
+    return (first === second || second === `/${first}` ||
+        second === `/${first}/` || second === `${first}/`)
+  }
+
+  _load () {
+    if (!this.expectsVariants || this.isRootPath) {
+      this.setState({ progress: false })
+      return
+    }
     try {
-      // Try to load the variants
-      const variants = require(`chunks/${this.props.chunkName}/data/${this.props.pathData}.json`)
+      if (!this.hasVariants) {
+        this._loadVariants()
+      }
 
-      // Check the location
-      const locationPath = this.props.location.pathname
+      if (!this.hasVariants) {
+        throw new Error('Missing expected variant')
+      }
 
-      variants.forEach(variant => {
-        if (variant.path === locationPath || locationPath === `/${variant.path}` ||
-            locationPath === `/${variant.path}/` || locationPath === `${variant.path}/`) {
-            // We've got a match
-          this._variant = Object.assign({}, variant)
+      const variantPath = this.path.substring(this.props.path.length + 1)
+
+      this.variants.forEach(variant => {
+        if (!this.isSamePath(variant.path, variantPath)) {
+          return
         }
+        this._variant = Object.assign({}, variant)
       })
+
+      if (!this.isVariantValid) {
+        throw new Error('Invalid variant')
+      }
+
+      // We've got a valid variant now
+      this.setState({ progress: false })
     } catch (e) {
       // Could not load variant path data
+      this.stopWithError(e)
     }
+  }
+
+  stopWithError (e) {
+    this.setState({ stopError: e, progress: false })
   }
 
   get isVariantValid () {
@@ -125,10 +179,6 @@ export default class Screen extends Core.Screen {
     return this.props.location.pathname
   }
 
-  get mainMenu () {
-    return this.props.menu
-  }
-
   get components () {
     return []
   }
@@ -140,8 +190,6 @@ export default class Screen extends Core.Screen {
   userDidLogin (account) {
     this.props.onUserLogin && this.props.onUserLogin(account)
   }
-
-  renderProgress () {}
 
   renderComponent (OriginalComponent, index) {
     var props = Object.assign({}, {
@@ -184,6 +232,10 @@ export default class Screen extends Core.Screen {
   }
 
   triggerRedirect (link) {
+    if (this.isSamePath(this.path, link)) {
+      return
+    }
+
     this.setState({redirect: {push: true, pathname: link}})
   }
 
@@ -194,22 +246,41 @@ export default class Screen extends Core.Screen {
   renderScreenLayout () {
     const ScreenLayout = this.layout
     return <ScreenLayout
+      onMenuItem={this._onMenuItem}
       scroll={this.state.scroll}
       width={this.state.width}
       height={this.state.height}
-      {...this.props}>
+      {...this._props}>
       {this.renderComponents()}
     </ScreenLayout>
   }
 
+  renderStopError (e) {
+    return <div />
+  }
+
+  renderProgress () {
+    return <div>...</div>
+  }
+
   render () {
+    if (this.state.progress) {
+      return this.renderProgress()
+    }
+
+    if (this.state.stopError) {
+      return this.renderStopError(this.state.stopError)
+    }
+
     if (this.state.height === 0) {
       return <div />
     }
 
     if (this.state.redirect) {
       const { pathname, push } = this.state.redirect
-      return this.redirect(pathname, push)
+      if (!this.isSamePath(this.path, pathname)) {
+        return this.redirect(pathname, push)
+      }
     }
 
     var height = `${this.height}px`
@@ -226,7 +297,4 @@ export default class Screen extends Core.Screen {
     </div>
     )
   }
-}
-
-const styles = {
 }

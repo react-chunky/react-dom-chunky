@@ -14,6 +14,7 @@ export default class Layout extends PureComponent {
     super(props)
     this.state = { menuOpened: false, fixed: false }
     this._onPrimaryAction = this.onPrimaryAction.bind(this)
+    this._onMenuItem = this.onMenuItem.bind(this)
   }
 
   get styles () {
@@ -52,6 +53,10 @@ export default class Layout extends PureComponent {
     return (this.hasCover && this.cover.navigation && this.props.scroll < 10)
   }
 
+  onMenuItem (item) {
+    this.props.onMenuItem && this.props.onMenuItem(item)
+  }
+
   onPrimaryAction () {
     this.props.onPrimaryAction && this.props.onPrimaryAction()
   }
@@ -75,6 +80,7 @@ export default class Layout extends PureComponent {
   renderNavigation () {
     return (<Navigation
       layout={this.props.layout}
+      onMenuItem={this._onMenuItem}
       navigationUncover={this.navigationUncover}
       theme={this.theme}
       menu={this.props.menu}
@@ -133,6 +139,14 @@ export default class Layout extends PureComponent {
           font-weight: 300;
           font-family: Roboto Condensed, sans-serif;
           color: #ffffff;
+        }
+
+        pre {
+          background-color: #F5F5F5;
+          color: #455A64;
+          text-align: left;
+          padding: 20px;
+          width: 90%;
         }
 
         .animation-fadeIn-appear {

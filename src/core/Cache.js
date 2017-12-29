@@ -10,7 +10,7 @@ export default class Cache {
     if (typeof window === 'undefined' || typeof document === 'undefined') {
       return
     }
-    this._imagesContext = require.context('assets', false, /\.(png|jpe?g|svg|gif)$/)
+    this._imagesContext = require.context('assets', false, /\.(png|jpe?g|svg)$/)
   }
 
   get images () {
