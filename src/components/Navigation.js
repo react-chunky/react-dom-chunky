@@ -21,7 +21,7 @@ export default class Navigation extends PureComponent {
 
   constructor (props) {
     super(props)
-    this._onMenuToggle = this.onMenuToggle.bind(this)
+    this._onMenuOpen = this.onMenuOpen.bind(this)
     this._onMenuItem = (item) => this.onMenuItem.bind(this, item)
   }
 
@@ -30,15 +30,15 @@ export default class Navigation extends PureComponent {
   }
 
   renderNavigationMenuItem (item, index) {
-    return renderResponsive(`menuItem${index++}`,
-      <ToolbarIcon use={item.icon} style={{color: this.props.theme.navigationTintColor}} />,
+    // <ToolbarIcon use={item.icon} style={{color: this.props.theme.navigationTintColor}} />,
+    return renderResponsive(`menuItem${index++}`, <div />,
       <Button onClick={this._onMenuItem(item)} style={{color: this.props.theme.navigationTintColor, marginRight: '20px'}}>
         { item.title }
       </Button>)
   }
 
-  onMenuToggle () {
-    this.props.onMenuToggle && this.props.onMenuToggle()
+  onMenuOpen () {
+    this.props.onMenuOpen && this.props.onMenuOpen()
   }
 
   renderNavigationMenu () {
@@ -51,7 +51,7 @@ export default class Navigation extends PureComponent {
     const height = (this.props.navigationUncover ? 64 : 64)
 
     return renderResponsive('logo',
-      <ToolbarMenuIcon use='menu' style={{color: this.props.theme.navigationTintColor}} onClick={this._onMenuToggle} />,
+      <ToolbarMenuIcon use='menu' style={{color: this.props.theme.navigationTintColor}} onClick={this._onMenuOpen} />,
       <img src={`/assets/${image}`} style={{height: `${height}px`, marginLeft: '20px'}} />
       )
   }
@@ -73,5 +73,4 @@ export default class Navigation extends PureComponent {
   render () {
     return this.renderDefault()
   }
-
 }

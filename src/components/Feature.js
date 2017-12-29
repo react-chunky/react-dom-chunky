@@ -20,27 +20,28 @@ export default class Feature extends Component {
     super.componentDidMount()
   }
 
-  content () {
+  content (compact) {
     return <div style={{
       display: 'flex',
       flex: 1,
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      paddingBottom: `${compact ? 50 : 0}px`
     }}>
-      { this.blob()}
+      { this.text()}
       { this.button()}
     </div>
   }
 
-  blob () {
-    return renderResponsive('blob',
-      <Text blob={this.props.blob} style={{
+  text () {
+    return renderResponsive('text',
+      <Text source={this.props.text} style={{
         width: `90vw`,
         marginBottom: '60px',
         color: this.props.textColor
       }} />,
-      <Text blob={this.props.blob} style={{
+      <Text source={this.props.text} style={{
         width: `40vw`,
         color: this.props.textColor
       }} />)
@@ -49,10 +50,6 @@ export default class Feature extends Component {
   button () {
     return <Button onClick={this.triggerEvent('primary')} raised> {this.props.actionTitle} </Button>
   }
-
-  // onAction (action, aaaa) {
-    // console.log('AC3333TION:', action, aaaa)
-  // }
 
   image () {
     return renderResponsive('image', <img src={`/assets/${this.props.image}`} style={{
@@ -99,13 +96,13 @@ export default class Feature extends Component {
   renderDefault (compact) {
     return this.renderBlocks([
       this.image(),
-      this.content()
+      this.content(compact)
     ], compact)
   }
 
   renderReversed (compact) {
     return this.renderBlocks([
-      this.content(),
+      this.content(compact),
       this.image()
     ], compact)
   }

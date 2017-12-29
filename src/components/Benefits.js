@@ -20,13 +20,13 @@ export default class Benefits extends Component {
     super.componentDidMount()
   }
 
-  blob (name, index, total) {
-    return renderResponsive('blob',
-      <Text blob={name} style={{
+  text (name, index, total) {
+    return renderResponsive('text',
+      <Text source={name} style={{
         width: `90vw`,
         color: this.props.textColor
       }} />,
-      <Text blob={name} style={{
+      <Text source={name} style={{
         width: `${80 / total}vw`,
         color: this.props.textColor
       }} />)
@@ -56,7 +56,7 @@ export default class Benefits extends Component {
         justifyContent: 'center'
       }}>
       { this.image(block.image, index, total) }
-      { this.blob(block.blob, index, total) }
+      { this.text(block.text, index, total) }
     </div>
   }
 

@@ -15,6 +15,8 @@ export default class Layout extends PureComponent {
     this.state = { menuOpened: false, fixed: false }
     this._onPrimaryAction = this.onPrimaryAction.bind(this)
     this._onMenuItem = this.onMenuItem.bind(this)
+    this._onMenuOpen = this.onMenuOpen.bind(this)
+    this._onMenuClose = this.onMenuClose.bind(this)
   }
 
   get styles () {
@@ -61,6 +63,14 @@ export default class Layout extends PureComponent {
     this.props.onPrimaryAction && this.props.onPrimaryAction()
   }
 
+  onMenuOpen () {
+    this.setState({ menuOpened: true })
+  }
+
+  onMenuClose () {
+    this.setState({ menuOpened: false })
+  }
+
   get theme () {
     const navigationColor = (this.navigationUncover ? `rgba(0,0,0,0)` : this.props.theme.navigationColor)
     const navigationTintColor = (this.navigationUncover ? '#FFFFFF' : this.props.theme.navigationTintColor)
@@ -72,13 +82,16 @@ export default class Layout extends PureComponent {
 
   renderDrawer () {
     return (<Drawer
+      onClose={this._onMenuClose}
       open={this.state.menuOpened}
+      onMenuItem={this._onMenuItem}
       menu={this.props.menu}
       />)
   }
 
   renderNavigation () {
     return (<Navigation
+      onMenuOpen={this._onMenuOpen}
       layout={this.props.layout}
       onMenuItem={this._onMenuItem}
       navigationUncover={this.navigationUncover}
@@ -147,6 +160,27 @@ export default class Layout extends PureComponent {
           text-align: left;
           padding: 20px;
           width: 90%;
+        }
+
+        h1 {
+          font-weight: 300;
+          font-size: 48px;
+        }
+
+        h2 {
+          font-weight: 300;
+          font-size: 32px;
+        }
+
+        h3 {
+          font-weight: 300;
+          font-size: 26px;
+          text-align: left;
+        }
+
+        p {
+          font-size: 22px;
+          text-align: left;
         }
 
         .animation-fadeIn-appear {

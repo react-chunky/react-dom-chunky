@@ -17,14 +17,14 @@ export default class Text extends Component {
     this.loadContent()
   }
 
-  loadBlob (blob) {
-    return fetch(`/assets/blobs/${blob}.md`)
+  loadText (name) {
+    return fetch(`/assets/text/${name}.md`)
            .then(response => response.text())
            .then(markdown => marked(markdown, {}))
   }
 
   loadContent () {
-    this.loadBlob(this.props.blob)
+    this.loadText(this.props.source)
             .then(text => {
               this.setState({ loading: false, text })
             })
@@ -41,33 +41,9 @@ export default class Text extends Component {
   }
 
   renderComponentContent ({ titleColor, textColor }) {
-    const className = `_blob-${this.id}`
+    const className = `text`
     return (<div>
       <div className={className} dangerouslySetInnerHTML={{ __html: this.state.text }} />
-      <style jsx>{`
-           {
-             .${className} :global(h1) {
-               font-weight: 300;
-               font-size: 48px;
-             }
-
-             .${className} :global(h2) {
-               font-weight: 300;
-               font-size: 32px;
-             }
-
-             .${className} :global(h3) {
-               font-weight: 300;
-               font-size: 26px;
-               text-align: left;
-             }
-
-             .${className} :global(p) {
-               font-size: 22px;
-               text-align: left;
-             }
-            }
-        `}</style>
     </div>)
   }
 

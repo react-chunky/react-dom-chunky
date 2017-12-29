@@ -123,12 +123,21 @@ export default class Reader extends Component {
       paddingLeft: '20px',
       paddingRight: '20px'
     }}>
-      { this.renderBlob() }
+      { this.renderText() }
+      <style jsx global>{`
+        h1 {
+          text-align: left;
+        }
+        h2 {
+          text-align: left;
+        }
+   `}</style>
+
     </div>
   }
 
   renderCompactSectionContent () {
-    return this.renderBlob()
+    return this.renderText()
   }
 
   get defaultReader () {
@@ -157,14 +166,14 @@ export default class Reader extends Component {
     </div>
   }
 
-  renderBlob () {
-    return renderResponsive('blob',
-      <Text blob={this.props.section.blob} style={{
+  renderText () {
+    return renderResponsive('text',
+      <Text source={this.props.section.text} style={{
         width: `90vw`,
         padding: '10px',
         paddingBottom: '60px'
       }} />,
-      <Text blob={this.props.section.blob} style={{
+      <Text source={this.props.section.text} style={{
         width: `80vw`,
         paddingBottom: '60px'
       }} />)
@@ -183,21 +192,4 @@ export default class Reader extends Component {
   renderComponent () {
     return this.renderDefault()
   }
-
-  //   return (<div style={{
-  //     color: this.props.textColor,
-  //     position: 'relative',
-  //     display: 'flex',
-  //     flex: 1,
-  //     flexDirection: 'column',
-  //     alignItems: 'center',
-  //     justifyContent: 'center' }}>
-  //     <img src={`/assets/${this.props.image}`} style={{
-  //       width: '200px',
-  //       marginTop: '20px',
-  //       marginBottom: '-20px'
-  //     }} />
-  //     { this.renderBlob() }
-  //   </div>)
-  // }
 }

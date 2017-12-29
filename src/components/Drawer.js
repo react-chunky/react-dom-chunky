@@ -48,6 +48,8 @@ export default class Drawer extends PureComponent {
 
     /** Will be called when the drawer is closed **/
     this._onClosePressed = this._onClose.bind(this)
+
+    this._onMenuItem = (item) => this.onMenuItem.bind(this, item)
   }
 
   renderDrawerMenu () {
@@ -104,6 +106,10 @@ export default class Drawer extends PureComponent {
     this.props.onClose && this.props.onClose()
   }
 
+  onMenuItem (item) {
+    this.props.onMenuItem && this.props.onMenuItem(item)
+  }
+
   /**
    *  Renders a list o menu items, as
    *
@@ -111,7 +117,9 @@ export default class Drawer extends PureComponent {
    */
   renderMenu () {
     var index = 0
-    return this._menu.map(item => (<ListItem key={`menuItem${index++}`}>
+    return this._menu.map(item => (<ListItem
+      onClick={this._onMenuItem(item)}
+      key={`menuItem${index++}`}>
       <ListItemText>{ item.title }</ListItemText>
     </ListItem>))
   }

@@ -14,14 +14,14 @@ export default class Summary extends Component {
     super.componentDidMount()
   }
 
-  renderBlob () {
-    return renderResponsive('blob',
-      <Text blob={this.props.blob} style={{
+  renderText () {
+    return renderResponsive('text',
+      <Text source={this.props.text} style={{
         width: `90vw`,
         padding: '10px',
         paddingBottom: '60px'
       }} />,
-      <Text blob={this.props.blob} style={{
+      <Text source={this.props.text} style={{
         width: `70vw`,
         paddingBottom: '60px'
       }} />)
@@ -41,7 +41,7 @@ export default class Summary extends Component {
         marginTop: '20px',
         marginBottom: '-20px'
       }} />
-      { this.renderBlob() }
+      { this.renderText() }
     </div>)
   }
 }
