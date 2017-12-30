@@ -63,7 +63,7 @@ export default class Screen extends Core.Screen {
 
   importData (name) {
     try {
-      return require(`assets/data/${name}.json`)
+      return require(`chunks/${this.props.chunkName}/data/${name}.json`)
     } catch (e) {
     }
   }

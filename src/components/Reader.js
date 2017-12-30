@@ -84,8 +84,8 @@ export default class Reader extends Component {
 
   renderSectionBar () {
     return <div style={{
+      alignSelf: 'stretch',
       backgroundColor: this.props.sectionsBackgroundColor,
-      width: '100vw',
       textAlign: 'left',
       paddingLeft: '20px'
     }}>
@@ -119,10 +119,8 @@ export default class Reader extends Component {
 
   renderSectionContent () {
     return <div style={{
-      width: '100vw',
-      minHeight: '100vh',
-      paddingLeft: '20px',
-      paddingRight: '20px'
+      flex: 1,
+      minHeight: '100vh'
     }}>
       { this.renderText() }
       <style jsx global>{`
@@ -170,12 +168,9 @@ export default class Reader extends Component {
   renderText () {
     return renderResponsive('text',
       <Text source={this.props.section.text} style={{
-        width: `90vw`,
-        padding: '10px',
         paddingBottom: '60px'
       }} />,
       <Text source={this.props.section.text} style={{
-        width: `80vw`,
         paddingBottom: '60px'
       }} />)
   }
