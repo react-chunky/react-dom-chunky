@@ -74,6 +74,7 @@ export default class Reader extends Component {
   renderSidebar () {
     return <PermanentDrawer style={{
       alignSelf: 'stretch',
+      paddingLeft: '10px',
       backgroundColor: this.props.sectionsBackgroundColor}}>
       <PermanentDrawerContent>
         { this.renderSections() }

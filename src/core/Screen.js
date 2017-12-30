@@ -3,6 +3,7 @@ import TransitionGroup from 'react-addons-transition-group'
 import { Core } from 'react-chunky'
 import { Redirect } from 'react-router'
 import { default as Component } from './Component'
+import * as DefaultComponents from '../components'
 import merge from 'deepmerge'
 import { default as Layout } from './Layout'
 
@@ -179,7 +180,10 @@ export default class Screen extends Core.Screen {
     return this.props.location.pathname
   }
 
-  get components () {
+  components () {
+    if (this.props.components) {
+      return Object.keys(this.props.components)
+    }
     return []
   }
 
@@ -191,7 +195,47 @@ export default class Screen extends Core.Screen {
     this.props.onUserLogin && this.props.onUserLogin(account)
   }
 
+  loadCustomComponent () {
+    // TODO: add support for this
+  }
+
+  loadSingleComponent (props, index) {
+    const source = `${props.source.charAt(0).toUpperCase()}${props.source.toLowerCase().slice(1)}`
+    var Component = DefaultComponents[source]
+
+    if (!Component) {
+      Component = this.loadCustomComponent()
+    }
+
+    if (!Component) {
+      return <div />
+    }
+
+    return <Component {...props} />
+  }
+
+  loadComponent (name) {
+    if (!this.props.components || !this.props.components[name] || !(typeof this.props.components[name] === 'object')) {
+      return <div />
+    }
+
+    if (!Array.isArray(this.props.components[name])) {
+      return this.loadSingleComponent(this.props.components[name])
+    }
+
+    var index = 0
+    return <div>
+      { this.props.components[name].map(props => {
+        return this.loadSingleComponent(Object.assign({}, props, { key: `component-${index++}` }))
+      })}
+    </div>
+  }
+
   renderComponent (OriginalComponent, index) {
+    if (typeof OriginalComponent === 'string') {
+      OriginalComponent = this.loadComponent(OriginalComponent)
+    }
+
     var props = Object.assign({}, {
       cache: this.cache,
       onEvent: this._onEvent,
@@ -214,12 +258,12 @@ export default class Screen extends Core.Screen {
   }
 
   renderComponents () {
-    if (!this.components || this.components.length === 0) {
+    if (!this.components() || this.components().length === 0) {
       return
     }
 
     var index = 1
-    return this.components.map(component => {
+    return this.components().map(component => {
       index = index + 1
       return this.renderComponent(component, index)
     })
