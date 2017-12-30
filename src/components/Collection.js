@@ -52,7 +52,7 @@ export default class Collection extends Component {
       </CardPrimary>
       <CardSupportingText />
       <CardActions style={{justifyContent: 'center'}}>
-        <CardAction> Learn More </CardAction>
+        <CardAction onClick={this.triggerEvent(item.name || index)}> Learn More </CardAction>
       </CardActions>
     </Card>
   }

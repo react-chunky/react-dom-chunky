@@ -36,12 +36,11 @@ export default class Media extends PureComponent {
         height='100vh' />)
     }
 
-    if (!this.props.image) {
-      return
+    if (!this.props.image || !this.props.cache.image) {
+      return <div />
     }
 
     const i = this.props.cache.image(this.props.image)
     return this.renderResponsiveImage(i)
   }
-
 }

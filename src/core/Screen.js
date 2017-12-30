@@ -131,6 +131,7 @@ export default class Screen extends Core.Screen {
   }
 
   stopWithError (e) {
+    console.log(e)
     this.setState({ stopError: e, progress: false })
   }
 

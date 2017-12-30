@@ -1,3 +1,4 @@
+export { default as Article } from './Article'
 export { default as Benefits } from './Benefits'
 export { default as Collection } from './Collection'
 export { default as Cover } from './Cover'
