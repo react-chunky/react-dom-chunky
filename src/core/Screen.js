@@ -96,10 +96,16 @@ export default class Screen extends Core.Screen {
   }
 
   _load () {
+    if (this.expectsVariants && this.isRootPath) {
+      this.setState({ progress: false, skip: true })
+      return
+    }
+
     if (!this.expectsVariants || this.isRootPath) {
       this.setState({ progress: false })
       return
     }
+
     try {
       if (!this.hasVariants) {
         this._loadVariants()
@@ -310,6 +316,10 @@ export default class Screen extends Core.Screen {
   }
 
   render () {
+    if (this.state.skip) {
+      return <div />
+    }
+
     if (this.state.progress) {
       return this.renderProgress()
     }
