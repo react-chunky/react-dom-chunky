@@ -13,10 +13,10 @@ export default class Layout extends PureComponent {
   constructor (props) {
     super(props)
     this.state = { menuOpened: false, fixed: false }
-    this._onPrimaryAction = this.onPrimaryAction.bind(this)
     this._onMenuItem = this.onMenuItem.bind(this)
     this._onMenuOpen = this.onMenuOpen.bind(this)
     this._onMenuClose = this.onMenuClose.bind(this)
+    this._onEvent = this.onEvent.bind(this)
   }
 
   get styles () {
@@ -59,8 +59,8 @@ export default class Layout extends PureComponent {
     this.props.onMenuItem && this.props.onMenuItem(item)
   }
 
-  onPrimaryAction () {
-    this.props.onPrimaryAction && this.props.onPrimaryAction()
+  onEvent (event, data) {
+    this.props.onEvent && this.props.onEvent(event, data)
   }
 
   onMenuOpen () {
@@ -82,19 +82,23 @@ export default class Layout extends PureComponent {
 
   renderDrawer () {
     return (<Drawer
+      index={-1}
       onClose={this._onMenuClose}
       open={this.state.menuOpened}
       onMenuItem={this._onMenuItem}
+      onEvent={this._onEvent}
       menu={this.props.menu}
       />)
   }
 
   renderNavigation () {
     return (<Navigation
+      index={0}
       onMenuOpen={this._onMenuOpen}
       layout={this.props.layout}
       onMenuItem={this._onMenuItem}
       navigationUncover={this.navigationUncover}
+      onEvent={this._onEvent}
       theme={this.theme}
       menu={this.props.menu}
       />)
@@ -106,15 +110,20 @@ export default class Layout extends PureComponent {
     }
 
     return (<Cover
+      index={1}
       {...this.props}
       {...this.props.cover}
-      onPrimaryAction={this._onPrimaryAction}
+      id='cover'
+      onEvent={this._onEvent}
       offset={this.coverOffset}
     />)
   }
 
   renderFooter () {
-    return <Footer {...this.props} />
+    return <Footer
+      index={9999}
+      {...this.props}
+      onEvent={this._onEvent} />
   }
 
   renderComponent (component, index) {

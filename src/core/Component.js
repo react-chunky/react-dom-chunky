@@ -6,20 +6,28 @@ export default class Component extends PureComponent {
 
   constructor (props) {
     super(props)
-    this._id = `chunky-${uuid.v1()}`
-    this._type = `${this.constructor.name.toLowerCase()}`
-    this._name = props.name || `${this.id}`
+    this._kind = `${this.constructor.name.toLowerCase()}`
+    this._name = props.name || this.kind
+    this._index = props.index || 0
+    this._id = props.id || `${this.name}/${this.index}`// `chunky-${uuid.v1()}`
     this.triggerEvent = (event, data) => this.onEvent.bind(this, event, data)
   }
 
-  onEvent (event, data) {
-    this.props.onEvent && this.props.onEvent(
-      Object.assign({}, {id: `${this.type}/${this.name}/${event}`}, data && data)
-    )
+  onEvent (name = '', data) {
+    this.props.onEvent && this.props.onEvent({
+      component: { id: this.id, kind: this.kind, name: this.name, index: this.index },
+      name,
+      data,
+      id: `${this.id}${name ? '/' + name : ''}`
+    })
   }
 
-  get type () {
-    return this._type
+  get index () {
+    return this._index
+  }
+
+  get kind () {
+    return this._kind
   }
 
   get name () {

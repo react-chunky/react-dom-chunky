@@ -6,6 +6,7 @@ import { default as Component } from './Component'
 import * as DefaultComponents from '../components'
 import merge from 'deepmerge'
 import { default as Layout } from './Layout'
+import URL from 'url-parse'
 
 export default class Screen extends Core.Screen {
 
@@ -22,6 +23,7 @@ export default class Screen extends Core.Screen {
     this._updateWindowDimensions()
     window.addEventListener('resize', this._updateWindowDimensions)
     window.addEventListener('scroll', this._updateScroll)
+    this._onEvent = this.onEvent.bind(this)
     this._load()
   }
 
@@ -51,11 +53,11 @@ export default class Screen extends Core.Screen {
     this.setState({ scroll })
   }
 
-  handleRedirectEvent (fullPath) {
+  handleLocalEvent (fullPath) {
     this.triggerRedirect(fullPath)
   }
 
-  handleDefaultEvent (fullPath) {
+  handleExternalEvent (fullPath) {
     this.triggerRawRedirect(fullPath)
   }
 
@@ -199,7 +201,7 @@ export default class Screen extends Core.Screen {
     // TODO: add support for this
   }
 
-  loadSingleComponent (props, index) {
+  loadSingleComponent (props) {
     const source = `${props.source.charAt(0).toUpperCase()}${props.source.toLowerCase().slice(1)}`
     var Component = DefaultComponents[source]
 
@@ -211,43 +213,41 @@ export default class Screen extends Core.Screen {
       return <div />
     }
 
-    return <Component {...props} />
+    return <Component {...this.defaultComponentProps} {...props} />
   }
 
-  loadComponent (name) {
+  loadComponent (name, index) {
     if (!this.props.components || !this.props.components[name] || !(typeof this.props.components[name] === 'object')) {
       return <div />
     }
 
     if (!Array.isArray(this.props.components[name])) {
-      return this.loadSingleComponent(this.props.components[name])
+      return this.loadSingleComponent(Object.assign({}, this.props.components[name], { index }))
     }
 
-    var index = 0
+    var subIndex = 0
     return <div>
       { this.props.components[name].map(props => {
-        return this.loadSingleComponent(Object.assign({}, props, { key: `component-${index++}` }))
+        return this.loadSingleComponent(Object.assign({}, props, { key: `component.${subIndex++}`, index: `${index}.${subIndex}` }))
       })}
     </div>
   }
 
-  renderComponent (OriginalComponent, index) {
-    if (typeof OriginalComponent === 'string') {
-      OriginalComponent = this.loadComponent(OriginalComponent)
-    }
-
-    var props = Object.assign({}, {
+  get defaultComponentProps () {
+    return Object.assign({}, {
       cache: this.cache,
       onEvent: this._onEvent,
       width: this.state.width,
       height: this.state.height,
       smallScreenBreakPoint: this.smallScreenBreakPoint
     }, this.props)
+  }
 
-    var ComponentContainer = React.cloneElement(OriginalComponent, props)
+  renderComponent (OriginalComponent, index) {
+    var ComponentContainer = React.cloneElement(OriginalComponent, Object.assign({}, this.defaultComponentProps, { index }))
 
-    if ((typeof OriginalComponent.type) === 'string') {
-      ComponentContainer = OriginalComponent
+    if (typeof OriginalComponent === 'string') {
+      ComponentContainer = this.loadComponent(OriginalComponent, index)
     }
 
     return (
@@ -291,6 +291,7 @@ export default class Screen extends Core.Screen {
     const ScreenLayout = this.layout
     return <ScreenLayout
       onMenuItem={this._onMenuItem}
+      onEvent={this._onEvent}
       scroll={this.state.scroll}
       width={this.state.width}
       height={this.state.height}

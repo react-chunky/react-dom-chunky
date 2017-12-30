@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import Component from '../core/Component'
 import Text from './Text'
 import {
   Icon,
@@ -7,18 +8,14 @@ import {
 } from 'rmwc'
 import Media from './Media'
 
-export default class Cover extends PureComponent {
+export default class Cover extends Component {
 
   constructor (props) {
     super(props)
-    this._onPrimaryAction = this.onPrimaryAction.bind(this)
   }
 
   componentDidMount () {
-  }
-
-  onPrimaryAction () {
-    this.props.onPrimaryAction && this.props.onPrimaryAction()
+    super.componentDidMount()
   }
 
   renderDefaultContent () {
@@ -37,7 +34,7 @@ export default class Cover extends PureComponent {
     }}>
       <Typography use='display2' style={{margin: '20px'}}> {this.props.title} </Typography>
       <Typography use='display1' style={{margin: '20px'}}> {this.props.subtitle} </Typography>
-      <Button onClick={this._onPrimaryAction} raised style={{margin: '20px'}}> {this.props.primaryActionTitle} </Button>
+      <Button onClick={this.triggerEvent()} raised style={{margin: '20px'}}> {this.props.primaryActionTitle} </Button>
       <div style={{
         bottom: '10px',
         position: 'absolute',
@@ -139,5 +136,4 @@ export default class Cover extends PureComponent {
         return this.renderDefault()
     }
   }
-
 }
