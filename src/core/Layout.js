@@ -122,6 +122,7 @@ export default class Layout extends PureComponent {
   renderFooter () {
     return <Footer
       index={9999}
+      id='footer'
       {...this.props}
       onEvent={this._onEvent} />
   }

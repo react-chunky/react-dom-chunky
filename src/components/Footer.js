@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import Component from '../core/Component'
 import { renderResponsive } from '../utils/responsive'
 import {
   Icon,
@@ -9,7 +10,7 @@ import {
   Typography
 } from 'rmwc'
 
-export default class Footer extends PureComponent {
+export default class Footer extends Component {
 
   constructor (props) {
     super(props)
@@ -17,7 +18,7 @@ export default class Footer extends PureComponent {
 
   renderFooterSectionElement (element) {
     return (<ListItem key={element.id} style={{}}>
-      <Button style={{color: this.props.theme.footerTintColor, textAlign: 'left'}}>
+      <Button onClick={this.triggerEvent(element.id, {handler: element.link})} style={{color: this.props.theme.footerTintColor, textAlign: 'left'}}>
         { element.title }
       </Button>
     </ListItem>)
@@ -86,7 +87,7 @@ export default class Footer extends PureComponent {
       display: 'flex',
       flexWrap: 'wrap',
       flex: 1,
-      alignItems: 'center',
+      alignItems: 'flex-start',
       flexDirection: 'column',
       justifyContent: 'center',
       color: '#ECEFF1'}}>

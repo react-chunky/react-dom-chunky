@@ -23,13 +23,33 @@ export default class Screen extends Core.Screen {
     this._updateWindowDimensions()
     window.addEventListener('resize', this._updateWindowDimensions)
     window.addEventListener('scroll', this._updateScroll)
+    this.unsubscribeFromHistory = this.props.history.listen(this.handleLocationChange.bind(this))
     this._onEvent = this.onEvent.bind(this)
-    this._load()
+    this._load(this.props)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.props.match.url !== nextProps.match.url) {
+      // this.setState({ progress: true })
+      this._load(nextProps)
+      return
+    }
+    super.componentWillReceiveProps()
+  }
+
+  handleLocationChange (location) {
+    // this.setState({ progress: true })
+    // this._load()
+  }
+
+  scrollToTop () {
+    window.scrollTo(0, 0)
   }
 
   componentWillUnmount () {
     window.removeEventListener('resize', this._updateWindowDimensions)
     window.removeEventListener('scroll', this._updateScroll)
+    this.unsubscribeFromHistory()
   }
 
   onMenuItem (item) {
@@ -95,8 +115,11 @@ export default class Screen extends Core.Screen {
         second === `/${first}/` || second === `${first}/`)
   }
 
-  _load () {
-    if (this.expectsVariants && this.isRootPath) {
+  _load (props) {
+    this.scrollToTop()
+    this._path = props.location.pathname
+
+    if (this.props.skipRootVariant && this.expectsVariants && this.isRootPath) {
       this.setState({ progress: false, skip: true })
       return
     }
@@ -186,7 +209,7 @@ export default class Screen extends Core.Screen {
   }
 
   get path () {
-    return this.props.location.pathname
+    return this._path
   }
 
   components () {
@@ -312,7 +335,7 @@ export default class Screen extends Core.Screen {
   }
 
   renderProgress () {
-    return <div>...</div>
+    return <div />
   }
 
   render () {
