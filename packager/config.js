@@ -44,6 +44,12 @@ module.exports = (options) => {
           }]
         },
         {
+          test: /\.svg$/, 
+          use: {
+            loader: 'raw-loader'
+          }
+        },
+        {
           test: /\.(html)$/,
           use: {
             loader: 'html-loader',
